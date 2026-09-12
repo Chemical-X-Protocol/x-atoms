@@ -1,0 +1,49 @@
+@use "../../styles/tokens" as *;
+
+.m-action-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 12px 24px;
+  background: $glass-bg-surface;
+  backdrop-filter: blur($glass-blur-md);
+  -webkit-backdrop-filter: blur($glass-blur-md);
+  z-index: 100;
+
+  &--bordered {
+    border-bottom: 1px solid $glass-border-subtle;
+  }
+
+  &--sticky-top {
+    position: sticky;
+    top: 0;
+  }
+
+  &--sticky-bottom {
+    position: sticky;
+    bottom: 0;
+    border-bottom: none;
+    border-top: 1px solid $glass-border-subtle;
+  }
+
+  &__start {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  &__title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: $starship-text-primary;
+    letter-spacing: -0.01em;
+  }
+
+  &__end {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-left: auto;
+  }
+}

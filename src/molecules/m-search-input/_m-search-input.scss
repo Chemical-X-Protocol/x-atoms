@@ -1,0 +1,16 @@
+@use "../../styles/tokens" as *;
+
+.m-search-input {
+  position: relative;
+  width: 100%;
+  max-width: 420px;
+
+  &__icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: $starship-text-muted;
+    font-size: 0.9rem;
+    padding-left: 8px;
+  }
+}

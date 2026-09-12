@@ -1,0 +1,7 @@
+@use "../../styles/tokens" as *;
+
+.m-stat-strip {
+  display: grid;
+  gap: 16px;
+  width: 100%;
+}

@@ -1,0 +1,60 @@
+@use "../../styles/tokens" as *;
+
+.x-alert {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 16px;
+  border-radius: $radius-md;
+  background: $glass-bg-surface;
+  border: 1px solid $glass-border-subtle;
+  color: $starship-text-primary;
+  backdrop-filter: blur($glass-blur-md);
+  -webkit-backdrop-filter: blur($glass-blur-md);
+
+  &__content {
+    flex: 1;
+  }
+
+  &__title {
+    font-weight: 600;
+    margin-bottom: 4px;
+    font-size: 0.95rem;
+  }
+
+  &__text {
+    font-size: 0.875rem;
+    color: $starship-text-secondary;
+    line-height: 1.5;
+  }
+
+  &__close {
+    background: transparent;
+    border: none;
+    color: $starship-text-muted;
+    cursor: pointer;
+    font-size: 1.25rem;
+    line-height: 1;
+    padding: 0 4px;
+
+    &:hover {
+      color: $starship-text-primary;
+    }
+  }
+
+  &--info {
+    border-left: 4px solid $starship-info;
+  }
+
+  &--success {
+    border-left: 4px solid $starship-success;
+  }
+
+  &--warning {
+    border-left: 4px solid $starship-warning;
+  }
+
+  &--error {
+    border-left: 4px solid $starship-error;
+  }
+}

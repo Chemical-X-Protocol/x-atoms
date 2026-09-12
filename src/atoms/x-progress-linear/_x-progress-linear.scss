@@ -1,0 +1,41 @@
+@use "../../styles/tokens" as *;
+
+.x-progress-linear {
+  width: 100%;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.08);
+  position: relative;
+  overflow: hidden;
+
+  &--rounded {
+    border-radius: $radius-pill;
+  }
+
+  &__bar {
+    height: 100%;
+    background-color: $starship-cyan;
+    box-shadow: 0 0 10px $starship-cyan-glow;
+    transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  &--indeterminate &__bar {
+    width: 30%;
+    position: absolute;
+    animation: x-progress-linear-indeterminate 1.5s infinite ease-in-out;
+  }
+}
+
+@keyframes x-progress-linear-indeterminate {
+  0% {
+    left: -35%;
+    width: 35%;
+  }
+  60% {
+    left: 100%;
+    width: 70%;
+  }
+  100% {
+    left: 100%;
+    width: 0;
+  }
+}

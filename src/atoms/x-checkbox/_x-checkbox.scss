@@ -1,0 +1,44 @@
+@use "../../styles/tokens" as *;
+
+.x-checkbox {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  user-select: none;
+  font-size: 0.9rem;
+  color: $starship-text-primary;
+
+  &--disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+
+  &__box {
+    width: 18px;
+    height: 18px;
+    border-radius: $radius-sm;
+    background: $glass-bg-subtle;
+    border: 1px solid $glass-border-subtle;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+
+    &:hover:not(.x-checkbox--disabled) {
+      border-color: $glass-border-hover;
+      background: $glass-bg-elevated;
+    }
+  }
+
+  &--checked &__box {
+    background-color: $starship-cyan;
+    border-color: $starship-cyan;
+    box-shadow: 0 0 10px $starship-cyan-glow;
+
+    svg {
+      color: #050811;
+      stroke-width: 3;
+    }
+  }
+}
