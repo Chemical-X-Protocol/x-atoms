@@ -1,0 +1,42 @@
+// Starship Aesthetic Design Tokens
+// Default: Dark Mode Obsidian with Neon Cyan Accents
+
+$starship-bg: #050811 !default;
+$starship-surface: #0b1329 !default;
+$starship-surface-elevated: #111c3a !default;
+
+// Signature Accents
+$starship-cyan: #62c9ff !default;
+$starship-cyan-glow: rgba(98, 201, 255, 0.4) !default;
+$starship-cyan-border: rgba(98, 201, 255, 0.25) !default;
+$starship-cyan-subtle: rgba(98, 201, 255, 0.08) !default;
+
+// Semantic Palette
+$starship-success: #10b981 !default;
+$starship-warning: #f59e0b !default;
+$starship-error: #ef4444 !default;
+$starship-info: #38bdf8 !default;
+
+// Neutral Monospace Grayscale
+$starship-text-primary: #f8fafc !default;
+$starship-text-secondary: #94a3b8 !default;
+$starship-text-muted: #64748b !default;
+
+// Glassmorphic Values
+$glass-blur-sm: 8px !default;
+$glass-blur-md: 12px !default;
+$glass-blur-lg: 20px !default;
+
+$glass-bg-subtle: rgba(11, 19, 41, 0.5) !default;
+$glass-bg-surface: rgba(11, 19, 41, 0.75) !default;
+$glass-bg-elevated: rgba(17, 28, 58, 0.85) !default;
+
+$glass-border-subtle: rgba(98, 201, 255, 0.12) !default;
+$glass-border-hover: rgba(98, 201, 255, 0.35) !default;
+$glass-border-focus: rgba(98, 201, 255, 0.6) !default;
+
+// Radii
+$radius-sm: 6px !default;
+$radius-md: 10px !default;
+$radius-lg: 16px !default;
+$radius-pill: 9999px !default;

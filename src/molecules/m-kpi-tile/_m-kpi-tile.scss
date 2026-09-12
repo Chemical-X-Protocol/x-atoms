@@ -1,0 +1,61 @@
+@use "../../styles/tokens" as *;
+
+.m-kpi-tile {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__label {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: $starship-text-muted;
+    font-weight: 600;
+  }
+
+  &__value {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: $starship-text-primary;
+    line-height: 1.2;
+  }
+
+  &__footer {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.8rem;
+    color: $starship-text-secondary;
+  }
+
+  &__trend {
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 600;
+    font-size: 0.75rem;
+    padding: 2px 6px;
+    border-radius: $radius-sm;
+
+    &--up {
+      color: $starship-success;
+      background: rgba(16, 185, 129, 0.15);
+    }
+
+    &--down {
+      color: $starship-error;
+      background: rgba(239, 68, 68, 0.15);
+    }
+
+    &--neutral {
+      color: $starship-text-muted;
+      background: rgba(148, 163, 184, 0.15);
+    }
+  }
+}

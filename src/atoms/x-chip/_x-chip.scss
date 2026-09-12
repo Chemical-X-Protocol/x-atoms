@@ -1,0 +1,23 @@
+@use "../../styles/tokens" as *;
+@use "../../styles/mixins" as *;
+
+.x-chip {
+  &.v-chip {
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    border-radius: $radius-pill;
+    transition: all 0.2s ease;
+
+    &.x-chip--glass {
+      background: rgba(11, 19, 41, 0.6) !important;
+      border: 1px solid $glass-border-subtle !important;
+      backdrop-filter: blur($glass-blur-sm);
+      -webkit-backdrop-filter: blur($glass-blur-sm);
+
+      &:hover:not(.v-chip--disabled) {
+        border-color: $glass-border-hover !important;
+        box-shadow: 0 0 10px $starship-cyan-subtle;
+      }
+    }
+  }
+}

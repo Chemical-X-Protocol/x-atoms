@@ -1,0 +1,49 @@
+@use "./tokens" as *;
+
+// Glassmorphism Mixins (Level 2 Hierarchy)
+
+@mixin glass {
+  --v-theme-surface: transparent !important;
+  --v-theme-background: transparent !important;
+  background: $glass-bg-surface !important;
+  backdrop-filter: blur($glass-blur-md);
+  -webkit-backdrop-filter: blur($glass-blur-md);
+  border: 1px solid $glass-border-subtle;
+}
+
+@mixin glass-hover {
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+
+  &:hover {
+    background: $glass-bg-elevated !important;
+    border-color: $glass-border-hover !important;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.35), 0 0 15px $starship-cyan-subtle;
+    transform: translateY(-1px);
+  }
+}
+
+@mixin dark-glass {
+  --v-theme-surface: transparent !important;
+  --v-theme-background: transparent !important;
+  background: rgba(5, 8, 17, 0.85) !important;
+  backdrop-filter: blur($glass-blur-lg);
+  -webkit-backdrop-filter: blur($glass-blur-lg);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+@mixin tinted-glass($tint-color, $opacity: 0.15) {
+  --v-theme-surface: transparent !important;
+  --v-theme-background: transparent !important;
+  background: linear-gradient(
+    145deg,
+    rgba($tint-color, $opacity),
+    rgba(11, 19, 41, 0.8)
+  ) !important;
+  backdrop-filter: blur($glass-blur-md);
+  -webkit-backdrop-filter: blur($glass-blur-md);
+  border: 1px solid rgba($tint-color, 0.3) !important;
+}
+
+@mixin neon-glow($color: $starship-cyan) {
+  box-shadow: 0 0 10px rgba($color, 0.35), 0 0 20px rgba($color, 0.15);
+}

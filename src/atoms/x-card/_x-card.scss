@@ -1,0 +1,17 @@
+@use "../../styles/tokens" as *;
+@use "../../styles/mixins" as *;
+
+.x-card {
+  &.v-card {
+    border-radius: $radius-md;
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+
+    &.x-card--glass {
+      @include glass;
+
+      &.x-card--hover {
+        @include glass-hover;
+      }
+    }
+  }
+}
