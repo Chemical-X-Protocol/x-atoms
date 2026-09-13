@@ -1,6 +1,6 @@
 {
   "name": "@chemx/x-atoms",
-  "version": "26.9.13-801",
+  "version": "26.9.13-819",
   "description": "Chemical X Protocol: Universal multi-framework design system atoms, molecules, and Starship glass tokens",
   "type": "module",
   "files": [
