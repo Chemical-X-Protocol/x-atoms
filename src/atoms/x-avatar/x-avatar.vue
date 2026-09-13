@@ -28,7 +28,7 @@ const hasStatus = computed(() => Boolean(props.status));
 <template>
   <v-avatar
     v-bind="attrs"
-    :size="typeof props.size === 'number' ? props.size : undefined"
+    :size="props.size"
     :rounded="props.rounded"
     :class="computeAvatarClasses(props)"
   >

@@ -45,17 +45,17 @@ const handleClose = () => {
     :class="['x-chip', { 'x-chip--glass': isGlassVariant }]"
     @click:close="handleClose"
   >
-    <template v-if="$slots.prepend" #prepend="scope">
-      <slot name="prepend" v-bind="(scope as any) || {}" />
+    <template v-if="$slots.prepend" #prepend>
+      <slot name="prepend" />
     </template>
-    <template v-if="$slots.close" #close="scope">
-      <slot name="close" v-bind="(scope as any) || {}" />
+    <template v-if="$slots.close" #close>
+      <slot name="close" />
     </template>
     <template #default="scope">
       <slot v-bind="(scope as any) || {}" />
     </template>
-    <template v-if="$slots.append" #append="scope">
-      <slot name="append" v-bind="scope || {}" />
+    <template v-if="$slots.append" #append>
+      <slot name="append" />
     </template>
   </v-chip>
 </template>

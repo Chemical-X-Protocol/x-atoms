@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [2026-09-13]
 
+### Fixed
+- Slot templates: Removed redundant scope parameters from 0-argument slots in `x-alert`, `x-btn`, `x-card`, `x-chip`, `x-dialog`, and `x-list` to fix `TS2493` tuple type index errors under strict vue-tsc checking.
+- `x-avatar`: Added `string` support to `size` prop union (`ComponentSize | number | string`) to permit numeric string sizes.
+
 ### Added
 - `x-list`: Universal list container atom with density, lines, navigation mode, and glassmorphic styling across Vue 3, React 19, and Svelte 5.
 - `x-list-item`: Universal list item atom with prepend/append slot forwarding, active state indicators, and glassmorphic styling across Vue 3, React 19, and Svelte 5.

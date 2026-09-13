@@ -45,17 +45,17 @@ const isOpen = computed({
     </template>
 
     <v-card class="x-dialog__surface">
-      <template v-if="$slots.title" #title="scope">
-        <slot name="title" v-bind="(scope as any) || {}" />
+      <template v-if="$slots.title" #title>
+        <slot name="title" />
       </template>
 
-      <template #default="scope">
-        <slot v-bind="(scope as any) || {}" />
+      <template #default>
+        <slot />
       </template>
 
-      <template v-if="$slots.actions" #actions="scope">
+      <template v-if="$slots.actions" #actions>
         <div class="x-dialog__actions">
-          <slot name="actions" v-bind="(scope as any) || {}" />
+          <slot name="actions" />
         </div>
       </template>
     </v-card>

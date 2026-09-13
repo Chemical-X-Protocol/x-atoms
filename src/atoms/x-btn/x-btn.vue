@@ -48,17 +48,17 @@ const resolvedColor = computed(() => {
     :icon="props.icon"
     :class="['x-btn', { 'x-btn--glass': isGlassVariant }]"
   >
-    <template v-if="$slots.prepend" #prepend="scope">
-      <slot name="prepend" v-bind="(scope as any) || {}" />
+    <template v-if="$slots.prepend" #prepend>
+      <slot name="prepend" />
     </template>
-    <template v-if="$slots.append" #append="scope">
-      <slot name="append" v-bind="(scope as any) || {}" />
+    <template v-if="$slots.append" #append>
+      <slot name="append" />
     </template>
-    <template v-if="$slots.loader" #loader="scope">
-      <slot name="loader" v-bind="(scope as any) || {}" />
+    <template v-if="$slots.loader" #loader>
+      <slot name="loader" />
     </template>
-    <template #default="scope">
-      <slot v-bind="(scope as any) || {}" />
+    <template #default>
+      <slot />
     </template>
   </v-btn>
 </template>

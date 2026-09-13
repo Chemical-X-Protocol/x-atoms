@@ -4,7 +4,7 @@ export interface XAvatarProps {
   src?: string;
   alt?: string;
   text?: string;
-  size?: ComponentSize | number;
+  size?: ComponentSize | number | string;
   rounded?: boolean | string;
   bordered?: boolean;
   status?: 'online' | 'offline' | 'busy' | 'away';

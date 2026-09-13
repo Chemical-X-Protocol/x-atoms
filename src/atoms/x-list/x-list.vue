@@ -39,8 +39,8 @@ const computedVuetifyVariant = computed(() => resolveVuetifyListVariant(props.va
       }
     ]"
   >
-    <template #default="scope">
-      <slot v-bind="(scope as any) || {}" />
+    <template #default>
+      <slot />
     </template>
   </v-list>
 </template>
