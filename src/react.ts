@@ -14,6 +14,8 @@ export { XSkeletonReact as XSkeleton } from './atoms/x-skeleton/x-skeleton';
 export { XAlertReact as XAlert } from './atoms/x-alert/x-alert';
 export { XProgressLinearReact as XProgressLinear } from './atoms/x-progress-linear/x-progress-linear';
 export { XTooltipReact as XTooltip } from './atoms/x-tooltip/x-tooltip';
+export { XListReact as XList } from './atoms/x-list/x-list';
+export { XListItemReact as XListItem } from './atoms/x-list-item/x-list-item';
 
 // Molecules
 export { MConfirmDialogReact as MConfirmDialog } from './molecules/m-confirm-dialog/m-confirm-dialog';

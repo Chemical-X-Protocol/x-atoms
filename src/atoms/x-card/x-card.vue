@@ -43,31 +43,31 @@ const computedVuetifyVariant = computed(() => {
     ]"
   >
     <template v-if="$slots.image" #image="scope">
-      <slot name="image" v-bind="scope || {}" />
+      <slot name="image" v-bind="(scope as any) || {}" />
     </template>
     <template v-if="$slots.prepend" #prepend="scope">
-      <slot name="prepend" v-bind="scope || {}" />
+      <slot name="prepend" v-bind="(scope as any) || {}" />
     </template>
     <template v-if="$slots.title" #title="scope">
-      <slot name="title" v-bind="scope || {}" />
+      <slot name="title" v-bind="(scope as any) || {}" />
     </template>
     <template v-if="$slots.subtitle" #subtitle="scope">
-      <slot name="subtitle" v-bind="scope || {}" />
+      <slot name="subtitle" v-bind="(scope as any) || {}" />
     </template>
     <template v-if="$slots.text" #text="scope">
-      <slot name="text" v-bind="scope || {}" />
+      <slot name="text" v-bind="(scope as any) || {}" />
     </template>
     <template v-if="$slots.actions" #actions="scope">
-      <slot name="actions" v-bind="scope || {}" />
+      <slot name="actions" v-bind="(scope as any) || {}" />
     </template>
     <template v-if="$slots.loader" #loader="scope">
-      <slot name="loader" v-bind="scope || {}" />
+      <slot name="loader" v-bind="(scope as any) || {}" />
     </template>
     <template v-if="$slots.append" #append="scope">
-      <slot name="append" v-bind="scope || {}" />
+      <slot name="append" v-bind="(scope as any) || {}" />
     </template>
     <template #default="scope">
-      <slot v-bind="scope || {}" />
+      <slot v-bind="(scope as any) || {}" />
     </template>
   </v-card>
 </template>

@@ -14,6 +14,8 @@ export { default as XSkeleton } from './atoms/x-skeleton/x-skeleton.svelte';
 export { default as XAlert } from './atoms/x-alert/x-alert.svelte';
 export { default as XProgressLinear } from './atoms/x-progress-linear/x-progress-linear.svelte';
 export { default as XTooltip } from './atoms/x-tooltip/x-tooltip.svelte';
+export { default as XList } from './atoms/x-list/x-list.svelte';
+export { default as XListItem } from './atoms/x-list-item/x-list-item.svelte';
 
 // Molecules
 export { default as MConfirmDialog } from './molecules/m-confirm-dialog/m-confirm-dialog.svelte';

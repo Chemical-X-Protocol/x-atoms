@@ -10,4 +10,5 @@ export interface XMenuProps {
 
 export interface XMenuEmits {
   (e: 'update:modelValue', value: boolean): void;
+  (e: 'update:model-value', value: boolean): void;
 }

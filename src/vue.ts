@@ -18,6 +18,8 @@ export { default as XAlert } from './atoms/x-alert/x-alert.vue';
 export { default as XProgressLinear } from './atoms/x-progress-linear/x-progress-linear.vue';
 export { default as XTooltip } from './atoms/x-tooltip/x-tooltip.vue';
 export { default as XMenu } from './atoms/x-menu/x-menu.vue';
+export { default as XList } from './atoms/x-list/x-list.vue';
+export { default as XListItem } from './atoms/x-list-item/x-list-item.vue';
 
 // Molecules
 export { default as MConfirmDialog } from './molecules/m-confirm-dialog/m-confirm-dialog.vue';
@@ -52,6 +54,8 @@ import XAlert from './atoms/x-alert/x-alert.vue';
 import XProgressLinear from './atoms/x-progress-linear/x-progress-linear.vue';
 import XTooltip from './atoms/x-tooltip/x-tooltip.vue';
 import XMenu from './atoms/x-menu/x-menu.vue';
+import XList from './atoms/x-list/x-list.vue';
+import XListItem from './atoms/x-list-item/x-list-item.vue';
 
 import MConfirmDialog from './molecules/m-confirm-dialog/m-confirm-dialog.vue';
 import MKpiTile from './molecules/m-kpi-tile/m-kpi-tile.vue';
@@ -70,7 +74,9 @@ export const createXAtomsPlugin = () => ({
     app.component('XCard', XCard);
     app.component('XChip', XChip);
     app.component('XDialog', XDialog);
+    app.component('x-dialog', XDialog);
     app.component('XModal', XDialog);
+    app.component('x-modal', XDialog);
     app.component('XSheet', XSheet);
     app.component('XTextField', XTextField);
     app.component('XAvatar', XAvatar);
@@ -84,6 +90,10 @@ export const createXAtomsPlugin = () => ({
     app.component('XTooltip', XTooltip);
     app.component('XMenu', XMenu);
     app.component('x-menu', XMenu);
+    app.component('XList', XList);
+    app.component('x-list', XList);
+    app.component('XListItem', XListItem);
+    app.component('x-list-item', XListItem);
 
     app.component('MConfirmDialog', MConfirmDialog);
     app.component('MKpiTile', MKpiTile);

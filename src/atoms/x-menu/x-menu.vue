@@ -31,8 +31,8 @@ const isOpen = computed({
     v-bind="attrs"
     :model-value="props.modelValue !== undefined ? isOpen : undefined"
     :close-on-content-click="props.closeOnContentClick"
-    :location="props.location"
-    :origin="props.origin"
+    :location="(props.location as any)"
+    :origin="(props.origin as any)"
     :transition="props.transition"
     :disabled="props.disabled"
     :offset="props.offset"
@@ -40,11 +40,11 @@ const isOpen = computed({
     @update:model-value="props.modelValue !== undefined ? emit('update:modelValue', $event) : undefined"
   >
     <template v-if="$slots.activator" #activator="scope">
-      <slot name="activator" v-bind="scope || {}" />
+      <slot name="activator" v-bind="(scope as any) || {}" />
     </template>
 
     <template #default="scope">
-      <slot v-bind="scope || {}" />
+      <slot v-bind="(scope as any) || {}" />
     </template>
   </v-menu>
 </template>

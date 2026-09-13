@@ -46,13 +46,13 @@ const handleClose = () => {
     @click:close="handleClose"
   >
     <template v-if="$slots.prepend" #prepend="scope">
-      <slot name="prepend" v-bind="scope || {}" />
+      <slot name="prepend" v-bind="(scope as any) || {}" />
     </template>
     <template v-if="$slots.close" #close="scope">
-      <slot name="close" v-bind="scope || {}" />
+      <slot name="close" v-bind="(scope as any) || {}" />
     </template>
     <template #default="scope">
-      <slot v-bind="scope || {}" />
+      <slot v-bind="(scope as any) || {}" />
     </template>
     <template v-if="$slots.append" #append="scope">
       <slot name="append" v-bind="scope || {}" />

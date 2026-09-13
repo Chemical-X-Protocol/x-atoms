@@ -14,3 +14,5 @@ export * from './x-alert';
 export * from './x-progress-linear';
 export * from './x-tooltip';
 export * from './x-menu';
+export * from './x-list';
+export * from './x-list-item';

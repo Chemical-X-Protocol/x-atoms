@@ -17,6 +17,8 @@ export * from './atoms/x-skeleton/x-skeleton.controller';
 export * from './atoms/x-alert/x-alert.controller';
 export * from './atoms/x-progress-linear/x-progress-linear.controller';
 export * from './atoms/x-tooltip/x-tooltip.controller';
+export * from './atoms/x-list/x-list.controller';
+export * from './atoms/x-list-item/x-list-item.controller';
 
 // Molecule Controllers
 export * from './molecules/m-confirm-dialog/m-confirm-dialog.controller';
