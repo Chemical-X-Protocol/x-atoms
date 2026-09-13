@@ -13,3 +13,4 @@ export * from './x-skeleton';
 export * from './x-alert';
 export * from './x-progress-linear';
 export * from './x-tooltip';
+export * from './x-menu';

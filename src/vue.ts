@@ -17,6 +17,7 @@ export { default as XSkeleton } from './atoms/x-skeleton/x-skeleton.vue';
 export { default as XAlert } from './atoms/x-alert/x-alert.vue';
 export { default as XProgressLinear } from './atoms/x-progress-linear/x-progress-linear.vue';
 export { default as XTooltip } from './atoms/x-tooltip/x-tooltip.vue';
+export { default as XMenu } from './atoms/x-menu/x-menu.vue';
 
 // Molecules
 export { default as MConfirmDialog } from './molecules/m-confirm-dialog/m-confirm-dialog.vue';
@@ -50,6 +51,7 @@ import XSkeleton from './atoms/x-skeleton/x-skeleton.vue';
 import XAlert from './atoms/x-alert/x-alert.vue';
 import XProgressLinear from './atoms/x-progress-linear/x-progress-linear.vue';
 import XTooltip from './atoms/x-tooltip/x-tooltip.vue';
+import XMenu from './atoms/x-menu/x-menu.vue';
 
 import MConfirmDialog from './molecules/m-confirm-dialog/m-confirm-dialog.vue';
 import MKpiTile from './molecules/m-kpi-tile/m-kpi-tile.vue';
@@ -80,6 +82,8 @@ export const createXAtomsPlugin = () => ({
     app.component('XAlert', XAlert);
     app.component('XProgressLinear', XProgressLinear);
     app.component('XTooltip', XTooltip);
+    app.component('XMenu', XMenu);
+    app.component('x-menu', XMenu);
 
     app.component('MConfirmDialog', MConfirmDialog);
     app.component('MKpiTile', MKpiTile);
