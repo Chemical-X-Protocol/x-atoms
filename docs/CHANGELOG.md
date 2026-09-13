@@ -7,6 +7,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [2026-09-12]
 
+### Fixed
+- `x-dialog`: Explicitly named `#actions="scope"` slot on `v-card` wrapper to prevent Vue compiler extraneous children error.
+
 ### Added
 - **Navigation & Data Molecules (Phase 4)**:
   - `m-tabs-nav`: Horizontal tab navigation bar with slider indicator pill, active state management, and semantic change emissions.

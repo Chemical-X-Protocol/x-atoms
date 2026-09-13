@@ -5,6 +5,7 @@ export { default as XBtn } from './atoms/x-btn/x-btn.vue';
 export { default as XCard } from './atoms/x-card/x-card.vue';
 export { default as XChip } from './atoms/x-chip/x-chip.vue';
 export { default as XDialog } from './atoms/x-dialog/x-dialog.vue';
+export { default as XModal } from './atoms/x-dialog/x-dialog.vue';
 export { default as XSheet } from './atoms/x-sheet/x-sheet.vue';
 export { default as XTextField } from './atoms/x-text-field/x-text-field.vue';
 export { default as XAvatar } from './atoms/x-avatar/x-avatar.vue';
@@ -67,6 +68,7 @@ export const createXAtomsPlugin = () => ({
     app.component('XCard', XCard);
     app.component('XChip', XChip);
     app.component('XDialog', XDialog);
+    app.component('XModal', XDialog);
     app.component('XSheet', XSheet);
     app.component('XTextField', XTextField);
     app.component('XAvatar', XAvatar);
@@ -85,6 +87,7 @@ export const createXAtomsPlugin = () => ({
     app.component('MPagination', MPagination);
     app.component('MEmptyState', MEmptyState);
     app.component('MToast', MToast);
+    app.component('m-toast', MToast);
     app.component('MStatStrip', MStatStrip);
     app.component('MTabsNav', MTabsNav);
     app.component('MActionBar', MActionBar);

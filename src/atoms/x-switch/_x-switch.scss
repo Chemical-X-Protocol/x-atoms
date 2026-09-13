@@ -9,41 +9,40 @@
   font-size: 0.9rem;
   color: $starship-text-primary;
 
-  &--disabled {
+  &--disabled,
+  &.v-input--disabled {
     opacity: 0.5;
     cursor: not-allowed;
   }
 
-  &__track {
-    width: 38px;
-    height: 20px;
+  &__track,
+  .v-switch__track {
     border-radius: $radius-pill;
     background: $glass-bg-subtle;
     border: 1px solid $glass-border-subtle;
     position: relative;
+    opacity: 1 !important;
     transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
-  &__thumb {
-    position: absolute;
-    top: 2px;
-    left: 2px;
-    width: 14px;
-    height: 14px;
+  &__thumb,
+  .v-switch__thumb {
     border-radius: 50%;
     background: $starship-text-muted;
     transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.25s ease;
   }
 
-  &--on &__track {
-    background: rgba(98, 201, 255, 0.25);
-    border-color: $starship-cyan;
+  &--on &__track,
+  .v-selection-control--dirty .v-switch__track {
+    background: rgba(98, 201, 255, 0.25) !important;
+    border-color: $starship-cyan !important;
     box-shadow: 0 0 10px $starship-cyan-glow;
+    opacity: 1 !important;
   }
 
-  &--on &__thumb {
-    transform: translateX(18px);
-    background: $starship-cyan;
+  &--on &__thumb,
+  .v-selection-control--dirty .v-switch__thumb {
+    background: $starship-cyan !important;
     box-shadow: 0 0 8px $starship-cyan;
   }
 }

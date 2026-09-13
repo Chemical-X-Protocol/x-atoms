@@ -19,14 +19,57 @@
       background: rgba(11, 19, 41, 0.95) !important;
     }
 
+    .v-field__field,
+    .v-field__input,
+    .v-field__prepend-inner,
+    .v-field__append-inner,
+    .v-field__clearable {
+      background: transparent !important;
+      background-color: transparent !important;
+    }
+
+    .v-field__append-inner,
+    .v-field__prepend-inner {
+      align-items: center;
+      padding-top: 0;
+      padding-bottom: 0;
+
+      .v-btn,
+      .x-btn {
+        background: transparent !important;
+        background-color: transparent !important;
+        box-shadow: none !important;
+
+        .v-btn__overlay,
+        .v-btn__underlay {
+          display: none !important;
+        }
+
+        &:hover {
+          background: rgba(255, 255, 255, 0.05) !important;
+        }
+      }
+    }
+
     input,
     textarea {
+      background: transparent !important;
+      background-color: transparent !important;
       color: $starship-text-primary !important;
       font-family: inherit;
 
       &::placeholder {
         color: $starship-text-muted !important;
         opacity: 0.8;
+      }
+
+      &:-webkit-autofill,
+      &:-webkit-autofill:hover,
+      &:-webkit-autofill:focus,
+      &:-webkit-autofill:active {
+        -webkit-box-shadow: 0 0 0 1000px rgba(11, 19, 41, 0.95) inset !important;
+        -webkit-text-fill-color: $starship-text-primary !important;
+        transition: background-color 5000s ease-in-out 0s;
       }
     }
   }

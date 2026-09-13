@@ -49,9 +49,9 @@ const isOpen = computed({
         <slot v-bind="scope || {}" />
       </template>
 
-      <template v-if="$slots.actions">
+      <template v-if="$slots.actions" #actions="scope">
         <div class="x-dialog__actions">
-          <slot name="actions" />
+          <slot name="actions" v-bind="scope || {}" />
         </div>
       </template>
     </v-card>

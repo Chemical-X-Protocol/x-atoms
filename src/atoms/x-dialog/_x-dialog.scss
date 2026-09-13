@@ -11,9 +11,18 @@
     @include glass;
     border-radius: $radius-lg;
     overflow: hidden;
+
+    .v-card-actions {
+      padding: 0 !important;
+      min-height: auto;
+      width: 100%;
+      display: flex;
+    }
   }
 
   .x-dialog__actions {
+    width: 100%;
+    flex: 1 1 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
