@@ -20,27 +20,51 @@ export const MEmptyStateReact: React.FC<ReactEmptyStateProps> = ({
   iconElement = null,
   actionElement = null,
 }) => {
-  return (
-    <XCardReact variant="glass" className={`m-empty-state ${className}`}>
-      <div className="m-empty-state__icon-wrap">
-        {iconElement ? iconElement : <span>{icon}</span>}
-      </div>
+  const hasIconElement = Boolean(iconElement);
+  const hasDescription = Boolean(description);
+  const hasActionElement = Boolean(actionElement);
+  const hasActionText = Boolean(actionText);
 
-      <h3 className="m-empty-state__title">{title}</h3>
+  const renderIcon = (): React.ReactNode => {
+    if (hasIconElement) {
+      return iconElement;
+    }
+    return <span>{icon}</span>;
+  };
 
-      {description ? (
-        <p className="m-empty-state__description">{description}</p>
-      ) : null}
+  const renderDescription = (): React.ReactNode => {
+    if (!hasDescription) {
+      return null;
+    }
+    return <p className="m-empty-state__description">{description}</p>;
+  };
 
-      {actionElement ? (
-        <div className="m-empty-state__actions">{actionElement}</div>
-      ) : actionText ? (
+  const renderActions = (): React.ReactNode => {
+    if (hasActionElement) {
+      return <div className="m-empty-state__actions">{actionElement}</div>;
+    }
+    if (hasActionText) {
+      return (
         <div className="m-empty-state__actions">
           <XBtnReact variant="elevated" color="primary" onClick={onClickAction}>
             {actionText}
           </XBtnReact>
         </div>
-      ) : null}
+      );
+    }
+    return null;
+  };
+
+  return (
+    <XCardReact variant="glass" className={`m-empty-state ${className}`}>
+      <div className="m-empty-state__icon-wrap">
+        {renderIcon()}
+      </div>
+
+      <h3 className="m-empty-state__title">{title}</h3>
+
+      {renderDescription()}
+      {renderActions()}
     </XCardReact>
   );
 };
