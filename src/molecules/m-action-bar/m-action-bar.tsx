@@ -24,19 +24,42 @@ export const MActionBarReact: React.FC<ReactActionBarProps> = ({
     className
   ).join(' ');
 
+  const hasStart = Boolean(start);
+  const hasTitle = Boolean(title);
+  const hasCenter = Boolean(children);
+  const hasEnd = Boolean(end);
+
+  const renderStart = (): React.ReactNode => {
+    if (hasStart) {
+      return start;
+    }
+    if (hasTitle) {
+      return <h2 className="m-action-bar__title">{title}</h2>;
+    }
+    return null;
+  };
+
+  const renderCenter = (): React.ReactNode => {
+    if (!hasCenter) {
+      return null;
+    }
+    return <div className="m-action-bar__center">{children}</div>;
+  };
+
+  const renderEnd = (): React.ReactNode => {
+    if (!hasEnd) {
+      return null;
+    }
+    return <div className="m-action-bar__end">{end}</div>;
+  };
+
   return (
     <XSheetReact className={resolvedClassNames}>
       <div className="m-action-bar__start">
-        {start ? (
-          start
-        ) : title ? (
-          <h2 className="m-action-bar__title">{title}</h2>
-        ) : null}
+        {renderStart()}
       </div>
-
-      {children ? <div className="m-action-bar__center">{children}</div> : null}
-
-      {end ? <div className="m-action-bar__end">{end}</div> : null}
+      {renderCenter()}
+      {renderEnd()}
     </XSheetReact>
   );
 };

@@ -8,6 +8,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [2026-09-13]
 
 ### Fixed
+- Control flow: Eliminated nested ternaries in `x-avatar.tsx`, `m-action-bar.tsx`, `m-empty-state.tsx`, and `m-kpi-tile.tsx` by decomposing conditional rendering into Stage 1 atomic booleans and early-return render helpers per Chemical X standards.
 - Slot templates: Removed redundant scope parameters from 0-argument slots in `x-alert`, `x-btn`, `x-card`, `x-chip`, `x-dialog`, and `x-list` to fix `TS2493` tuple type index errors under strict vue-tsc checking.
 - `x-avatar`: Added `string` support to `size` prop union (`ComponentSize | number | string`) to permit numeric string sizes.
 

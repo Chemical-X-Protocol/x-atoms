@@ -23,20 +23,31 @@ export const XAvatarReact: React.FC<ReactAvatarProps> = ({
   ).join(' ');
 
   const initials = getInitials(text || alt);
+  const hasImage = Boolean(src);
+  const hasInitials = Boolean(initials);
+  const hasStatus = Boolean(status);
+
+  const renderContent = (): React.ReactNode => {
+    if (hasImage) {
+      return <img src={src} alt={alt || 'Avatar'} />;
+    }
+    if (hasInitials) {
+      return <span>{initials}</span>;
+    }
+    return children;
+  };
+
+  const renderStatus = (): React.ReactNode => {
+    if (!hasStatus) {
+      return null;
+    }
+    return <span className={`x-avatar__status-dot x-avatar__status-dot--${status}`} />;
+  };
 
   return (
     <div className={resolvedClassNames}>
-      {src ? (
-        <img src={src} alt={alt || 'Avatar'} />
-      ) : initials ? (
-        <span>{initials}</span>
-      ) : (
-        children
-      )}
-
-      {status ? (
-        <span className={`x-avatar__status-dot x-avatar__status-dot--${status}`} />
-      ) : null}
+      {renderContent()}
+      {renderStatus()}
     </div>
   );
 };
