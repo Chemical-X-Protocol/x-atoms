@@ -45,5 +45,3 @@ const model = computed({
     </template>
   </v-switch>
 </template>
-
-<style lang="scss" src="./_x-switch.scss"></style>

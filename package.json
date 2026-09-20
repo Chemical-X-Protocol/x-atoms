@@ -19,6 +19,7 @@
       "types": "./src/core/index.ts"
     },
     "./styles": "./src/styles/index.scss",
+    "./styles/glass": "./src/styles/glass-theme.scss",
     "./theme": {
       "import": "./src/theme/starship-theme.ts",
       "types": "./src/theme/starship-theme.ts"

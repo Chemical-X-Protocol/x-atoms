@@ -78,5 +78,3 @@ const fieldClasses = $derived(
     {/if}
   </div>
 </div>
-
-<style lang="scss" src="./_x-text-field.scss"></style>

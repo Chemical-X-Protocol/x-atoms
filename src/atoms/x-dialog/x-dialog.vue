@@ -61,5 +61,3 @@ const isOpen = computed({
     </v-card>
   </v-dialog>
 </template>
-
-<style lang="scss" src="./_x-dialog.scss"></style>

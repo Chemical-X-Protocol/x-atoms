@@ -29,5 +29,3 @@ const classes = computed(() => computeDividerClasses(props));
     :class="classes"
   />
 </template>
-
-<style lang="scss" src="./_x-divider.scss"></style>

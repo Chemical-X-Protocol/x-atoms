@@ -12,7 +12,7 @@ const props = withDefaults(defineProps<XAlertProps>(), {
   title: undefined,
   text: undefined,
   closable: false,
-  variant: 'glass',
+  variant: undefined,
 });
 
 const emit = defineEmits<XAlertEmits>();
@@ -56,5 +56,3 @@ const handleClose = () => {
     </template>
   </v-alert>
 </template>
-
-<style lang="scss" src="./_x-alert.scss"></style>

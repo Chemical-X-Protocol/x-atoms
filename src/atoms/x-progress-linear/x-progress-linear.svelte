@@ -35,5 +35,3 @@ const resolvedHeight = $derived(typeof height === 'number' ? `${height}px` : hei
     style:width={indeterminate ? undefined : `${progressValue}%`}
   ></div>
 </div>
-
-<style lang="scss" src="./_x-progress-linear.scss"></style>

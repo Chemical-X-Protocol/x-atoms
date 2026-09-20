@@ -41,5 +41,3 @@ const badgeClasses = $derived(
     {/if}
   </span>
 {/if}
-
-<style lang="scss" src="./_x-badge.scss"></style>

@@ -42,5 +42,3 @@ const tooltipClasses = $derived(
     </div>
   </div>
 {/if}
-
-<style lang="scss" src="./_x-tooltip.scss"></style>

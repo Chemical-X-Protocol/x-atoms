@@ -28,5 +28,3 @@ const sheetClasses = $derived(
     {@render children()}
   {/if}
 </div>
-
-<style lang="scss" src="./_x-sheet.scss"></style>

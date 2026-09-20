@@ -66,5 +66,3 @@ const computedVuetifyVariant = computed(() => resolveVuetifyListItemVariant(prop
     </template>
   </v-list-item>
 </template>
-
-<style lang="scss" src="./_x-list-item.scss"></style>

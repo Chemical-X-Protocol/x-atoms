@@ -47,5 +47,3 @@ const model = computed({
     </template>
   </v-checkbox>
 </template>
-
-<style lang="scss" src="./_x-checkbox.scss"></style>

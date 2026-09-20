@@ -33,5 +33,3 @@ const progressValue = computed(() => clampProgress(props.modelValue));
     class="x-progress-linear"
   />
 </template>
-
-<style lang="scss" src="./_x-progress-linear.scss"></style>

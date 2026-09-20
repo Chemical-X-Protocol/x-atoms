@@ -37,5 +37,3 @@ const hasSlotContent = computed(() => Boolean(attrs.default));
     <slot />
   </v-badge>
 </template>
-
-<style lang="scss" src="./_x-badge.scss"></style>

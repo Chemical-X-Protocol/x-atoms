@@ -56,5 +56,3 @@ const handleToggle = () => {
     {@render children()}
   {/if}
 </div>
-
-<style lang="scss" src="./_x-checkbox.scss"></style>

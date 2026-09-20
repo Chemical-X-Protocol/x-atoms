@@ -11,7 +11,7 @@ const props = withDefaults(defineProps<XTextFieldProps>(), {
   modelValue: '',
   label: undefined,
   placeholder: undefined,
-  variant: 'outlined',
+  variant: undefined,
   density: 'comfortable',
   hideDetails: false,
   clearable: false,
@@ -67,5 +67,3 @@ const handleClear = () => {
     </template>
   </v-text-field>
 </template>
-
-<style lang="scss" src="./_x-text-field.scss"></style>

@@ -61,5 +61,3 @@ const listItemClasses = $derived(
     </div>
   {/if}
 </div>
-
-<style lang="scss" src="./_x-list-item.scss"></style>

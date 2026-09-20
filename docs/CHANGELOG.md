@@ -5,6 +5,14 @@ All notable changes to the `@chemx/x-atoms` package will be documented in this f
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2026-09-19]
+
+### Changed
+- `x-*` Atoms: Removed bundled `<style>` imports and opinionated glass CSS overrides from all 18 atom components (`.vue` and `.svelte`), converting atoms into minimal styleless wrappers over native Vuetify 3 components.
+- Default Variants: Changed default `variant` from `'glass'` to `undefined` across `x-card`, `x-chip`, and `x-alert` to allow native Vuetify default variants and application themes to take over out of the box.
+- Glass Theme Stylesheet: Consolidated all atom Starship glassmorphism CSS rules into an opt-in stylesheet at `src/styles/glass-theme.scss`, exported as `@chemx/x-atoms/styles/glass`.
+- Classes: Retained semantic BEM classes (`x-btn`, `x-card`, etc.) across all atoms as unstyled CSS hooks.
+
 ## [2026-09-13]
 
 ### Fixed

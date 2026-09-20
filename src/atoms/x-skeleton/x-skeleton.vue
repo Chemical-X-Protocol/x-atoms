@@ -30,5 +30,3 @@ const resolvedHeight = computed(() => formatDimension(props.height));
     }"
   />
 </template>
-
-<style lang="scss" src="./_x-skeleton.scss"></style>

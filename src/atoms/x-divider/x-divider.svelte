@@ -18,5 +18,3 @@ const dividerClasses = $derived(
 </script>
 
 <hr class={dividerClasses} aria-orientation={vertical ? 'vertical' : 'horizontal'} />
-
-<style lang="scss" src="./_x-divider.scss"></style>

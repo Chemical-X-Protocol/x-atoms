@@ -40,3 +40,31 @@ $radius-sm: 6px !default;
 $radius-md: 10px !default;
 $radius-lg: 16px !default;
 $radius-pill: 9999px !default;
+
+// CSS Custom Properties for Theme-Reactive Glassmorphism
+:root,
+.v-theme--dark {
+  --x-glass-bg: rgba(var(--v-theme-surface, 11, 19, 41), 0.75);
+  --x-glass-bg-subtle: rgba(var(--v-theme-surface, 11, 19, 41), 0.5);
+  --x-glass-bg-elevated: rgba(var(--v-theme-surface-bright, 17, 28, 58), 0.85);
+  --x-glass-border: rgba(var(--v-theme-primary, 98, 201, 255), 0.15);
+  --x-glass-border-hover: rgba(var(--v-theme-primary, 98, 201, 255), 0.35);
+  --x-glass-border-focus: rgba(var(--v-theme-primary, 98, 201, 255), 0.6);
+  --x-glass-shadow: 0 4px 20px rgba(0, 0, 0, 0.35);
+  --x-glass-glow: 0 0 15px rgba(var(--v-theme-primary, 98, 201, 255), 0.15);
+  --x-text-contrast: rgb(var(--v-theme-on-surface, 248, 250, 252));
+}
+
+.v-theme--light,
+[data-theme="light"] {
+  --x-glass-bg: rgba(255, 255, 255, 0.88);
+  --x-glass-bg-subtle: rgba(255, 255, 255, 0.65);
+  --x-glass-bg-elevated: rgba(255, 255, 255, 0.98);
+  --x-glass-border: rgba(var(--v-theme-on-surface, 15, 23, 42), 0.08);
+  --x-glass-border-hover: rgba(var(--v-theme-primary, 2, 132, 199), 0.35);
+  --x-glass-border-focus: rgba(var(--v-theme-primary, 2, 132, 199), 0.6);
+  --x-glass-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
+  --x-glass-glow: 0 0 10px rgba(var(--v-theme-primary, 2, 132, 199), 0.1);
+  --x-text-contrast: rgb(var(--v-theme-on-surface, 15, 23, 42));
+}
+

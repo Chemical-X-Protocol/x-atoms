@@ -16,7 +16,7 @@ let {
   title = undefined,
   text = undefined,
   closable = false,
-  variant = 'glass',
+  variant = undefined,
   class: className = '',
   onclose,
   children,
@@ -61,5 +61,3 @@ const alertClasses = $derived(
     </button>
   {/if}
 </div>
-
-<style lang="scss" src="./_x-alert.scss"></style>

@@ -12,7 +12,7 @@ interface SvelteChipProps extends XChipProps {
 }
 
 let {
-  variant = 'glass',
+  variant = undefined,
   color = undefined,
   size = 'default',
   closable = false,
@@ -57,5 +57,3 @@ const chipClasses = $derived(
     </button>
   {/if}
 </div>
-
-<style lang="scss" src="./_x-chip.scss"></style>

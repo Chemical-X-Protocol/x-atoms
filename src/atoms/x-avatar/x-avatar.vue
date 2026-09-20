@@ -42,5 +42,3 @@ const hasStatus = computed(() => Boolean(props.status));
     />
   </v-avatar>
 </template>
-
-<style lang="scss" src="./_x-avatar.scss"></style>

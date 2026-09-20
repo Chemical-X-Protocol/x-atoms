@@ -8,7 +8,7 @@ defineOptions({
 });
 
 const props = withDefaults(defineProps<XBtnProps>(), {
-  variant: 'elevated',
+  variant: undefined,
   color: undefined,
   size: 'default',
   block: false,
@@ -25,7 +25,7 @@ const computedVuetifyVariant = computed(() => {
   if (isGlassVariant.value) {
     return 'flat';
   }
-  return props.variant as Exclude<XBtnVariant, 'glass'>;
+  return props.variant as Exclude<XBtnVariant, 'glass'> | undefined;
 });
 
 const resolvedColor = computed(() => {
@@ -62,5 +62,3 @@ const resolvedColor = computed(() => {
     </template>
   </v-btn>
 </template>
-
-<style lang="scss" src="./_x-btn.scss"></style>

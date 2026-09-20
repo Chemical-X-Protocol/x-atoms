@@ -8,7 +8,7 @@ defineOptions({
 });
 
 const props = withDefaults(defineProps<XChipProps>(), {
-  variant: 'glass',
+  variant: undefined,
   color: undefined,
   size: 'default',
   closable: false,
@@ -25,7 +25,7 @@ const computedVuetifyVariant = computed(() => {
   if (isGlassVariant.value) {
     return 'flat';
   }
-  return props.variant as Exclude<XChipVariant, 'glass'>;
+  return props.variant as Exclude<XChipVariant, 'glass'> | undefined;
 });
 
 const handleClose = () => {
@@ -59,5 +59,3 @@ const handleClose = () => {
     </template>
   </v-chip>
 </template>
-
-<style lang="scss" src="./_x-chip.scss"></style>

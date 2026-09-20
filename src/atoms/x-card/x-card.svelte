@@ -11,7 +11,7 @@ interface SvelteCardProps extends XCardProps {
 }
 
 let {
-  variant = 'glass',
+  variant = undefined,
   color = undefined,
   loading = false,
   disabled = false,
@@ -46,5 +46,3 @@ const cardClasses = $derived(
     </div>
   {/if}
 </div>
-
-<style lang="scss" src="./_x-card.scss"></style>

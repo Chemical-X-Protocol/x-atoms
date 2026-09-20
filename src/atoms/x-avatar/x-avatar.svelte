@@ -38,5 +38,3 @@ const initials = $derived(getInitials(text || alt));
     <span class={['x-avatar__status-dot', `x-avatar__status-dot--${status}`].join(' ')}></span>
   {/if}
 </div>
-
-<style lang="scss" src="./_x-avatar.scss"></style>

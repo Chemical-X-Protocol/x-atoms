@@ -37,5 +37,3 @@ const resolvedColor = computed(() => {
     <slot />
   </v-sheet>
 </template>
-
-<style lang="scss" src="./_x-sheet.scss"></style>

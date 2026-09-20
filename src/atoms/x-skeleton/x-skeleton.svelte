@@ -28,5 +28,3 @@ const resolvedHeight = $derived(formatDimension(height));
   style:height={resolvedHeight}
   style:--x-skeleton-delay={delay}
 ></div>
-
-<style lang="scss" src="./_x-skeleton.scss"></style>

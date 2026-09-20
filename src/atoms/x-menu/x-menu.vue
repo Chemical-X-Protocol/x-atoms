@@ -48,5 +48,3 @@ const isOpen = computed({
     </template>
   </v-menu>
 </template>
-
-<style lang="scss" src="./_x-menu.scss"></style>

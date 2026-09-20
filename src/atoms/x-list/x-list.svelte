@@ -29,5 +29,3 @@ const listClasses = $derived(
     {@render children()}
   {/if}
 </div>
-
-<style lang="scss" src="./_x-list.scss"></style>

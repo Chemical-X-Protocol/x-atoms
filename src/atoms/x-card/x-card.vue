@@ -8,7 +8,7 @@ defineOptions({
 });
 
 const props = withDefaults(defineProps<XCardProps>(), {
-  variant: 'glass',
+  variant: undefined,
   color: undefined,
   loading: false,
   disabled: false,
@@ -23,7 +23,7 @@ const computedVuetifyVariant = computed(() => {
   if (isGlassVariant.value) {
     return 'flat';
   }
-  return props.variant as Exclude<XCardVariant, 'glass'>;
+  return props.variant as Exclude<XCardVariant, 'glass'> | undefined;
 });
 </script>
 
@@ -71,5 +71,3 @@ const computedVuetifyVariant = computed(() => {
     </template>
   </v-card>
 </template>
-
-<style lang="scss" src="./_x-card.scss"></style>

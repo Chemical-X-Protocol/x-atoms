@@ -12,7 +12,7 @@ interface SvelteBtnProps extends XBtnProps {
 }
 
 let {
-  variant = 'glass',
+  variant = undefined,
   color = undefined,
   size = 'default',
   block = false,
@@ -58,5 +58,3 @@ const btnClasses = $derived(
     </span>
   {/if}
 </button>
-
-<style lang="scss" src="./_x-btn.scss"></style>

@@ -40,5 +40,3 @@ const attrs = useAttrs();
     </template>
   </v-tooltip>
 </template>
-
-<style lang="scss" src="./_x-tooltip.scss"></style>
