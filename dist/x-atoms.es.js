@@ -1,6 +1,5 @@
-import { getCurrentScope as e, onScopeDispose as t, ref as n } from "vue";
 //#region src/core/tokens.ts
-var r = {
+var e = {
 	bg: "#050811",
 	surface: "#0b1329",
 	surfaceElevated: "#111c3a",
@@ -16,7 +15,7 @@ var r = {
 	textPrimary: "#f8fafc",
 	textSecondary: "#94a3b8",
 	textMuted: "#64748b"
-}, i = {
+}, t = {
 	blurSm: "8px",
 	blurMd: "12px",
 	blurLg: "20px",
@@ -26,130 +25,162 @@ var r = {
 	borderSubtle: "rgba(98, 201, 255, 0.12)",
 	borderHover: "rgba(98, 201, 255, 0.35)",
 	borderFocus: "rgba(98, 201, 255, 0.6)"
-}, a = {
+}, n = {
 	sm: "6px",
 	md: "10px",
 	lg: "16px",
 	pill: "9999px"
-}, o = (e, t) => {
-	let n = null, r = null, i = () => {
-		n !== null && (clearTimeout(n), n = null), r = null;
-	}, a = () => {
-		n !== null && r !== null && (clearTimeout(n), n = null, e(...r), r = null);
-	}, o = (...a) => (r = a, n !== null && clearTimeout(n), n = setTimeout(() => {
-		n = null;
-		let t = r;
-		r = null, t !== null && e(...t);
-	}, t), i);
-	return o.cancel = i, o.flush = a, Object.defineProperty(o, "isPending", {
-		get: () => n !== null,
-		configurable: !0
-	}), o;
-}, s = (e, t) => {
-	let n = null, r = () => {
-		n !== null && (clearTimeout(n), n = null);
-	};
-	return {
-		start: () => (r(), n = setTimeout(() => {
-			n = null, e();
-		}, t), r),
-		stop: r,
-		get isPending() {
-			return n !== null;
+}, r = (...e) => (t) => {
+	for (let n of e) if (!n(t)) return !1;
+	return !0;
+}, i = (...e) => (t) => {
+	for (let n of e) if (n(t)) return !0;
+	return !1;
+}, a = (...e) => (t) => {
+	for (let n of e) if (n(t)) return !1;
+	return !0;
+}, o = (e) => (t) => !e(t), s = (...e) => {
+	for (let t of e) if (!t()) return !1;
+	return !0;
+}, c = (...e) => {
+	for (let t of e) if (t()) return !0;
+	return !1;
+}, l = (...e) => {
+	for (let t of e) if (t()) return !1;
+	return !0;
+}, u = async (e) => {
+	try {
+		return [await e, null];
+	} catch (e) {
+		return [null, e instanceof Error ? e : Error(String(e))];
+	}
+}, d = (e) => {
+	try {
+		return [e(), null];
+	} catch (e) {
+		return [null, e instanceof Error ? e : Error(String(e))];
+	}
+}, f = (e) => e[1] === null, p = (e) => e[1] !== null, m = (...e) => {
+	let t = !1, n = [...e], r = () => {
+		if (!t) {
+			t = !0;
+			for (let e = n.length - 1; e >= 0; e--) try {
+				n[e]?.();
+			} catch (e) {
+				typeof console < "u" && console.error && console.error("[Disposer] Error during cleanup:", e);
+			}
 		}
 	};
-}, c = (r, i) => {
-	let a = n(!1), o = null, s = () => {
-		o !== null && (clearTimeout(o), o = null), a.value = !1;
+	return r.add = (...e) => {
+		if (t) for (let t of e) t?.();
+		else n.push(...e);
+	}, r;
+}, h = (e, t, n, r) => !e || typeof e.addEventListener != "function" ? () => {} : (e.addEventListener(t, n, r), () => {
+	e.removeEventListener(t, n, r);
+}), g = (e) => {
+	let t = Object.getOwnPropertyNames(e);
+	for (let n of t) {
+		let t = e[n];
+		t && typeof t == "object" && !Object.isFrozen(t) && g(t);
+	}
+	return Object.freeze(e);
+}, _ = (e) => e == null ? [] : Array.isArray(e) ? e : [e], v = (e, t) => e ?? t, y = (e) => {
+	let t = Object.entries(e);
+	return (e) => {
+		for (let [n, r] of t) if (!r(e)) return {
+			isValid: !1,
+			failingKey: n
+		};
+		return {
+			isValid: !0,
+			failingKey: null
+		};
 	};
-	return e() && t(s), {
-		isPending: a,
-		start: () => (s(), i <= 0 ? (r(), s) : (a.value = !0, o = setTimeout(() => {
-			o = null, a.value = !1, r();
-		}, i), s)),
-		stop: s
-	};
-}, l = (e, t) => {
+}, b = (e, t) => {
 	let n = e.variant === "glass", r = !!e.block, i = !!e.loading, a = !!e.disabled, o = ["x-btn"];
 	return n && o.push("x-btn--glass"), r && o.push("x-btn--block"), i && o.push("x-btn--loading"), a && o.push("x-btn--disabled"), e.size && e.size !== "default" && o.push(`x-btn--${e.size}`), t && o.push(t), o;
-}, u = (e) => e === "glass" ? "flat" : e || "elevated", d = (e, t) => {
+}, x = (e) => e === "glass" ? "flat" : e || "elevated", S = (e, t) => {
 	let n = e.variant === "glass", r = !!e.hover, i = !!e.loading, a = !!e.disabled, o = ["x-card"];
 	return n && o.push("x-card--glass"), r && o.push("x-card--hover"), i && o.push("x-card--loading"), a && o.push("x-card--disabled"), t && o.push(t), o;
-}, f = (e) => e === "glass" ? "flat" : e || "elevated", p = (e, t) => {
+}, C = (e) => e === "glass" ? "flat" : e || "elevated", w = (e, t) => {
 	let n = e.variant === "glass", r = !!e.disabled, i = ["x-chip"];
 	return n && i.push("x-chip--glass"), r && i.push("x-chip--disabled"), e.size && e.size !== "default" && i.push(`x-chip--${e.size}`), t && i.push(t), i;
-}, m = (e) => e === "glass" ? "flat" : e || "flat", h = (e, t) => {
-	let n = !!e.fullscreen, r = !!e.persistent, i = !!e.scrollable, a = ["x-dialog"];
-	return n && a.push("x-dialog--fullscreen"), r && a.push("x-dialog--persistent"), i && a.push("x-dialog--scrollable"), t && a.push(t), a;
-}, g = (e, t) => {
+}, T = (e) => e === "glass" ? "flat" : e || "flat", E = (e, t) => {
+	let n = !!e.fullscreen, r = ["x-dialog"];
+	return n && r.push("x-dialog--fullscreen"), t && r.push(t), r;
+}, D = (e, t) => {
 	let n = !!e.transparent, r = ["x-sheet"];
 	return n && r.push("x-sheet--transparent"), t && r.push(t), r;
-}, _ = (e, t, n) => {
+}, O = (e, t, n) => {
 	let r = !!e.disabled, i = !!e.readonly, a = ["x-text-field"];
 	return t && a.push("x-text-field--focused"), r && a.push("x-text-field--disabled"), i && a.push("x-text-field--readonly"), n && a.push(n), a;
-}, v = (e, t) => {
+}, k = (e, t) => {
 	let n = !!e.bordered, r = ["x-avatar"];
 	return n && r.push("x-avatar--bordered"), typeof e.size == "string" && r.push(`x-avatar--${e.size}`), e.status && r.push(`x-avatar--status-${e.status}`), t && r.push(t), r;
-}, y = (e) => {
+}, A = (e) => {
 	if (!e) return "";
 	let t = e.trim();
 	if (!t) return "";
 	let n = t.split(/\s+/);
 	return n.length >= 2 ? (n[0][0] + n[n.length - 1][0]).toUpperCase() : t.slice(0, 2).toUpperCase();
-}, b = (e, t) => e == null || e === "" ? "" : typeof e == "number" && t && e > t ? `${t}+` : String(e), x = (e, t) => {
+}, j = (e, t) => e == null || e === "" ? "" : typeof e == "number" && t && e > t ? `${t}+` : String(e), M = (e, t) => {
 	let n = !!e.dot, r = !!e.inline, i = !!e.floating, a = ["x-badge"];
 	return n && a.push("x-badge--dot"), r && a.push("x-badge--inline"), i && a.push("x-badge--floating"), e.color && a.push(`x-badge--color-${e.color}`), t && a.push(t), a;
-}, S = (e, t, n) => {
+}, ee = (e, t, n) => {
 	let r = !!e.disabled, i = !!e.indeterminate, a = ["x-checkbox"];
 	return t && a.push("x-checkbox--checked"), i && a.push("x-checkbox--indeterminate"), r && a.push("x-checkbox--disabled"), n && a.push(n), a;
-}, C = (e, t, n) => {
+}, N = (e, t, n) => {
 	let r = !!e.disabled, i = ["x-switch"];
 	return t && i.push("x-switch--on"), r && i.push("x-switch--disabled"), n && i.push(n), i;
-}, w = (e, t) => {
+}, P = (e, t) => {
 	let n = !!e.vertical, r = !!e.inset, i = ["x-divider"];
 	return n ? i.push("x-divider--vertical") : i.push("x-divider--horizontal"), r && i.push("x-divider--inset"), t && i.push(t), i;
-}, T = (e, t) => {
+}, F = (e, t) => {
 	let n = e.shape || "rounded", r = e.animation || "shimmer", i = [
 		"x-skeleton",
 		`x-skeleton--${n}`,
 		`x-skeleton--${r}`
 	];
 	return t && i.push(t), i;
-}, E = (e) => e == null ? "100%" : typeof e == "number" ? `${e}px` : e, D = (e, t) => {
+}, I = (e) => e == null ? "100%" : typeof e == "number" ? `${e}px` : e, L = (e, t) => {
 	let n = e.type || "info", r = e.variant || "glass", i = [
 		"x-alert",
 		`x-alert--${n}`,
 		`x-alert--${r}`
 	];
 	return t && i.push(t), i;
-}, O = (e) => e == null ? 0 : Math.min(Math.max(e, 0), 100), ee = (e, t) => {
+}, R = (e) => e == null ? 0 : Math.min(Math.max(e, 0), 100), z = (e, t) => {
 	let n = !!e.indeterminate, r = !!e.rounded, i = !!e.striped, a = ["x-progress-linear"];
 	return n && a.push("x-progress-linear--indeterminate"), r && a.push("x-progress-linear--rounded"), i && a.push("x-progress-linear--striped"), t && a.push(t), a;
-}, k = (e, t, n) => {
-	let r = { "--x-progress-height": typeof e == "number" ? `${e}px` : e || "4px" };
-	return !n && t !== void 0 && (r["--x-progress-width"] = `${t}%`), r;
-}, A = (e, t) => {
+}, B = (e, t) => {
 	let n = ["x-tooltip", `x-tooltip--${e.location || "top"}`];
 	return t && n.push(t), n;
-}, j = (e, t) => {
+}, V = (e, t) => {
 	let n = e.variant === "glass", r = !!e.nav, i = !!e.disabled, a = ["x-list"];
 	return n && a.push("x-list--glass"), r && a.push("x-list--nav"), i && a.push("x-list--disabled"), t && a.push(t), a;
-}, M = (e) => e === "glass" ? "flat" : e, N = (e, t) => {
+}, H = (e) => e === "glass" ? "flat" : e, U = (e, t) => {
 	let n = e.variant === "glass", r = !!e.active, i = !!e.disabled, a = ["x-list-item"];
 	return n && a.push("x-list-item--glass"), r && a.push("x-list-item--active"), i && a.push("x-list-item--disabled"), t && a.push(t), a;
-}, P = (e) => e === "glass" ? "flat" : e, F = (e) => ({
+}, W = (e) => e === "glass" ? "flat" : e, G = (e) => ({
 	confirmText: e.confirmText || "Confirm",
 	cancelText: e.cancelText || "Cancel",
 	confirmColor: e.confirmColor || "primary"
-}), I = (e) => e === "up" ? "m-kpi-tile__trend--up" : e === "down" ? "m-kpi-tile__trend--down" : "m-kpi-tile__trend--neutral", L = (e) => e === "up" ? "+" : e === "down" ? "-" : "", R = (e, t) => {
+}), K = (e) => e === "up" ? "m-kpi-tile__trend--up" : e === "down" ? "m-kpi-tile__trend--down" : "m-kpi-tile__trend--neutral", q = (e) => e === "up" ? "+" : e === "down" ? "-" : "", J = (e, t) => {
 	let n = !!e.loading, r = !!e.disabled, i = ["m-search-input"];
 	return n && i.push("m-search-input--loading"), r && i.push("m-search-input--disabled"), e.size && e.size !== "default" && i.push(`m-search-input--${e.size}`), t && i.push(t), i;
-}, z = (e, t, n = 5) => {
+}, Y = (e, t) => {
+	let n = null;
+	return (...r) => {
+		n && clearTimeout(n), n = setTimeout(() => {
+			e(...r);
+		}, t);
+	};
+}, X = (e, t, n = 5) => {
 	let r = [], i = Math.max(1, e - Math.floor(n / 2)), a = i + n - 1;
 	a > t && (a = t, i = Math.max(1, a - n + 1));
 	for (let e = i; e <= a; e++) r.push(e);
 	return r;
-}, B = (e, t, n) => !t || !n ? {
+}, Z = (e, t, n) => !t || !n ? {
 	start: 0,
 	end: 0,
 	total: 0
@@ -157,31 +188,25 @@ var r = {
 	start: (e - 1) * t + 1,
 	end: Math.min(e * t, n),
 	total: n
-}, V = (e, t) => {
+}, Q = (e, t) => {
 	let n = ["m-empty-state"];
 	return t && n.push(t), n;
-}, H = (e, t, n) => {
+}, $ = (e, t, n) => {
 	let r = ["m-toast", `m-toast--${e.type || "info"}`];
 	return t && r.push("m-toast--open"), n && r.push(n), r;
-}, U = (e) => ({
+}, te = (e) => ({
 	gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))",
 	"--stat-strip-cols": String(e || 4)
-}), W = (e, t) => {
+}), ne = (e, t) => {
 	let n = !!e.grow, r = ["m-tabs-nav", `m-tabs-nav--align-${e.align || "start"}`];
 	return n && r.push("m-tabs-nav--grow"), t && r.push(t), r;
-}, G = (e, t) => {
+}, re = (e, t) => {
 	let n = e.position || "static", r = e.bordered !== !1, i = ["m-action-bar", `m-action-bar--${n}`];
 	return r && i.push("m-action-bar--bordered"), t && i.push(t), i;
-}, K = (e, t) => {
-	let n = ["m-data-table"];
-	return e.hoverable && n.push("m-data-table--hoverable"), e.dense && n.push("m-data-table--dense"), e.loading && n.push("m-data-table--loading"), t && n.push(t), n;
-}, q = (e) => {
-	let t = ["m-data-table__th"];
-	return e.sortable && t.push("m-data-table__th--sortable"), e.align && t.push(`m-data-table__th--align-${e.align}`), t;
-}, J = (e) => {
-	let t = ["m-data-table__td"];
-	return e.align && t.push(`m-data-table__td--align-${e.align}`), t;
-}, Y = (e, t, n) => t === e ? n ? "▼" : "▲" : "", X = (e, t) => {
+}, ie = (e, t) => {
+	let n = ["m-data-table"], r = !!e.hoverable, i = !!e.dense, a = !!e.loading;
+	return r && n.push("m-data-table--hoverable"), i && n.push("m-data-table--dense"), a && n.push("m-data-table--loading"), t && n.push(t), n;
+}, ae = (e, t) => {
 	let n = e.sortBy === t, r = n && !e.sortDesc;
 	return n ? r ? {
 		sortBy: t,
@@ -193,7 +218,7 @@ var r = {
 		sortBy: t,
 		sortDesc: !1
 	};
-}, Z = (e, t, n = 0) => t && t in e && t ? String(e[t]) : n, Q = (e, t) => e[t.key] ?? "", $ = {
+}, oe = (e, t, n = 0) => t && t in e && t ? String(e[t]) : n, se = (e, t) => e[t.key] ?? "", ce = {
 	dark: !0,
 	colors: {
 		background: "#050811",
@@ -213,4 +238,4 @@ var r = {
 	}
 };
 //#endregion
-export { O as clampProgress, G as computeActionBarClasses, D as computeAlertClasses, v as computeAvatarClasses, x as computeBadgeClasses, J as computeBodyCellClasses, l as computeBtnClasses, d as computeCardClasses, S as computeCheckboxClasses, p as computeChipClasses, h as computeDialogClasses, w as computeDividerClasses, V as computeEmptyStateClasses, U as computeGridColumnsStyle, q as computeHeaderCellClasses, B as computeItemRange, j as computeListClasses, N as computeListItemClasses, z as computePageNumbers, ee as computeProgressClasses, k as computeProgressCustomProperties, R as computeSearchInputClasses, g as computeSheetClasses, T as computeSkeletonClasses, C as computeSwitchClasses, K as computeTableClasses, W as computeTabsNavClasses, _ as computeTextFieldClasses, H as computeToastClasses, A as computeTooltipClasses, o as createDebounce, s as createTimeout, E as formatDimension, y as getInitials, X as getNextSortState, i as glassTokens, a as radiiTokens, b as resolveBadgeDisplay, Q as resolveCellValue, F as resolveDialogButtonLabels, Z as resolveItemKey, Y as resolveSortIcon, I as resolveTrendClass, L as resolveTrendSymbol, f as resolveVuetifyCardVariant, m as resolveVuetifyChipVariant, P as resolveVuetifyListItemVariant, M as resolveVuetifyListVariant, u as resolveVuetifyVariant, r as starshipColors, $ as starshipDarkTheme, c as useTimeoutFn };
+export { s as all, r as allPass, c as any, i as anyPass, R as clampProgress, re as computeActionBarClasses, L as computeAlertClasses, k as computeAvatarClasses, M as computeBadgeClasses, b as computeBtnClasses, S as computeCardClasses, ee as computeCheckboxClasses, w as computeChipClasses, E as computeDialogClasses, P as computeDividerClasses, Q as computeEmptyStateClasses, te as computeGridColumnsStyle, Z as computeItemRange, V as computeListClasses, U as computeListItemClasses, X as computePageNumbers, z as computeProgressClasses, J as computeSearchInputClasses, D as computeSheetClasses, F as computeSkeletonClasses, N as computeSwitchClasses, ie as computeTableClasses, ne as computeTabsNavClasses, O as computeTextFieldClasses, $ as computeToastClasses, B as computeTooltipClasses, Y as createDebounce, m as createDisposer, y as createRuleSet, g as deepFreeze, v as fallback, I as formatDimension, A as getInitials, ae as getNextSortState, t as glassTokens, p as isErr, f as isOk, h as listen, l as none, a as nonePass, _ as normalizeArray, o as not, n as radiiTokens, j as resolveBadgeDisplay, se as resolveCellValue, G as resolveDialogButtonLabels, oe as resolveItemKey, K as resolveTrendClass, q as resolveTrendSymbol, C as resolveVuetifyCardVariant, T as resolveVuetifyChipVariant, W as resolveVuetifyListItemVariant, H as resolveVuetifyListVariant, x as resolveVuetifyVariant, e as starshipColors, ce as starshipDarkTheme, u as toResult, d as toResultSync };
