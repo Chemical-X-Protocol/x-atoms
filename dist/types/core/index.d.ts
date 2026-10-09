@@ -8,3 +8,4 @@ export * from './filters.js';
 export * from './async-runner.js';
 export * from './sentinel.js';
 export * from './rules.js';
+export * from './style.js';

@@ -25,10 +25,17 @@ export const computeItemRange = (
   pageSize?: number,
   totalItems?: number
 ) => {
-  if (!pageSize || !totalItems) {
+  const hasRange = Boolean(pageSize) && Boolean(totalItems);
+  if (!hasRange) {
     return { start: 0, end: 0, total: 0 };
   }
-  const start = (currentPage - 1) * pageSize + 1;
-  const end = Math.min(currentPage * pageSize, totalItems);
+  const start = (currentPage - 1) * (pageSize as number) + 1;
+  const end = Math.min(currentPage * (pageSize as number), totalItems as number);
   return { start, end, total: totalItems };
+};
+
+/** A page can be selected when it is in range and not already current. */
+export const isSelectablePage = (page: number, currentPage: number, totalPages: number): boolean => {
+  const isInRange = page >= 1 && page <= totalPages;
+  return isInRange && page !== currentPage;
 };

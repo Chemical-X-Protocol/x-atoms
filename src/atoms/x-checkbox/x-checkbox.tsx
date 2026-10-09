@@ -23,9 +23,8 @@ export const XCheckboxReact: React.FC<ReactCheckboxProps> = ({
   ).join(' ');
 
   const handleToggle = () => {
-    if (disabled) return;
-    const nextVal = !modelValue;
-    onChange?.(nextVal);
+    const isInteractive = !disabled;
+    if (isInteractive) onChange?.(!modelValue);
   };
 
   return (

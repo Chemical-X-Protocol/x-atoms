@@ -41,6 +41,7 @@
       "default": "./dist/svelte.js"
     },
     "./css/vue": "./dist/vue.css",
+    "./css/components": "./dist/components.css",
     "./css/glass": "./dist/glass.css",
     "./css/tokens": "./dist/tokens.css",
     "./styles": "./src/styles/index.scss",

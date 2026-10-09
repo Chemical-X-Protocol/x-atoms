@@ -19,6 +19,11 @@ export * from './atoms/x-progress-linear/x-progress-linear.controller';
 export * from './atoms/x-tooltip/x-tooltip.controller';
 export * from './atoms/x-list/x-list.controller';
 export * from './atoms/x-list-item/x-list-item.controller';
+export * from './atoms/x-text/x-text.controller';
+export * from './atoms/x-stack/x-stack.controller';
+export * from './atoms/x-grid/x-grid.controller';
+export * from './atoms/x-textarea/x-textarea.controller';
+export * from './atoms/x-nav-drawer/x-nav-drawer.controller';
 
 // Molecule Controllers
 export * from './molecules/m-confirm-dialog/m-confirm-dialog.controller';

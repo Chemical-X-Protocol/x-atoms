@@ -2,6 +2,7 @@
 import { computed } from 'vue';
 import type { MDataTableProps, MDataTableHeader } from './types';
 import {
+  canSortHeader,
   computeTableClasses,
   getNextSortState,
   resolveItemKey,
@@ -29,12 +30,8 @@ const hasItems = computed(() => props.items.length > 0);
 const isEmpty = computed(() => !props.loading && !hasItems.value);
 
 const handleHeaderClick = (header: MDataTableHeader) => {
-  if (!header.sortable) return;
-  const nextSort = getNextSortState(
-    { sortBy: props.sortBy, sortDesc: props.sortDesc },
-    header.key
-  );
-  emit('update:sort', nextSort);
+  const isSortable = canSortHeader(header, true);
+  if (isSortable) emit('update:sort', getNextSortState({ sortBy: props.sortBy, sortDesc: props.sortDesc }, header.key));
 };
 
 const handleRowClick = (item: Record<string, unknown>) => {

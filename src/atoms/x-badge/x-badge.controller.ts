@@ -4,10 +4,10 @@ export const resolveBadgeDisplay = (
   content?: string | number,
   max?: number
 ): string => {
-  if (content === undefined || content === null || content === '') return '';
-  if (typeof content === 'number' && max && content > max) {
-    return `${max}+`;
-  }
+  const isBlank = content === undefined || content === null || content === '';
+  if (isBlank) return '';
+  const exceedsMax = typeof content === 'number' && typeof max === 'number' && max > 0 && content > max;
+  if (exceedsMax) return `${max}+`;
   return String(content);
 };
 

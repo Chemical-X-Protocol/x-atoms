@@ -99,7 +99,7 @@ test('@chemx/x-atoms root loads in bare Node and is a superset of core', async (
 });
 
 test('framework CSS ships prebuilt', () => {
-  for (const name of ['vue.css', 'glass.css', 'tokens.css']) {
+  for (const name of ['vue.css', 'glass.css', 'tokens.css', 'components.css']) {
     const css = readFileSync(distFile(name), 'utf8');
     assert.ok(css.length > 100, `${name} is empty`);
     assert.equal(/@use|@include|\$[a-z-]+:/.test(css), false, `${name} still contains SCSS`);

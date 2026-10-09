@@ -16,3 +16,8 @@ export * from './x-tooltip';
 export * from './x-menu';
 export * from './x-list';
 export * from './x-list-item';
+export * from './x-text';
+export * from './x-stack';
+export * from './x-grid';
+export * from './x-textarea';
+export * from './x-nav-drawer';

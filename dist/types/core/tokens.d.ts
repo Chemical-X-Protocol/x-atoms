@@ -32,3 +32,31 @@ export declare const radiiTokens: {
     readonly lg: "16px";
     readonly pill: "9999px";
 };
+/**
+ * Tone palette: the semantic colors plus the accent tones the studio uses.
+ * Every tone is available as a Vuetify theme color, a `--x-tone-<name>` CSS
+ * variable and an `.x-tone--<name>` text class.
+ */
+export declare const toneColors: {
+    readonly primary: "#62c9ff";
+    readonly secondary: "#38bdf8";
+    readonly success: "#10b981";
+    readonly warning: "#f59e0b";
+    readonly error: "#ef4444";
+    readonly info: "#38bdf8";
+    readonly pink: "#f472b6";
+    readonly lime: "#a3e635";
+    readonly sky: "#38bdf8";
+    readonly purple: "#a78bfa";
+    readonly slate: "#94a3b8";
+    readonly muted: "#64748b";
+};
+/** Spacing scale shared by XStack and XGrid gaps. */
+export declare const spaceTokens: {
+    readonly none: "0";
+    readonly xs: "4px";
+    readonly sm: "8px";
+    readonly md: "12px";
+    readonly lg: "16px";
+    readonly xl: "24px";
+};

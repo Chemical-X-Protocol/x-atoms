@@ -56,17 +56,17 @@ declare const __VLS_component: import("vue").DefineComponent<XTextFieldProps, {}
     "onUpdate:modelValue"?: ((value: string | number) => any) | undefined;
     "onClick:clear"?: (() => any) | undefined;
 }>, {
+    label: string;
     variant: "outlined" | "filled" | "underlined" | "solo" | "plain";
     disabled: boolean;
     type: string;
     modelValue: string | number;
-    label: string;
     placeholder: string;
     readonly: boolean;
     clearable: boolean;
     density: "compact" | "comfortable" | "default";
-    hideDetails: boolean | "auto";
     prefix: string;
+    hideDetails: boolean | "auto";
     suffix: string;
 }, {}, {}, {}, string, import("vue").ComponentProvideOptions, false, {}, any>;
 declare const _default: __VLS_WithSlots<typeof __VLS_component, __VLS_Slots>;

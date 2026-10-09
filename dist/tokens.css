@@ -1,3 +1,24 @@
+:root {
+  --x-tone-primary: rgb(var(--v-theme-primary, 98, 201, 255));
+  --x-tone-secondary: rgb(var(--v-theme-secondary, 56, 189, 248));
+  --x-tone-success: rgb(var(--v-theme-success, 16, 185, 129));
+  --x-tone-warning: rgb(var(--v-theme-warning, 245, 158, 11));
+  --x-tone-error: rgb(var(--v-theme-error, 239, 68, 68));
+  --x-tone-info: rgb(var(--v-theme-info, 56, 189, 248));
+  --x-tone-pink: rgb(var(--v-theme-pink, 244, 114, 182));
+  --x-tone-lime: rgb(var(--v-theme-lime, 163, 230, 53));
+  --x-tone-sky: rgb(var(--v-theme-sky, 56, 189, 248));
+  --x-tone-purple: rgb(var(--v-theme-purple, 167, 139, 250));
+  --x-tone-slate: rgb(var(--v-theme-slate, 148, 163, 184));
+  --x-tone-muted: rgb(var(--v-theme-muted, 100, 116, 139));
+  --x-space-none: 0;
+  --x-space-xs: 4px;
+  --x-space-sm: 8px;
+  --x-space-md: 12px;
+  --x-space-lg: 16px;
+  --x-space-xl: 24px;
+}
+
 :root,
 .v-theme--dark {
   --x-glass-bg: rgba(var(--v-theme-surface, 11, 19, 41), 0.75);

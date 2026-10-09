@@ -45,3 +45,33 @@ export const radiiTokens = {
   lg: '16px',
   pill: '9999px',
 } as const;
+
+/**
+ * Tone palette: the semantic colors plus the accent tones the studio uses.
+ * Every tone is available as a Vuetify theme color, a `--x-tone-<name>` CSS
+ * variable and an `.x-tone--<name>` text class.
+ */
+export const toneColors = {
+  primary: '#62c9ff',
+  secondary: '#38bdf8',
+  success: '#10b981',
+  warning: '#f59e0b',
+  error: '#ef4444',
+  info: '#38bdf8',
+  pink: '#f472b6',
+  lime: '#a3e635',
+  sky: '#38bdf8',
+  purple: '#a78bfa',
+  slate: '#94a3b8',
+  muted: '#64748b',
+} as const;
+
+/** Spacing scale shared by XStack and XGrid gaps. */
+export const spaceTokens = {
+  none: '0',
+  xs: '4px',
+  sm: '8px',
+  md: '12px',
+  lg: '16px',
+  xl: '24px',
+} as const;

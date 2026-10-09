@@ -1,0 +1,25 @@
+$x-grid-gaps: (none: 0, xs: 4px, sm: 8px, md: 12px, lg: 16px, xl: 24px);
+
+.x-grid {
+  display: grid;
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+}
+
+.x-grid--auto-fill {
+  grid-template-columns: repeat(auto-fill, minmax(min(var(--x-grid-min, 200px), 100%), 1fr));
+}
+
+@for $count from 1 through 12 {
+  .x-grid--cols-#{$count} { grid-template-columns: repeat($count, minmax(0, 1fr)); }
+}
+
+@each $name, $size in $x-grid-gaps {
+  .x-grid--gap-#{$name} { gap: var(--x-space-#{$name}, #{$size}); }
+}
+
+.x-grid--align-start { align-items: start; }
+.x-grid--align-center { align-items: center; }
+.x-grid--align-end { align-items: end; }
+.x-grid--align-stretch { align-items: stretch; }

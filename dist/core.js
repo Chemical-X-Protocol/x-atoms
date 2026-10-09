@@ -30,37 +30,57 @@ var e = {
 	md: "10px",
 	lg: "16px",
 	pill: "9999px"
-}, r = (...e) => (t) => {
+}, r = {
+	primary: "#62c9ff",
+	secondary: "#38bdf8",
+	success: "#10b981",
+	warning: "#f59e0b",
+	error: "#ef4444",
+	info: "#38bdf8",
+	pink: "#f472b6",
+	lime: "#a3e635",
+	sky: "#38bdf8",
+	purple: "#a78bfa",
+	slate: "#94a3b8",
+	muted: "#64748b"
+}, i = {
+	none: "0",
+	xs: "4px",
+	sm: "8px",
+	md: "12px",
+	lg: "16px",
+	xl: "24px"
+}, a = (...e) => (t) => {
 	for (let n of e) if (!n(t)) return !1;
 	return !0;
-}, i = (...e) => (t) => {
+}, o = (...e) => (t) => {
 	for (let n of e) if (n(t)) return !0;
 	return !1;
-}, a = (...e) => (t) => {
+}, s = (...e) => (t) => {
 	for (let n of e) if (n(t)) return !1;
 	return !0;
-}, o = (e) => (t) => !e(t), s = (...e) => {
+}, c = (e) => (t) => !e(t), l = (...e) => {
 	for (let t of e) if (!t()) return !1;
 	return !0;
-}, c = (...e) => {
+}, u = (...e) => {
 	for (let t of e) if (t()) return !0;
 	return !1;
-}, l = (...e) => {
+}, d = (...e) => {
 	for (let t of e) if (t()) return !1;
 	return !0;
-}, u = (e) => e instanceof Error ? e : Error(String(e)), d = async (e) => {
+}, f = (e) => e instanceof Error ? e : Error(String(e)), p = async (e) => {
 	try {
 		return [await (typeof e == "function" ? e() : e), null];
 	} catch (e) {
-		return [null, u(e)];
+		return [null, f(e)];
 	}
-}, f = (e) => {
+}, m = (e) => {
 	try {
 		return [e(), null];
 	} catch (e) {
-		return [null, u(e)];
+		return [null, f(e)];
 	}
-}, p = (e) => e[1] === null, m = (e) => e[1] !== null, h = (e, t) => m(e) ? [null, e[1]] : f(() => t(e[0])), g = (e, t) => p(e) ? e[0] : t, _ = (...e) => {
+}, h = (e) => e[1] === null, g = (e) => e[1] !== null, _ = (e, t) => g(e) ? [null, e[1]] : m(() => t(e[0])), v = (e, t) => h(e) ? e[0] : t, y = (...e) => {
 	let t = !1, n = [...e], r = () => {
 		if (!t) {
 			t = !0;
@@ -75,20 +95,20 @@ var e = {
 		if (t) for (let t of e) t?.();
 		else n.push(...e);
 	}, r;
-}, v = (e, t, n, r) => !e || typeof e.addEventListener != "function" ? () => {} : (e.addEventListener(t, n, r), () => {
+}, b = (e, t, n, r) => !e || typeof e.addEventListener != "function" ? () => {} : (e.addEventListener(t, n, r), () => {
 	e.removeEventListener(t, n, r);
-}), y = (e, t) => {
+}), x = (e, t) => {
 	let n = setTimeout(t, e);
 	return () => clearTimeout(n);
-}, b = (e, t) => {
+}, S = (e, t) => {
 	let n = setInterval(t, e);
 	return () => clearInterval(n);
-}, x = (e, t) => {
+}, C = (e, t) => {
 	let n = () => {};
 	return Object.assign((...r) => {
-		n(), n = y(t, () => e(...r));
+		n(), n = x(t, () => e(...r));
 	}, { cancel: () => n() });
-}, S = (e) => {
+}, w = (e) => {
 	let t = null, n = () => {
 		t?.(), t = null;
 	};
@@ -99,21 +119,21 @@ var e = {
 		stop: n,
 		isActive: () => t !== null
 	};
-}, C = (e, t) => S((n) => y(t, () => {
+}, T = (e, t) => w((n) => x(t, () => {
 	n(), e();
-})), w = (e, t) => S(() => b(t, () => {
+})), E = (e, t) => w(() => S(t, () => {
 	e();
-})), T = (e) => {
+})), D = (e) => {
 	let t = Object.getOwnPropertyNames(e);
 	for (let n of t) {
 		let t = e[n];
-		t && typeof t == "object" && !Object.isFrozen(t) && T(t);
+		t && typeof t == "object" && !Object.isFrozen(t) && D(t);
 	}
 	return Object.freeze(e);
-}, E = (e) => e == null ? [] : Array.isArray(e) ? e : [e], D = (e, t) => e ?? t, O = (...e) => {
-	let t = r(...e);
-	return (e) => E(e).filter(t);
-}, k = (e, t) => t instanceof RegExp ? e.search(t) !== -1 : e.includes(t), A = (e, t) => t.some((t) => k(e, t)), j = (e, t) => r(...t)(e), M = () => {
+}, O = (e) => e == null ? [] : Array.isArray(e) ? e : [e], k = (e, t) => e ?? t, A = (...e) => {
+	let t = a(...e);
+	return (e) => O(e).filter(t);
+}, j = (e, t) => t instanceof RegExp ? e.search(t) !== -1 : e.includes(t), M = (e, t) => t.some((t) => j(e, t)), N = (e, t) => a(...t)(e), P = () => {
 	let e = 0;
 	return {
 		claim: () => {
@@ -124,8 +144,8 @@ var e = {
 			e++;
 		}
 	};
-}, N = (e, t, n = {}) => {
-	let r = M(), i = {
+}, F = (e, t, n = {}) => {
+	let r = P(), i = {
 		data: null,
 		error: null,
 		isLoading: !1,
@@ -143,9 +163,9 @@ var e = {
 				isLoading: !0,
 				error: null
 			});
-			let n = await d(e);
+			let n = await p(e);
 			if (!t()) return n;
-			let i = p(n) ? {
+			let i = h(n) ? {
 				data: n[0],
 				error: null,
 				isLoading: !1
@@ -158,7 +178,7 @@ var e = {
 		cancel: r.cancel,
 		getState: () => i
 	};
-}, P = (e) => {
+}, I = (e) => {
 	let t = Object.entries(e);
 	return (e) => {
 		for (let [n, r] of t) if (!r(e)) return {
@@ -170,6 +190,6 @@ var e = {
 			failingKey: null
 		};
 	};
-};
+}, L = (e) => Object.entries(e).map(([e, t]) => `${e}: ${t}`).join("; ");
 //#endregion
-export { y as after, s as all, r as allPass, c as any, i as anyPass, N as createAsyncRunner, x as createDebounce, _ as createDisposer, M as createLatestGate, O as createPredicateFilter, w as createRestartableInterval, C as createRestartableTimeout, P as createRuleSet, T as deepFreeze, b as every, D as fallback, t as glassTokens, m as isErr, p as isOk, v as listen, h as mapResult, j as matchesAllPredicates, A as matchesAnyPattern, l as none, a as nonePass, E as normalizeArray, o as not, n as radiiTokens, e as starshipColors, u as toError, d as toResult, f as toResultSync, g as unwrapOr };
+export { x as after, l as all, a as allPass, u as any, o as anyPass, F as createAsyncRunner, C as createDebounce, y as createDisposer, P as createLatestGate, A as createPredicateFilter, E as createRestartableInterval, T as createRestartableTimeout, I as createRuleSet, D as deepFreeze, S as every, k as fallback, t as glassTokens, g as isErr, h as isOk, b as listen, _ as mapResult, N as matchesAllPredicates, M as matchesAnyPattern, d as none, s as nonePass, O as normalizeArray, c as not, n as radiiTokens, i as spaceTokens, e as starshipColors, f as toError, p as toResult, m as toResultSync, L as toStyleString, r as toneColors, v as unwrapOr };

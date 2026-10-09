@@ -11,7 +11,7 @@ export interface ReactChipProps extends XChipProps {
 }
 
 export const XChipReact: React.FC<ReactChipProps> = ({
-  variant = 'glass',
+  variant = undefined,
   color = undefined,
   size = 'default',
   closable = false,

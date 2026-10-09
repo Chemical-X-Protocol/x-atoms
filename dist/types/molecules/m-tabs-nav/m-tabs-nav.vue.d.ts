@@ -7,7 +7,7 @@ declare const _default: import("vue").DefineComponent<MTabsNavProps, {}, {}, {},
     onTabChange?: ((tabId: string) => any) | undefined;
 }>, {
     modelValue: string;
-    grow: boolean;
     align: "start" | "center" | "end";
+    grow: boolean;
 }, {}, {}, {}, string, import("vue").ComponentProvideOptions, false, {}, any>;
 export default _default;

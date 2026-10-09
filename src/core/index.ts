@@ -8,3 +8,4 @@ export * from './filters.ts';
 export * from './async-runner.ts';
 export * from './sentinel.ts';
 export * from './rules.ts';
+export * from './style.ts';

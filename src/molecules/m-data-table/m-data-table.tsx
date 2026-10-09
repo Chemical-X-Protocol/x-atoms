@@ -1,10 +1,14 @@
 import React from 'react';
 import type { MDataTableProps, MDataTableHeader, MDataTableSortState } from './types';
 import {
+  canSortHeader,
+  computeCellClasses,
+  computeHeaderClasses,
   computeTableClasses,
   getNextSortState,
   resolveItemKey,
   resolveCellValue,
+  resolveSortIcon,
 } from './m-data-table.controller';
 import XProgressLinearReact from '../../atoms/x-progress-linear/x-progress-linear';
 
@@ -41,16 +45,41 @@ export const MDataTableReact = <T extends Record<string, unknown>>({
   const isEmpty = !loading && !hasItems;
 
   const handleHeaderClick = (header: MDataTableHeader) => {
-    if (!header.sortable || !onSortChange) return;
-    const nextSort = getNextSortState({ sortBy, sortDesc }, header.key);
-    onSortChange(nextSort);
+    const isSortable = canSortHeader(header, Boolean(onSortChange));
+    if (isSortable) onSortChange?.(getNextSortState({ sortBy, sortDesc }, header.key));
   };
 
-  const handleRowClick = (item: T) => {
-    if (onRowClick) {
-      onRowClick(item);
-    }
+  const renderSortIcon = (header: MDataTableHeader) => {
+    const icon = resolveSortIcon({ sortBy, sortDesc }, header.key);
+    return icon ? <span className="m-data-table__sort-icon">{icon}</span> : null;
   };
+
+  const renderCellContent = (item: T, header: MDataTableHeader) => {
+    const cellValue = resolveCellValue(item, header);
+    return renderCell ? renderCell(item, header, cellValue) : String(cellValue);
+  };
+
+  const renderRow = (item: T, index: number) => (
+    <tr
+      key={resolveItemKey(item, itemKey, index)}
+      className="m-data-table__tr"
+      onClick={() => onRowClick?.(item)}
+    >
+      {headers.map((header) => (
+        <td key={header.key} className={computeCellClasses(header)}>
+          {renderCellContent(item, header)}
+        </td>
+      ))}
+    </tr>
+  );
+
+  const emptyRow = (
+    <tr>
+      <td colSpan={headers.length} className="m-data-table__empty">
+        {renderEmpty ? renderEmpty() : emptyText}
+      </td>
+    </tr>
+  );
 
   return (
     <div className={resolvedClassNames}>
@@ -61,54 +90,17 @@ export const MDataTableReact = <T extends Record<string, unknown>>({
             {headers.map((header) => (
               <th
                 key={header.key}
-                className={[
-                  'm-data-table__th',
-                  header.sortable ? 'm-data-table__th--sortable' : '',
-                  header.align ? `m-data-table__th--align-${header.align}` : '',
-                ].filter(Boolean).join(' ')}
+                className={computeHeaderClasses(header)}
                 onClick={() => handleHeaderClick(header)}
               >
                 {header.title}
-                {sortBy === header.key ? (
-                  <span className="m-data-table__sort-icon">
-                    {sortDesc ? '▼' : '▲'}
-                  </span>
-                ) : null}
+                {renderSortIcon(header)}
               </th>
             ))}
           </tr>
         </thead>
         <tbody>
-          {isEmpty ? (
-            <tr>
-              <td colSpan={headers.length} className="m-data-table__empty">
-                {renderEmpty ? renderEmpty() : emptyText}
-              </td>
-            </tr>
-          ) : (
-            items.map((item, index) => (
-              <tr
-                key={resolveItemKey(item, itemKey, index)}
-                className="m-data-table__tr"
-                onClick={() => handleRowClick(item)}
-              >
-                {headers.map((header) => {
-                  const cellValue = resolveCellValue(item, header);
-                  return (
-                    <td
-                      key={header.key}
-                      className={[
-                        'm-data-table__td',
-                        header.align ? `m-data-table__td--align-${header.align}` : '',
-                      ].filter(Boolean).join(' ')}
-                    >
-                      {renderCell ? renderCell(item, header, cellValue) : String(cellValue)}
-                    </td>
-                  );
-                })}
-              </tr>
-            ))
-          )}
+          {isEmpty ? emptyRow : items.map(renderRow)}
         </tbody>
       </table>
     </div>

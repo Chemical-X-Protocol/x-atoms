@@ -1,5 +1,6 @@
 <script setup lang="ts">
-import { ref, watch, onScopeDispose } from 'vue';
+import { watch, onScopeDispose } from 'vue';
+import { after, type Teardown } from '../../core';
 import type { MToastProps, MToastEmits } from './types';
 import { computeToastClasses } from './m-toast.controller';
 import XBtn from '../../atoms/x-btn/x-btn.vue';
@@ -17,45 +18,25 @@ const props = withDefaults(defineProps<MToastProps>(), {
 
 const emit = defineEmits<MToastEmits>();
 
-let timerId: any = null;
+let cancelDismiss: Teardown = () => {};
 
-const clearDismissTimer = () => {
-  if (timerId) {
-    clearTimeout(timerId);
-    timerId = null;
-  }
+const scheduleDismiss = () => {
+  cancelDismiss();
+  const shouldAutoDismiss = props.modelValue && props.duration > 0;
+  cancelDismiss = shouldAutoDismiss ? after(props.duration, handleClose) : () => {};
 };
 
-const startDismissTimer = () => {
-  clearDismissTimer();
-  if (props.duration > 0 && props.modelValue) {
-    timerId = setTimeout(() => {
-      emit('update:modelValue', false);
-      emit('close');
-    }, props.duration);
-  }
-};
-
-watch(() => props.modelValue, (isOpen) => {
-  if (isOpen) {
-    startDismissTimer();
-  } else {
-    clearDismissTimer();
-  }
-}, { immediate: true });
-
-onScopeDispose(() => {
-  clearDismissTimer();
-});
+watch(() => [props.modelValue, props.duration], scheduleDismiss, { immediate: true });
+onScopeDispose(() => cancelDismiss());
 
 const handleAction = () => {
   emit('click:action');
 };
 
-const handleClose = () => {
+function handleClose() {
   emit('update:modelValue', false);
   emit('close');
-};
+}
 </script>
 
 <template>

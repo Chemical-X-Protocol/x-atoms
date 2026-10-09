@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { computed } from 'vue';
 import type { MPaginationProps, MPaginationEmits } from './types';
-import { computePageNumbers, computeItemRange } from './m-pagination.controller';
+import { computePageNumbers, computeItemRange, isSelectablePage } from './m-pagination.controller';
 import XBtn from '../../atoms/x-btn/x-btn.vue';
 import XSheet from '../../atoms/x-sheet/x-sheet.vue';
 
@@ -30,7 +30,8 @@ const canGoPrev = computed(() => props.currentPage > 1);
 const canGoNext = computed(() => props.currentPage < props.totalPages);
 
 const setPage = (page: number) => {
-  if (page >= 1 && page <= props.totalPages && page !== props.currentPage) {
+  const canSelect = isSelectablePage(page, props.currentPage, props.totalPages);
+  if (canSelect) {
     emit('update:currentPage', page);
     emit('pageChange', page);
   }

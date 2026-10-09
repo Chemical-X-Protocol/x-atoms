@@ -1,4 +1,6 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect } from 'react';
+import { after } from '../../core';
+import { useLatest } from '../../adapters/react/useLatest';
 import type { MToastProps } from './types';
 import { computeToastClasses } from './m-toast.controller';
 import XBtnReact from '../../atoms/x-btn/x-btn';
@@ -19,19 +21,12 @@ export const MToastReact: React.FC<ReactToastProps> = ({
   onClickAction = undefined,
   onClose = undefined,
 }) => {
-  const timerRef = useRef<any>(null);
+  const latestOnClose = useLatest(onClose);
 
   useEffect(() => {
-    if (timerRef.current) clearTimeout(timerRef.current);
-    if (modelValue && duration > 0) {
-      timerRef.current = setTimeout(() => {
-        onClose?.();
-      }, duration);
-    }
-    return () => {
-      if (timerRef.current) clearTimeout(timerRef.current);
-    };
-  }, [modelValue, duration, onClose]);
+    const shouldAutoDismiss = modelValue && duration > 0;
+    return shouldAutoDismiss ? after(duration, () => latestOnClose.current?.()) : undefined;
+  }, [modelValue, duration, latestOnClose]);
 
   const resolvedClassNames = computeToastClasses(
     { message, type },

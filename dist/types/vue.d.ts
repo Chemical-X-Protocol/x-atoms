@@ -18,6 +18,11 @@ export { default as XTooltip } from './atoms/x-tooltip/x-tooltip.vue';
 export { default as XMenu } from './atoms/x-menu/x-menu.vue';
 export { default as XList } from './atoms/x-list/x-list.vue';
 export { default as XListItem } from './atoms/x-list-item/x-list-item.vue';
+export { default as XText } from './atoms/x-text/x-text.vue';
+export { default as XStack } from './atoms/x-stack/x-stack.vue';
+export { default as XGrid } from './atoms/x-grid/x-grid.vue';
+export { default as XTextarea } from './atoms/x-textarea/x-textarea.vue';
+export { default as XNavDrawer } from './atoms/x-nav-drawer/x-nav-drawer.vue';
 export { default as MConfirmDialog } from './molecules/m-confirm-dialog/m-confirm-dialog.vue';
 export { default as MKpiTile } from './molecules/m-kpi-tile/m-kpi-tile.vue';
 export { default as MSearchInput } from './molecules/m-search-input/m-search-input.vue';
@@ -28,7 +33,7 @@ export { default as MStatStrip } from './molecules/m-stat-strip/m-stat-strip.vue
 export { default as MTabsNav } from './molecules/m-tabs-nav/m-tabs-nav.vue';
 export { default as MActionBar } from './molecules/m-action-bar/m-action-bar.vue';
 export { default as MDataTable } from './molecules/m-data-table/m-data-table.vue';
-export { starshipDarkTheme } from './theme/starship-theme.js';
+export { starshipDarkTheme, starshipLightTheme } from './theme/starship-theme.js';
 export * from './core/index.js';
 export * from './adapters/vue/index.js';
 export declare const createXAtomsPlugin: () => {

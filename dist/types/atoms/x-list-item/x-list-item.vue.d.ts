@@ -52,16 +52,16 @@ type __VLS_Slots = {} & {
     default?: (props: typeof __VLS_14) => any;
 };
 declare const __VLS_component: import("vue").DefineComponent<XListItemProps, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").PublicProps, Readonly<XListItemProps> & Readonly<{}>, {
+    value: any;
     rounded: boolean | string | number;
+    title: string;
+    subtitle: string;
     variant: import("./types.js").XListItemVariant;
     color: string;
     disabled: boolean;
-    title: string;
-    value: any;
     active: boolean;
     density: "default" | "comfortable" | "compact";
     lines: "one" | "two" | "three" | false;
-    subtitle: string;
     ripple: boolean;
 }, {}, {}, {}, string, import("vue").ComponentProvideOptions, false, {}, any>;
 declare const _default: __VLS_WithSlots<typeof __VLS_component, __VLS_Slots>;

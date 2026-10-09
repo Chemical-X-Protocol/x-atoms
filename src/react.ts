@@ -17,6 +17,11 @@ export { XProgressLinearReact as XProgressLinear } from './atoms/x-progress-line
 export { XTooltipReact as XTooltip } from './atoms/x-tooltip/x-tooltip';
 export { XListReact as XList } from './atoms/x-list/x-list';
 export { XListItemReact as XListItem } from './atoms/x-list-item/x-list-item';
+export { XTextReact as XText } from './atoms/x-text/x-text';
+export { XStackReact as XStack } from './atoms/x-stack/x-stack';
+export { XGridReact as XGrid } from './atoms/x-grid/x-grid';
+export { XTextareaReact as XTextarea } from './atoms/x-textarea/x-textarea';
+export { XNavDrawerReact as XNavDrawer } from './atoms/x-nav-drawer/x-nav-drawer';
 
 // Molecules
 export { MConfirmDialogReact as MConfirmDialog } from './molecules/m-confirm-dialog/m-confirm-dialog';

@@ -2,7 +2,7 @@
 import type { Snippet } from 'svelte';
 import type { XDialogProps } from './types';
 import { computeDialogClasses, computeDialogSurfaceVars, shouldDismissDialog } from './x-dialog.controller';
-import { listen } from '../../core';
+import { listen, toStyleString } from '../../core';
 
 interface SvelteDialogProps extends XDialogProps {
   class?: string;
@@ -25,11 +25,7 @@ let {
 }: SvelteDialogProps = $props();
 
 const dialogClasses = $derived(computeDialogClasses({ fullscreen, scrollable }, `x-dialog--native ${className}`.trim()).join(' '));
-const surfaceStyle = $derived(
-  Object.entries(computeDialogSurfaceVars({ maxWidth, width }))
-    .map(([name, value]) => `${name}: ${value}`)
-    .join('; ')
-);
+const surfaceStyle = $derived(toStyleString(computeDialogSurfaceVars({ maxWidth, width })));
 
 const requestClose = () => {
   const isDismissible = shouldDismissDialog({ persistent });

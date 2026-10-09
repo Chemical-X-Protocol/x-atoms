@@ -16,9 +16,9 @@ declare const __VLS_component: import("vue").DefineComponent<XDialogProps, {}, {
     "onUpdate:modelValue"?: ((value: boolean) => any) | undefined;
     "onUpdate:model-value"?: ((value: boolean) => any) | undefined;
 }>, {
+    width: string | number;
     modelValue: boolean;
     maxWidth: string | number;
-    width: string | number;
     persistent: boolean;
     scrollable: boolean;
     fullscreen: boolean;

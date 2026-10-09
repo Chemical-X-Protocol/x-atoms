@@ -17,9 +17,9 @@ declare const __VLS_component: import("vue").DefineComponent<XAlertProps, {}, {}
     "onClick:close"?: (() => any) | undefined;
 }>, {
     text: string;
+    title: string;
     variant: "glass" | "tonal" | "outlined" | "elevated";
     type: import("../../index.js").SemanticStatus;
-    title: string;
     closable: boolean;
 }, {}, {}, {}, string, import("vue").ComponentProvideOptions, false, {}, any>;
 declare const _default: __VLS_WithSlots<typeof __VLS_component, __VLS_Slots>;

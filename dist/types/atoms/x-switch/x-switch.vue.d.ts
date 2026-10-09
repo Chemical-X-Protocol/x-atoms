@@ -13,16 +13,16 @@ type __VLS_Slots = {} & {
     thumb?: (props: typeof __VLS_8) => any;
 };
 declare const __VLS_component: import("vue").DefineComponent<XSwitchProps, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {} & {
-    "update:modelValue": (value: boolean) => any;
     change: (value: boolean) => any;
+    "update:modelValue": (value: boolean) => any;
 }, string, import("vue").PublicProps, Readonly<XSwitchProps> & Readonly<{
-    "onUpdate:modelValue"?: ((value: boolean) => any) | undefined;
     onChange?: ((value: boolean) => any) | undefined;
+    "onUpdate:modelValue"?: ((value: boolean) => any) | undefined;
 }>, {
+    label: string;
     color: string;
     disabled: boolean;
     modelValue: boolean;
-    label: string;
     hideDetails: boolean | "auto";
 }, {}, {}, {}, string, import("vue").ComponentProvideOptions, false, {}, any>;
 declare const _default: __VLS_WithSlots<typeof __VLS_component, __VLS_Slots>;

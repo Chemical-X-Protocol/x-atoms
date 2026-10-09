@@ -16,3 +16,8 @@ export * from './x-tooltip/index.js';
 export * from './x-menu/index.js';
 export * from './x-list/index.js';
 export * from './x-list-item/index.js';
+export * from './x-text/index.js';
+export * from './x-stack/index.js';
+export * from './x-grid/index.js';
+export * from './x-textarea/index.js';
+export * from './x-nav-drawer/index.js';

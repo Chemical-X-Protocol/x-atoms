@@ -1,0 +1,18 @@
+// Framework-neutral component styles: every atom and molecule partial in one sheet.
+// Raw-HTML adapters (React, and Svelte without its injected CSS) use dist/components.css.
+@use "./tokens";
+@use "../atoms/x-grid/x-grid";
+@use "../atoms/x-nav-drawer/x-nav-drawer";
+@use "../atoms/x-stack/x-stack";
+@use "../atoms/x-text/x-text";
+@use "../atoms/x-textarea/x-textarea";
+@use "../molecules/m-action-bar/m-action-bar";
+@use "../molecules/m-confirm-dialog/m-confirm-dialog";
+@use "../molecules/m-data-table/m-data-table";
+@use "../molecules/m-empty-state/m-empty-state";
+@use "../molecules/m-kpi-tile/m-kpi-tile";
+@use "../molecules/m-pagination/m-pagination";
+@use "../molecules/m-search-input/m-search-input";
+@use "../molecules/m-stat-strip/m-stat-strip";
+@use "../molecules/m-tabs-nav/m-tabs-nav";
+@use "../molecules/m-toast/m-toast";

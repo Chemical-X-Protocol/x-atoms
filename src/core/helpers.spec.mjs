@@ -20,6 +20,12 @@ const {
 
 const tick = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
+/** Polls until `check` holds (or 1s passes), so timer specs survive a loaded machine. */
+const waitFor = async (check) => {
+  for (let waited = 0; waited < 1000 && !check(); waited += 5) await tick(5);
+  return check();
+};
+
 test('toResult accepts a promise', async () => {
   const [data, err] = await toResult(Promise.resolve('ok'));
   assert.equal(data, 'ok');
@@ -88,11 +94,10 @@ test('after runs once and its teardown cancels it', async () => {
 test('every repeats until its teardown runs', async () => {
   let count = 0;
   const stop = every(5, () => count++);
-  await tick(28);
+  assert.ok(await waitFor(() => count >= 2), `expected at least 2 ticks, saw ${count}`);
   stop();
   const seen = count;
   await tick(20);
-  assert.ok(seen >= 2, `expected at least 2 ticks, saw ${seen}`);
   assert.equal(count, seen, 'no ticks after teardown');
 });
 
@@ -198,11 +203,10 @@ test('createRestartableTimeout re-arms, reports activity and stops', async () =>
   let ticks = 0;
   const interval = createRestartableInterval(() => ticks++, 5);
   interval.start();
-  await tick(22);
+  assert.ok(await waitFor(() => ticks >= 2));
   interval.stop();
   const seen = ticks;
   await tick(15);
-  assert.ok(seen >= 2);
   assert.equal(ticks, seen);
   assert.equal(interval.isActive(), false);
 });
