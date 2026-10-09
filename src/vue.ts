@@ -37,6 +37,9 @@ export { default as MDataTable } from './molecules/m-data-table/m-data-table.vue
 export { starshipDarkTheme } from './theme/starship-theme';
 export * from './core';
 
+// Helpers: vue adapters over the framework-free core
+export * from './adapters/vue';
+
 // Internal imports for plugin registration
 import XBtn from './atoms/x-btn/x-btn.vue';
 import XCard from './atoms/x-card/x-card.vue';

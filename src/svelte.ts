@@ -3,6 +3,7 @@ export { default as XBtn } from './atoms/x-btn/x-btn.svelte';
 export { default as XCard } from './atoms/x-card/x-card.svelte';
 export { default as XChip } from './atoms/x-chip/x-chip.svelte';
 export { default as XDialog } from './atoms/x-dialog/x-dialog.svelte';
+export { default as XModal } from './atoms/x-dialog/x-dialog.svelte';
 export { default as XSheet } from './atoms/x-sheet/x-sheet.svelte';
 export { default as XTextField } from './atoms/x-text-field/x-text-field.svelte';
 export { default as XAvatar } from './atoms/x-avatar/x-avatar.svelte';
@@ -31,3 +32,6 @@ export { default as MDataTable } from './molecules/m-data-table/m-data-table.sve
 
 // Core Tokens & Controllers
 export * from './core';
+
+// Helpers: svelte adapters over the framework-free core
+export * from './adapters/svelte';

@@ -31,34 +31,41 @@ export interface AsyncState<T> {
   isLoading: boolean;
 }
 
-export type AsyncStatePatch<T> = Partial<AsyncState<T>>;
-
 export interface AsyncRunner<T> {
   run: () => Promise<ResultTuple<T>>;
   cancel: () => void;
+  getState: () => AsyncState<T>;
 }
 
 /**
- * Runs `fetcher` and reports state patches through `onChange`.
+ * Runs `fetcher` and reports full state snapshots through `onChange`.
  * Only the latest run may settle state; cancelled or superseded runs stay silent.
+ * An error keeps the previous data so views can show stale data next to the error.
  */
 export const createAsyncRunner = <T>(
   fetcher: () => T | PromiseLike<T>,
-  onChange: (patch: AsyncStatePatch<T>) => void
+  onChange: (state: AsyncState<T>) => void,
+  initial: Partial<AsyncState<T>> = {}
 ): AsyncRunner<T> => {
   const gate = createLatestGate();
+  let state: AsyncState<T> = { data: null, error: null, isLoading: false, ...initial };
+
+  const commit = (patch: Partial<AsyncState<T>>): void => {
+    state = { ...state, ...patch };
+    onChange(state);
+  };
 
   const run = async (): Promise<ResultTuple<T>> => {
     const isLatest = gate.claim();
-    onChange({ isLoading: true, error: null });
+    commit({ isLoading: true, error: null });
     const result = await toResult<T>(fetcher as ResultSource<T>);
     if (!isLatest()) return result;
-    const settled: AsyncStatePatch<T> = isOk(result)
+    const settled: Partial<AsyncState<T>> = isOk(result)
       ? { data: result[0], error: null, isLoading: false }
       : { error: result[1], isLoading: false };
-    onChange(settled);
+    commit(settled);
     return result;
   };
 
-  return { run, cancel: gate.cancel };
+  return { run, cancel: gate.cancel, getState: () => state };
 };

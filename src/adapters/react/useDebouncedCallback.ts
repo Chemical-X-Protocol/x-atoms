@@ -1,5 +1,6 @@
-import { useEffect, useMemo, useRef } from 'react';
+import { useEffect, useMemo } from 'react';
 import { createDebounce } from '../../core';
+import { useLatest } from './useLatest';
 
 /**
  * Debounces `callback` by `delayMs`. The latest callback always runs, and a
@@ -9,14 +10,11 @@ export const useDebouncedCallback = <A extends unknown[]>(
   callback: (...args: A) => void,
   delayMs: number
 ) => {
-  const latestCallback = useRef(callback);
-  useEffect(() => {
-    latestCallback.current = callback;
-  }, [callback]);
+  const latestCallback = useLatest(callback);
 
   const debounced = useMemo(
     () => createDebounce((...args: A) => latestCallback.current(...args), delayMs),
-    [delayMs]
+    [delayMs, latestCallback]
   );
   useEffect(() => debounced.cancel, [debounced]);
 

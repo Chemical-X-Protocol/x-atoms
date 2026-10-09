@@ -148,7 +148,7 @@ test('createAsyncRunner reports loading, data and error, ignoring stale runs', a
     if (own === 3) throw new Error('third failed');
     return own;
   };
-  const runner = createAsyncRunner(fetcher, (patch) => states.push(patch));
+  const runner = createAsyncRunner(fetcher, (state) => states.push(state));
 
   const slow = runner.run();
   const fast = runner.run();
@@ -163,6 +163,7 @@ test('createAsyncRunner reports loading, data and error, ignoring stale runs', a
   assert.equal(isOk(failed), false);
   assert.equal(states.at(-1).error.message, 'third failed');
   assert.equal(states.at(-1).isLoading, false);
+  assert.equal(states.at(-1).data, 2, 'an error keeps the last good data');
 });
 
 test('createAsyncRunner drops results after cancel', async () => {
@@ -170,9 +171,38 @@ test('createAsyncRunner drops results after cancel', async () => {
   const runner = createAsyncRunner(async () => {
     await tick(5);
     return 'late';
-  }, (patch) => states.push(patch));
+  }, (state) => states.push(state));
   const pending = runner.run();
   runner.cancel();
   await pending;
-  assert.deepEqual(states, [{ isLoading: true, error: null }]);
+  assert.deepEqual(states, [{ data: null, error: null, isLoading: true }]);
+  assert.deepEqual(runner.getState(), { data: null, error: null, isLoading: true });
+});
+
+test('createRestartableTimeout re-arms, reports activity and stops', async () => {
+  const { createRestartableTimeout, createRestartableInterval } = core;
+  let fired = 0;
+  const timer = createRestartableTimeout(() => fired++, 5);
+  assert.equal(timer.isActive(), false);
+  timer.start();
+  timer.start();
+  assert.equal(timer.isActive(), true);
+  await tick(20);
+  assert.equal(fired, 1, 'restart replaces the pending run');
+  assert.equal(timer.isActive(), false, 'a fired timeout is inactive');
+  const stop = timer.start();
+  stop();
+  await tick(15);
+  assert.equal(fired, 1);
+
+  let ticks = 0;
+  const interval = createRestartableInterval(() => ticks++, 5);
+  interval.start();
+  await tick(22);
+  interval.stop();
+  const seen = ticks;
+  await tick(15);
+  assert.ok(seen >= 2);
+  assert.equal(ticks, seen);
+  assert.equal(interval.isActive(), false);
 });
