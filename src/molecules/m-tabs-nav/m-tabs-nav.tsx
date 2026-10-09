@@ -22,8 +22,8 @@ export const MTabsNavReact: React.FC<ReactTabsNavProps> = ({
   ).join(' ');
 
   const handleSelect = (tab: NavTabItem) => {
-    if (tab.disabled) return;
-    onTabChange?.(tab.id);
+    const isSelectable = !tab.disabled;
+    if (isSelectable) onTabChange?.(tab.id);
   };
 
   return (

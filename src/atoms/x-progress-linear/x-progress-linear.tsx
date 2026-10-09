@@ -1,6 +1,6 @@
 import React from 'react';
 import type { XProgressLinearProps } from './types';
-import { clampProgress, computeProgressClasses } from './x-progress-linear.controller';
+import { clampProgress, computeProgressClasses, computeProgressStyles } from './x-progress-linear.controller';
 
 export interface ReactProgressLinearProps extends XProgressLinearProps {
   className?: string;
@@ -20,21 +20,18 @@ export const XProgressLinearReact: React.FC<ReactProgressLinearProps> = ({
     className
   ).join(' ');
 
-  const resolvedHeight = typeof height === 'number' ? `${height}px` : height;
-  const barStyle: React.CSSProperties = indeterminate
-    ? {}
-    : { width: `${progressValue}%` };
+  const styles = computeProgressStyles(height, progressValue, indeterminate);
 
   return (
     <div
       className={resolvedClassNames}
-      style={{ height: resolvedHeight }}
+      style={styles.track}
       role="progressbar"
       aria-valuenow={indeterminate ? undefined : progressValue}
       aria-valuemin={0}
       aria-valuemax={100}
     >
-      <div className="x-progress-linear__bar" style={barStyle} />
+      <div className="x-progress-linear__bar" style={styles.bar} />
     </div>
   );
 };

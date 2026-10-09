@@ -1,0 +1,36 @@
+// Raw-HTML adapters only (Svelte, React). The Vue adapter is styled by Vuetify.
+.x-nav-drawer--native {
+  display: flex;
+  flex-direction: column;
+  width: var(--x-nav-drawer-width, 256px);
+  height: 100%;
+  overflow-y: auto;
+  background: var(--x-glass-bg, rgba(11, 19, 41, 0.75));
+  border-inline-end: 1px solid var(--x-glass-border, rgba(98, 201, 255, 0.15));
+  transition: width 0.2s ease;
+
+  &.x-nav-drawer--end {
+    border-inline-end: none;
+    border-inline-start: 1px solid var(--x-glass-border, rgba(98, 201, 255, 0.15));
+  }
+
+  &.x-nav-drawer--temporary {
+    position: fixed;
+    inset-block: 0;
+    z-index: 2000;
+  }
+
+  &.x-nav-drawer--temporary.x-nav-drawer--start { inset-inline-start: 0; }
+  &.x-nav-drawer--temporary.x-nav-drawer--end { inset-inline-end: 0; }
+  &.x-nav-drawer--closed { display: none; }
+  &.x-nav-drawer--floating { border: none; }
+
+  .x-nav-drawer__content { flex: 1 1 auto; }
+}
+
+.x-nav-drawer__scrim {
+  position: fixed;
+  inset: 0;
+  z-index: 1999;
+  background: rgba(5, 8, 17, 0.5);
+}

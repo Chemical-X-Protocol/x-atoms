@@ -33,3 +33,21 @@ export const computeProgressClasses = (
 
   return classes;
 };
+
+/** Numbers are pixels; strings pass through. */
+export const resolveProgressHeight = (height?: string | number): string | undefined => {
+  const isNumber = typeof height === 'number';
+  return isNumber ? `${height}px` : height;
+};
+
+/** Track and bar sizing for the raw-HTML adapters. */
+export const computeProgressStyles = (
+  height: string | number | undefined,
+  progressValue: number,
+  indeterminate: boolean
+): { track: Record<string, string>; bar: Record<string, string> } => {
+  const resolvedHeight = resolveProgressHeight(height);
+  const track: Record<string, string> = resolvedHeight ? { height: resolvedHeight } : {};
+  const bar: Record<string, string> = indeterminate ? {} : { width: `${progressValue}%` };
+  return { track, bar };
+};

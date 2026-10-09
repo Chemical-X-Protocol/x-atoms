@@ -7,39 +7,58 @@
   "files": [
     "dist",
     "src",
+    "catalog.json",
     "README.md"
   ],
   "exports": {
     ".": {
-      "import": "./src/index.ts",
-      "types": "./src/index.ts"
+      "types": "./dist/types/index.d.ts",
+      "import": "./dist/index.js",
+      "default": "./dist/index.js"
     },
     "./core": {
-      "import": "./src/core/index.ts",
-      "types": "./src/core/index.ts"
+      "types": "./dist/types/core/index.d.ts",
+      "import": "./dist/core.js",
+      "default": "./dist/core.js"
     },
-    "./styles": "./src/styles/index.scss",
-    "./styles/glass": "./src/styles/glass-theme.scss",
     "./theme": {
-      "import": "./src/theme/starship-theme.ts",
-      "types": "./src/theme/starship-theme.ts"
+      "types": "./dist/types/theme/starship-theme.d.ts",
+      "import": "./dist/theme.js",
+      "default": "./dist/theme.js"
     },
     "./vue": {
-      "import": "./src/vue.ts",
-      "types": "./src/vue.ts"
-    },
-    "./svelte": {
-      "import": "./src/svelte.ts",
-      "types": "./src/svelte.ts"
+      "types": "./dist/types/vue.d.ts",
+      "import": "./dist/vue.js",
+      "default": "./dist/vue.js"
     },
     "./react": {
-      "import": "./src/react.ts",
-      "types": "./src/react.ts"
-    }
+      "types": "./dist/types/react.d.ts",
+      "import": "./dist/react.js",
+      "default": "./dist/react.js"
+    },
+    "./svelte": {
+      "types": "./dist/types/svelte.d.ts",
+      "import": "./dist/svelte.js",
+      "default": "./dist/svelte.js"
+    },
+    "./css/vue": "./dist/vue.css",
+    "./css/components": "./dist/components.css",
+    "./css/glass": "./dist/glass.css",
+    "./css/tokens": "./dist/tokens.css",
+    "./styles": "./src/styles/index.scss",
+    "./styles/glass": "./src/styles/glass-theme.scss",
+    "./package.json": "./package.json",
+    "./catalog.json": "./catalog.json"
   },
   "scripts": {
+    "build": "vite build && node build/build-css.mjs && vue-tsc -p tsconfig.build.json && node build/finalize-types.mjs && node build/catalog.mjs",
+    "prepack": "npm run build",
     "typecheck": "vue-tsc --noEmit",
-    "build": "vite build"
+    "test": "npm run test:core && npm run test:ui",
+    "test:core": "node --test src/core/*.spec.mjs tests/node/*.spec.mjs",
+    "test:ui": "vitest run",
+    "catalog": "node build/catalog.mjs",
+    "catalog:check": "node build/catalog.mjs --check"
   },
   "peerDependencies": {
     "vue": "^3.5.0",
@@ -66,11 +85,24 @@
     }
   },
   "devDependencies": {
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
     "@vitejs/plugin-vue": "^5.2.0",
+    "@vue/test-utils": "^2.4.6",
+    "happy-dom": "^20.0.0",
     "sass": "^1.85.0",
     "typescript": "^5.8.0",
     "vite": "^6.2.0",
     "vite-plugin-vuetify": "^2.1.0",
+    "vitest": "^4.1.0",
     "vue-tsc": "^2.2.0"
-  }
+  },
+  "sideEffects": [
+    "**/*.css",
+    "./dist/svelte.js",
+    "./dist/vue.js"
+  ],
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/types/index.d.ts"
 }

@@ -1,6 +1,7 @@
 <script lang="ts">
 import type { MToastProps } from './types';
 import { computeToastClasses } from './m-toast.controller';
+import { after } from '../../core';
 import XBtn from '../../atoms/x-btn/x-btn.svelte';
 
 interface SvelteToastProps extends MToastProps {
@@ -20,19 +21,14 @@ let {
   onclose,
 }: SvelteToastProps = $props();
 
-let timerId: any = null;
+const close = () => {
+  modelValue = false;
+  onclose?.();
+};
 
 $effect(() => {
-  if (timerId) clearTimeout(timerId);
-  if (modelValue && duration > 0) {
-    timerId = setTimeout(() => {
-      modelValue = false;
-      onclose?.();
-    }, duration);
-  }
-  return () => {
-    if (timerId) clearTimeout(timerId);
-  };
+  const shouldAutoDismiss = modelValue && duration > 0;
+  return shouldAutoDismiss ? after(duration, close) : undefined;
 });
 
 const toastClasses = $derived(
@@ -50,10 +46,7 @@ const toastClasses = $derived(
       </XBtn>
     {/if}
 
-    <XBtn variant="plain" size="x-small" icon={true} onclick={() => {
-      modelValue = false;
-      onclose?.();
-    }}>
+    <XBtn variant="plain" size="x-small" icon={true} onclick={close}>
       {#snippet children()}&times;{/snippet}
     </XBtn>
   </div>

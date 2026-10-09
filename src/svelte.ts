@@ -3,6 +3,7 @@ export { default as XBtn } from './atoms/x-btn/x-btn.svelte';
 export { default as XCard } from './atoms/x-card/x-card.svelte';
 export { default as XChip } from './atoms/x-chip/x-chip.svelte';
 export { default as XDialog } from './atoms/x-dialog/x-dialog.svelte';
+export { default as XModal } from './atoms/x-dialog/x-dialog.svelte';
 export { default as XSheet } from './atoms/x-sheet/x-sheet.svelte';
 export { default as XTextField } from './atoms/x-text-field/x-text-field.svelte';
 export { default as XAvatar } from './atoms/x-avatar/x-avatar.svelte';
@@ -16,6 +17,11 @@ export { default as XProgressLinear } from './atoms/x-progress-linear/x-progress
 export { default as XTooltip } from './atoms/x-tooltip/x-tooltip.svelte';
 export { default as XList } from './atoms/x-list/x-list.svelte';
 export { default as XListItem } from './atoms/x-list-item/x-list-item.svelte';
+export { default as XText } from './atoms/x-text/x-text.svelte';
+export { default as XStack } from './atoms/x-stack/x-stack.svelte';
+export { default as XGrid } from './atoms/x-grid/x-grid.svelte';
+export { default as XTextarea } from './atoms/x-textarea/x-textarea.svelte';
+export { default as XNavDrawer } from './atoms/x-nav-drawer/x-nav-drawer.svelte';
 
 // Molecules
 export { default as MConfirmDialog } from './molecules/m-confirm-dialog/m-confirm-dialog.svelte';
@@ -31,3 +37,6 @@ export { default as MDataTable } from './molecules/m-data-table/m-data-table.sve
 
 // Core Tokens & Controllers
 export * from './core';
+
+// Helpers: svelte adapters over the framework-free core
+export * from './adapters/svelte';

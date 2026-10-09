@@ -7,9 +7,8 @@ export const deepFreeze = <T extends object>(obj: T): Readonly<T> => {
   const propNames = Object.getOwnPropertyNames(obj);
   for (const name of propNames) {
     const value = (obj as Record<string, unknown>)[name];
-    if (value && typeof value === 'object' && !Object.isFrozen(value)) {
-      deepFreeze(value);
-    }
+    const isUnfrozenObject = Boolean(value) && typeof value === 'object' && !Object.isFrozen(value);
+    if (isUnfrozenObject) deepFreeze(value as object);
   }
   return Object.freeze(obj);
 };

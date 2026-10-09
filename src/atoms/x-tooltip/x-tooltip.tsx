@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import type { XTooltipProps } from './types';
 import { computeTooltipClasses } from './x-tooltip.controller';
 
@@ -16,8 +16,6 @@ export const XTooltipReact: React.FC<ReactTooltipProps> = ({
   children,
   tooltip = null,
 }) => {
-  const [isVisible, setIsVisible] = useState(false);
-
   if (disabled) {
     return <>{children}</>;
   }
@@ -28,21 +26,12 @@ export const XTooltipReact: React.FC<ReactTooltipProps> = ({
   ).join(' ');
 
   return (
-    <div
-      className="x-tooltip-wrapper"
-      onMouseEnter={() => setIsVisible(true)}
-      onMouseLeave={() => setIsVisible(false)}
-      onFocus={() => setIsVisible(true)}
-      onBlur={() => setIsVisible(false)}
-    >
+    // Visibility comes from .x-tooltip-wrapper:hover / :focus-within in glass-theme.
+    <div className="x-tooltip-wrapper">
       {children}
       <div
         className={resolvedClassNames}
         role="tooltip"
-        style={{
-          opacity: isVisible ? 1 : 0,
-          visibility: isVisible ? 'visible' : 'hidden',
-        }}
       >
         {tooltip || text}
       </div>

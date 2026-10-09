@@ -1,0 +1,26 @@
+$x-stack-gaps: (none: 0, xs: 4px, sm: 8px, md: 12px, lg: 16px, xl: 24px);
+$x-stack-justify: (start: flex-start, center: center, end: flex-end, between: space-between, around: space-around, evenly: space-evenly);
+$x-stack-align: (start: flex-start, center: center, end: flex-end, stretch: stretch, baseline: baseline);
+
+.x-stack {
+  display: flex;
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+}
+
+.x-stack--row { flex-direction: row; }
+.x-stack--column { flex-direction: column; }
+.x-stack--wrap { flex-wrap: wrap; }
+
+@each $name, $size in $x-stack-gaps {
+  .x-stack--gap-#{$name} { gap: var(--x-space-#{$name}, #{$size}); }
+}
+
+@each $name, $value in $x-stack-justify {
+  .x-stack--justify-#{$name} { justify-content: $value; }
+}
+
+@each $name, $value in $x-stack-align {
+  .x-stack--align-#{$name} { align-items: $value; }
+}

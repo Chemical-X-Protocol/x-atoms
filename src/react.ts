@@ -3,6 +3,7 @@ export { XBtnReact as XBtn } from './atoms/x-btn/x-btn';
 export { XCardReact as XCard } from './atoms/x-card/x-card';
 export { XChipReact as XChip } from './atoms/x-chip/x-chip';
 export { XDialogReact as XDialog } from './atoms/x-dialog/x-dialog';
+export { XDialogReact as XModal } from './atoms/x-dialog/x-dialog';
 export { XSheetReact as XSheet } from './atoms/x-sheet/x-sheet';
 export { XTextFieldReact as XTextField } from './atoms/x-text-field/x-text-field';
 export { XAvatarReact as XAvatar } from './atoms/x-avatar/x-avatar';
@@ -16,6 +17,11 @@ export { XProgressLinearReact as XProgressLinear } from './atoms/x-progress-line
 export { XTooltipReact as XTooltip } from './atoms/x-tooltip/x-tooltip';
 export { XListReact as XList } from './atoms/x-list/x-list';
 export { XListItemReact as XListItem } from './atoms/x-list-item/x-list-item';
+export { XTextReact as XText } from './atoms/x-text/x-text';
+export { XStackReact as XStack } from './atoms/x-stack/x-stack';
+export { XGridReact as XGrid } from './atoms/x-grid/x-grid';
+export { XTextareaReact as XTextarea } from './atoms/x-textarea/x-textarea';
+export { XNavDrawerReact as XNavDrawer } from './atoms/x-nav-drawer/x-nav-drawer';
 
 // Molecules
 export { MConfirmDialogReact as MConfirmDialog } from './molecules/m-confirm-dialog/m-confirm-dialog';
@@ -31,3 +37,6 @@ export { MDataTableReact as MDataTable } from './molecules/m-data-table/m-data-t
 
 // Core Tokens & Controllers
 export * from './core';
+
+// Helpers: react adapters over the framework-free core
+export * from './adapters/react';

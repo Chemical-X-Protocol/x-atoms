@@ -27,16 +27,3 @@ export const computeSearchInputClasses = (
 
   return classes;
 };
-
-export const createDebounce = <T extends (...args: any[]) => any>(
-  fn: T,
-  ms: number
-) => {
-  let timer: any = null;
-  return (...args: Parameters<T>) => {
-    if (timer) clearTimeout(timer);
-    timer = setTimeout(() => {
-      fn(...args);
-    }, ms);
-  };
-};

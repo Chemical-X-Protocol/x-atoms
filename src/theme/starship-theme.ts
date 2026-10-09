@@ -17,6 +17,12 @@ export const starshipDarkTheme: ThemeDefinition = {
     info: '#62c9ff',
     success: '#10b981',
     warning: '#f59e0b',
+    pink: '#f472b6',
+    lime: '#a3e635',
+    sky: '#38bdf8',
+    purple: '#a78bfa',
+    slate: '#94a3b8',
+    muted: '#64748b',
   },
 };
 
@@ -37,6 +43,12 @@ export const starshipLightTheme: ThemeDefinition = {
     info: '#0284c7',
     success: '#059669',
     warning: '#d97706',
+    pink: '#db2777',
+    lime: '#65a30d',
+    sky: '#0284c7',
+    purple: '#7c3aed',
+    slate: '#475569',
+    muted: '#64748b',
   },
 };
 

@@ -1,0 +1,41 @@
+// Raw-HTML adapters only (Svelte, React). The Vue adapter is styled by Vuetify.
+.x-textarea--native {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+
+  .x-textarea__label {
+    font-size: 0.8125rem;
+    opacity: 0.8;
+  }
+
+  .x-textarea__native {
+    width: 100%;
+    min-height: 3em;
+    padding: 8px 12px;
+    border: 1px solid var(--x-glass-border, rgba(98, 201, 255, 0.15));
+    border-radius: 10px;
+    background: var(--x-glass-bg-subtle, rgba(11, 19, 41, 0.5));
+    color: inherit;
+    font: inherit;
+    resize: vertical;
+  }
+
+  &.x-textarea--focused .x-textarea__native {
+    border-color: var(--x-glass-border-focus, rgba(98, 201, 255, 0.6));
+    outline: none;
+  }
+
+  &.x-textarea--auto-grow .x-textarea__native {
+    field-sizing: content;
+    resize: none;
+  }
+
+  &.x-textarea--disabled { opacity: 0.5; }
+
+  .x-textarea__counter {
+    align-self: flex-end;
+    font-size: 0.75rem;
+    opacity: 0.7;
+  }
+}

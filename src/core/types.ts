@@ -31,3 +31,14 @@ export interface BaseComponentProps {
   disabled?: boolean;
   className?: string;
 }
+
+export type Tone =
+  | SemanticStatus
+  | 'pink'
+  | 'lime'
+  | 'sky'
+  | 'purple'
+  | 'slate'
+  | 'muted';
+
+export type SpaceScale = 'none' | 'xs' | 'sm' | 'md' | 'lg' | 'xl';

@@ -1,6 +1,6 @@
 import React from 'react';
 import type { MPaginationProps } from './types';
-import { computePageNumbers, computeItemRange } from './m-pagination.controller';
+import { computePageNumbers, computeItemRange, isSelectablePage } from './m-pagination.controller';
 import XBtnReact from '../../atoms/x-btn/x-btn';
 
 export interface ReactPaginationProps extends MPaginationProps {
@@ -23,9 +23,8 @@ export const MPaginationReact: React.FC<ReactPaginationProps> = ({
   const canGoNext = currentPage < totalPages;
 
   const setPage = (page: number) => {
-    if (page >= 1 && page <= totalPages && page !== currentPage) {
-      onPageChange?.(page);
-    }
+    const canSelect = isSelectablePage(page, currentPage, totalPages);
+    if (canSelect) onPageChange?.(page);
   };
 
   return (

@@ -20,6 +20,11 @@ export { default as XTooltip } from './atoms/x-tooltip/x-tooltip.vue';
 export { default as XMenu } from './atoms/x-menu/x-menu.vue';
 export { default as XList } from './atoms/x-list/x-list.vue';
 export { default as XListItem } from './atoms/x-list-item/x-list-item.vue';
+export { default as XText } from './atoms/x-text/x-text.vue';
+export { default as XStack } from './atoms/x-stack/x-stack.vue';
+export { default as XGrid } from './atoms/x-grid/x-grid.vue';
+export { default as XTextarea } from './atoms/x-textarea/x-textarea.vue';
+export { default as XNavDrawer } from './atoms/x-nav-drawer/x-nav-drawer.vue';
 
 // Molecules
 export { default as MConfirmDialog } from './molecules/m-confirm-dialog/m-confirm-dialog.vue';
@@ -34,8 +39,11 @@ export { default as MActionBar } from './molecules/m-action-bar/m-action-bar.vue
 export { default as MDataTable } from './molecules/m-data-table/m-data-table.vue';
 
 // Theme & Tokens
-export { starshipDarkTheme } from './theme/starship-theme';
+export { starshipDarkTheme, starshipLightTheme } from './theme/starship-theme';
 export * from './core';
+
+// Helpers: vue adapters over the framework-free core
+export * from './adapters/vue';
 
 // Internal imports for plugin registration
 import XBtn from './atoms/x-btn/x-btn.vue';
@@ -56,6 +64,11 @@ import XTooltip from './atoms/x-tooltip/x-tooltip.vue';
 import XMenu from './atoms/x-menu/x-menu.vue';
 import XList from './atoms/x-list/x-list.vue';
 import XListItem from './atoms/x-list-item/x-list-item.vue';
+import XText from './atoms/x-text/x-text.vue';
+import XStack from './atoms/x-stack/x-stack.vue';
+import XGrid from './atoms/x-grid/x-grid.vue';
+import XTextarea from './atoms/x-textarea/x-textarea.vue';
+import XNavDrawer from './atoms/x-nav-drawer/x-nav-drawer.vue';
 
 import MConfirmDialog from './molecules/m-confirm-dialog/m-confirm-dialog.vue';
 import MKpiTile from './molecules/m-kpi-tile/m-kpi-tile.vue';
@@ -94,6 +107,11 @@ export const createXAtomsPlugin = () => ({
     app.component('x-list', XList);
     app.component('XListItem', XListItem);
     app.component('x-list-item', XListItem);
+    app.component('XText', XText);
+    app.component('XStack', XStack);
+    app.component('XGrid', XGrid);
+    app.component('XTextarea', XTextarea);
+    app.component('XNavDrawer', XNavDrawer);
 
     app.component('MConfirmDialog', MConfirmDialog);
     app.component('MKpiTile', MKpiTile);

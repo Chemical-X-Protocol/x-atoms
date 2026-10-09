@@ -10,7 +10,7 @@ export interface ReactCardProps extends XCardProps {
 }
 
 export const XCardReact: React.FC<ReactCardProps> = ({
-  variant = 'glass',
+  variant = undefined,
   color = undefined,
   loading = false,
   disabled = false,

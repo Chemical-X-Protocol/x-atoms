@@ -11,7 +11,7 @@ export interface ReactBtnProps extends XBtnProps {
 }
 
 export const XBtnReact: React.FC<ReactBtnProps> = ({
-  variant = 'glass',
+  variant = undefined,
   color = undefined,
   size = 'default',
   block = false,

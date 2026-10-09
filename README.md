@@ -1,84 +1,96 @@
 # @chemx/x-atoms
 
-Universal design system primitives, Starship glassmorphic tokens, and multi-framework component adapters for Project Compass and Chemical X applications.
+Design system atoms, molecules and helpers for Chemical X and Project Compass, with Starship glass tokens and adapters for Vue 3 (Vuetify), Svelte 5 and React 19.
 
-## Architecture: The 2/3 Headless Protocol
+## Architecture
 
-- **66% Headless Core**: Pure TypeScript controllers, state logic, 2-stage atomic booleans, and SCSS glass tokens.
-- **33% Thin Adapters**: Native, zero-boilerplate view wrappers for Vue 3, Svelte 5, and React 19.
+- **Headless core** (`@chemx/x-atoms/core`): framework-free TypeScript. Tokens, controllers' shared types, and the helper layer (result tuples, combinators, timers, filters, disposers). It loads in bare Node.
+- **Thin adapters**: one view file per framework per component (`.vue` wraps Vuetify; `.svelte` and `.tsx` render plain HTML), plus framework hooks/composables built on the same core.
+- **Catalog** (`@chemx/x-atoms/catalog.json`): generated from source. Lists every atom, molecule and helper with props, defaults per framework, emits, slots, what it replaces, and the chemx hazard rule each helper fixes. Atom-aware tooling reads this file.
 
 ## Installation
 
 ```bash
-# Monorepo Workspace
-pnpm add @chemx/x-atoms --workspace
-
-# Standalone / External
-pnpm add @chemx/x-atoms
+pnpm add @chemx/x-atoms            # external
+pnpm add @chemx/x-atoms --workspace # monorepo
 ```
 
-## Multi-Framework Usage
+Every subpath ships prebuilt ES modules and `.d.ts` files in `dist/`; no bundler is needed to import them.
 
-### 1. Vue 3 + Vuetify
-```typescript
-import {
-  XBtn,
-  XCard,
-  XDialog,
-  MDataTable,
-  MTabsNav,
-  starshipDarkTheme,
-  createXAtomsPlugin,
-} from '@chemx/x-atoms/vue';
-import '@chemx/x-atoms/styles';
+| Subpath | Contents | Peers |
+|---|---|---|
+| `@chemx/x-atoms/core` | tokens, types, helpers | none |
+| `@chemx/x-atoms` | core + headless controllers + `starshipDarkTheme` | none |
+| `@chemx/x-atoms/vue` | components, `createXAtomsPlugin`, composables | vue, vuetify |
+| `@chemx/x-atoms/react` | components, hooks | react |
+| `@chemx/x-atoms/svelte` | components (precompiled, CSS injected), store helpers | svelte 5 |
+| `@chemx/x-atoms/theme` | `starshipDarkTheme`, `starshipLightTheme` | none |
+| `@chemx/x-atoms/css/vue` | styles for the Vue molecules and layout atoms | |
+| `@chemx/x-atoms/css/components` | framework-neutral styles for every atom and molecule (use with React) | |
+| `@chemx/x-atoms/css/glass` | opt-in glass theme for all atoms | |
+| `@chemx/x-atoms/css/tokens` | CSS variables: glass, `--x-tone-*`, `--x-space-*` | |
+
+## Usage
+
+```ts
+// Vue 3 + Vuetify
+import { createXAtomsPlugin, starshipDarkTheme, useAsyncData } from '@chemx/x-atoms/vue';
+import '@chemx/x-atoms/css/vue';
+import '@chemx/x-atoms/css/glass';
+app.use(createVuetify({ theme: { defaultTheme: 'starship', themes: { starship: starshipDarkTheme } } }));
+app.use(createXAtomsPlugin());
 ```
 
-### 2. Svelte 5 (Runes)
+```tsx
+// React
+import { XBtn, XStack, useAsyncData } from '@chemx/x-atoms/react';
+import '@chemx/x-atoms/css/components';
+import '@chemx/x-atoms/css/glass';
+```
+
 ```svelte
 <script lang="ts">
-  import { XBtn, XCard, MKpiTile, MDataTable } from '@chemx/x-atoms/svelte';
-  import '@chemx/x-atoms/styles';
+  import { XBtn, XText, useAsyncData } from '@chemx/x-atoms/svelte';
 </script>
 ```
 
-### 3. React 19 (JSX)
-```tsx
-import { XBtn, XCard, MKpiTile, MDataTable } from '@chemx/x-atoms/react';
-import '@chemx/x-atoms/styles';
+```js
+// Node, CLIs, workers: no framework
+import { toResult, toResultSync, after, createPredicateFilter } from '@chemx/x-atoms/core';
 ```
 
-### 4. Pure Headless Core (Zero UI Dependencies)
-```typescript
-import { starshipColors, glassTokens, computeBtnClasses } from '@chemx/x-atoms/core';
+## Helpers
+
+| Helper | Fixes chemx hazard | Where |
+|---|---|---|
+| `toResult(promiseOrThunk)`, `toResultSync`, `mapResult`, `unwrapOr` | shallow/swallowed catch | core |
+| `all`/`any`/`none`, `allPass`/`anyPass`/`nonePass`, `createRuleSet` | raw multi-clause conditions | core |
+| `createPredicateFilter`, `matchesAnyPattern`, `matchesAllPredicates` | repeated inline filters | core |
+| `after`, `every`, `createDebounce`, `createRestartableTimeout`/`Interval` | timers without teardown | core |
+| `createDisposer`, `listen` | orphaned listeners | core |
+| `useAsyncData` | swallowed fetch errors, stale responses | vue, react, svelte |
+| `usePredicateFilter` | repeated filters | vue, react, svelte |
+| `useSelfCleaningInterval` / `useSelfCleaningTimeout` | timers without teardown | vue, react, svelte |
+| `useDisposer` | teardown on unmount (`onScopeDispose`, effect cleanup, `onDestroy`) | vue, react, svelte |
+
+The catalog's `helpers[].fixes` lists the exact rule ids.
+
+## Components
+
+Atoms (23): x-alert, x-avatar, x-badge, x-btn, x-card, x-checkbox, x-chip, x-dialog (alias x-modal), x-divider, x-grid, x-list, x-list-item, x-menu (Vue only), x-nav-drawer, x-progress-linear, x-sheet, x-skeleton, x-stack, x-switch, x-text, x-text-field, x-textarea, x-tooltip.
+
+Molecules (10): m-action-bar, m-confirm-dialog, m-data-table, m-empty-state, m-kpi-tile, m-pagination, m-search-input, m-stat-strip, m-tabs-nav, m-toast.
+
+Tone palette: `primary`, `secondary`, `success`, `warning`, `error`, `info`, `pink`, `lime`, `sky`, `purple`, `slate`, `muted`. Each tone is a Vuetify theme color, a `--x-tone-<name>` CSS variable and an `.x-tone--<name>` class (`<x-text tone="pink">`).
+
+See `catalog.json` for every prop, default, slot and emit.
+
+## Development
+
+```bash
+npm run build          # dist bundles, CSS, declarations, catalog.json
+npm run typecheck      # vue-tsc
+npm run test:core      # node --test: core helpers, entries, published types, catalog, parity
+npm run test:ui        # vitest + happy-dom: Vue mounts, adapter helpers, dist bundles
+npm run catalog:check  # fails when catalog.json is stale
 ```
-
-## Component Catalog
-
-### Atoms (15 Foundations)
-- `<x-btn>`: Button with glass, elevated, flat, and outlined variants.
-- `<x-card>`: Glassmorphic panel container with hover lift and slot forwarding.
-- `<x-dialog>`: Accessible modal container enforcing action layout standards.
-- `<x-text-field>`: Dark-themed input with glass backdrop and cyan focus ring.
-- `<x-chip>`: Status pill with semantic color mappings and close handler.
-- `<x-sheet>`: Semantic layout wrapper replacing raw `<div>` tags.
-- `<x-avatar>`: User avatars with initials derivation, border glow, and online/offline status dot.
-- `<x-badge>`: Floating count badge, dot indicator, and semantic color status mappings.
-- `<x-checkbox>`: Accessible toggle checkbox with Starship cyan styling and indeterminate state.
-- `<x-switch>`: Toggle switch with sliding thumb and glass track.
-- `<x-divider>`: Divider line with horizontal/vertical orientation and gradient inset flare.
-- `<x-skeleton>`: Animated shimmer and pulse loading placeholders with zero JS runtime overhead.
-- `<x-alert>`: Semantic banner box with status border and dismiss action.
-- `<x-progress-linear>`: Smooth animated progress bar with cyan glow and traveling wave.
-- `<x-tooltip>`: Accessible hover/focus balloon with positioning calculations.
-
-### Molecules (10 Composites)
-- `<m-confirm-dialog>`: Confirmation modal with cancel and confirm actions.
-- `<m-kpi-tile>`: Key performance indicator metric card with trend badge.
-- `<m-search-input>`: Debounced search field with search icon, clear button, and query emission.
-- `<m-pagination>`: Full pagination bar with prev/next buttons, page numbers, item count summary, and rows-per-page selector.
-- `<m-empty-state>`: Universal empty state container with icon/avatar, title, subtitle, and action button.
-- `<m-toast>`: Floating ephemeral notification banner with slide-in animation and auto-dismiss timer.
-- `<m-stat-strip>`: Horizontal responsive layout of multiple KPI metrics with auto-fitting grid.
-- `<m-tabs-nav>`: Horizontal tab navigation strip with slider indicator pill and active state tracking.
-- `<m-action-bar>`: Flexible top/bottom docked toolbar with start, center, and end action slots.
-- `<m-data-table>`: Glassmorphic data grid with multi-column sorting, row click dispatch, loading progress indicator, and custom cell slots.

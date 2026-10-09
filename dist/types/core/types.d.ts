@@ -1,0 +1,11 @@
+export type ComponentVariant = 'glass' | 'elevated' | 'flat' | 'tonal' | 'outlined' | 'text' | 'plain';
+export type ComponentSize = 'x-small' | 'small' | 'default' | 'large' | 'x-large';
+export type SemanticStatus = 'primary' | 'secondary' | 'success' | 'warning' | 'error' | 'info';
+export interface BaseComponentProps {
+    variant?: ComponentVariant;
+    size?: ComponentSize;
+    disabled?: boolean;
+    className?: string;
+}
+export type Tone = SemanticStatus | 'pink' | 'lime' | 'sky' | 'purple' | 'slate' | 'muted';
+export type SpaceScale = 'none' | 'xs' | 'sm' | 'md' | 'lg' | 'xl';

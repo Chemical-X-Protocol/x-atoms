@@ -65,3 +65,28 @@ export const resolveCellValue = <T extends Record<string, unknown>>(
 ): unknown => {
   return item[header.key] ?? '';
 };
+
+export const computeHeaderClasses = (header: MDataTableHeader): string => {
+  const classes = ['m-data-table__th'];
+  if (header.sortable) classes.push('m-data-table__th--sortable');
+  if (header.align) classes.push(`m-data-table__th--align-${header.align}`);
+  return classes.join(' ');
+};
+
+export const computeCellClasses = (header: MDataTableHeader): string => {
+  const classes = ['m-data-table__td'];
+  if (header.align) classes.push(`m-data-table__td--align-${header.align}`);
+  return classes.join(' ');
+};
+
+/** The sort arrow for a header, or null when the table is not sorted by it. */
+export const resolveSortIcon = (state: MDataTableSortState, key: string): string | null => {
+  const isSortedByKey = state.sortBy === key;
+  if (!isSortedByKey) return null;
+  return state.sortDesc ? '▼' : '▲';
+};
+
+/** A header click sorts only when the header is sortable and someone listens. */
+export const canSortHeader = (header: MDataTableHeader, hasSortListener: boolean): boolean => {
+  return Boolean(header.sortable) && hasSortListener;
+};
