@@ -1,4 +1,5 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useDebouncedCallback } from '../../adapters/react/useDebouncedCallback';
 import type { MSearchInputProps } from './types';
 import { computeSearchInputClasses } from './m-search-input.controller';
 import XTextFieldReact from '../../atoms/x-text-field/x-text-field';
@@ -20,7 +21,7 @@ export const MSearchInputReact: React.FC<ReactSearchInputProps> = ({
   onClear = undefined,
 }) => {
   const [internalVal, setInternalVal] = useState(modelValue);
-  const debounceTimer = useRef<any>(null);
+  const searchDebounced = useDebouncedCallback((val: string) => onSearch?.(val), debounceMs);
 
   useEffect(() => {
     setInternalVal(modelValue);
@@ -29,11 +30,7 @@ export const MSearchInputReact: React.FC<ReactSearchInputProps> = ({
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const val = e.target.value;
     setInternalVal(val);
-
-    if (debounceTimer.current) clearTimeout(debounceTimer.current);
-    debounceTimer.current = setTimeout(() => {
-      onSearch?.(val);
-    }, debounceMs);
+    searchDebounced(val);
   };
 
   const handleClear = () => {

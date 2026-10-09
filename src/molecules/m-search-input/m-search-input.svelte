@@ -1,6 +1,8 @@
 <script lang="ts">
 import type { MSearchInputProps } from './types';
-import { createDebounce, computeSearchInputClasses } from './m-search-input.controller';
+import { onDestroy } from 'svelte';
+import { createDebounce } from '../../core';
+import { computeSearchInputClasses } from './m-search-input.controller';
 import XTextField from '../../atoms/x-text-field/x-text-field.svelte';
 
 interface SvelteSearchInputProps extends MSearchInputProps {
@@ -23,6 +25,7 @@ let {
 const emitSearchDebounced = createDebounce((val: string) => {
   onsearch?.(val);
 }, debounceMs);
+onDestroy(emitSearchDebounced.cancel);
 
 const handleInput = (e: Event) => {
   const target = e.target as HTMLInputElement;

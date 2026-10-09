@@ -1,7 +1,8 @@
 <script setup lang="ts">
-import { ref, watch } from 'vue';
+import { onScopeDispose, ref, watch } from 'vue';
 import type { MSearchInputProps, MSearchInputEmits } from './types';
-import { createDebounce, computeSearchInputClasses } from './m-search-input.controller';
+import { createDebounce } from '../../core';
+import { computeSearchInputClasses } from './m-search-input.controller';
 import XTextField from '../../atoms/x-text-field/x-text-field.vue';
 
 defineOptions({
@@ -24,6 +25,7 @@ const internalQuery = ref(props.modelValue);
 const emitSearchDebounced = createDebounce((val: string) => {
   emit('search', val);
 }, props.debounceMs);
+onScopeDispose(emitSearchDebounced.cancel);
 
 watch(
   () => props.modelValue,
