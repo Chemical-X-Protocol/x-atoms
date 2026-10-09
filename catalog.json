@@ -1,0 +1,4339 @@
+{
+  "catalogVersion": 1,
+  "package": "@chemx/x-atoms",
+  "version": "26.10.8-285",
+  "css": {
+    "vue": "@chemx/x-atoms/css/vue",
+    "components": "@chemx/x-atoms/css/components",
+    "glass": "@chemx/x-atoms/css/glass",
+    "tokens": "@chemx/x-atoms/css/tokens"
+  },
+  "atoms": [
+    {
+      "name": "XAlert",
+      "tag": "x-alert",
+      "tier": "atom",
+      "summary": "Status message banner.",
+      "frameworks": [
+        "vue",
+        "svelte",
+        "react"
+      ],
+      "imports": {
+        "vue": {
+          "from": "@chemx/x-atoms/vue",
+          "name": "XAlert"
+        },
+        "svelte": {
+          "from": "@chemx/x-atoms/svelte",
+          "name": "XAlert"
+        },
+        "react": {
+          "from": "@chemx/x-atoms/react",
+          "name": "XAlert"
+        }
+      },
+      "vuetifyRoot": "v-alert",
+      "replaces": {
+        "html": [
+          "div[role=alert]"
+        ],
+        "vuetify": [
+          "v-alert"
+        ]
+      },
+      "safe1to1": true,
+      "propMap": {
+        "type": "type",
+        "title": "title",
+        "text": "text",
+        "closable": "closable",
+        "variant": "variant"
+      },
+      "props": [
+        {
+          "name": "type",
+          "type": "SemanticStatus",
+          "required": false,
+          "default": {
+            "vue": "'info'",
+            "svelte": "'info'",
+            "react": "'info'"
+          }
+        },
+        {
+          "name": "title",
+          "type": "string",
+          "required": false,
+          "default": {
+            "vue": "undefined",
+            "svelte": "undefined",
+            "react": "undefined"
+          }
+        },
+        {
+          "name": "text",
+          "type": "string",
+          "required": false,
+          "default": {
+            "vue": "undefined",
+            "svelte": "undefined",
+            "react": "undefined"
+          }
+        },
+        {
+          "name": "closable",
+          "type": "boolean",
+          "required": false,
+          "default": {
+            "vue": "false",
+            "svelte": "false",
+            "react": "false"
+          }
+        },
+        {
+          "name": "variant",
+          "type": "'glass' | 'tonal' | 'outlined' | 'elevated'",
+          "required": false,
+          "default": {
+            "vue": "undefined",
+            "svelte": "undefined",
+            "react": "undefined"
+          }
+        }
+      ],
+      "emits": [
+        "click:close"
+      ],
+      "slots": [
+        "default",
+        "prepend",
+        "title",
+        "append",
+        "close"
+      ],
+      "controller": "src/atoms/x-alert/x-alert.controller.ts"
+    },
+    {
+      "name": "XAvatar",
+      "tag": "x-avatar",
+      "tier": "atom",
+      "summary": "User or entity avatar with initials and status.",
+      "frameworks": [
+        "vue",
+        "svelte",
+        "react"
+      ],
+      "imports": {
+        "vue": {
+          "from": "@chemx/x-atoms/vue",
+          "name": "XAvatar"
+        },
+        "svelte": {
+          "from": "@chemx/x-atoms/svelte",
+          "name": "XAvatar"
+        },
+        "react": {
+          "from": "@chemx/x-atoms/react",
+          "name": "XAvatar"
+        }
+      },
+      "vuetifyRoot": "v-avatar",
+      "replaces": {
+        "html": [
+          "img"
+        ],
+        "vuetify": [
+          "v-avatar"
+        ]
+      },
+      "safe1to1": true,
+      "propMap": {
+        "src": "src",
+        "alt": "alt",
+        "text": "text",
+        "size": "size",
+        "rounded": "rounded",
+        "bordered": "bordered",
+        "status": "status"
+      },
+      "props": [
+        {
+          "name": "src",
+          "type": "string",
+          "required": false,
+          "default": {
+            "vue": "undefined",
+            "svelte": "undefined",
+            "react": "undefined"
+          }
+        },
+        {
+          "name": "alt",
+          "type": "string",
+          "required": false,
+          "default": {
+            "vue": "undefined",
+            "svelte": "undefined",
+            "react": "undefined"
+          }
+        },
+        {
+          "name": "text",
+          "type": "string",
+          "required": false,
+          "default": {
+            "vue": "undefined",
+            "svelte": "undefined",
+            "react": "undefined"
+          }
+        },
+        {
+          "name": "size",
+          "type": "ComponentSize | number | string",
+          "required": false,
+          "default": {
+            "vue": "'default'",
+            "svelte": "'default'",
+            "react": "'default'"
+          }
+        },
+        {
+          "name": "rounded",
+          "type": "boolean | string",
+          "required": false,
+          "default": {
+            "vue": "undefined"
+          }
+        },
+        {
+          "name": "bordered",
+          "type": "boolean",
+          "required": false,
+          "default": {
+            "vue": "false",
+            "svelte": "false",
+            "react": "false"
+          }
+        },
+        {
+          "name": "status",
+          "type": "'online' | 'offline' | 'busy' | 'away'",
+          "required": false,
+          "default": {
+            "vue": "undefined",
+            "svelte": "undefined",
+            "react": "undefined"
+          }
+        }
+      ],
+      "emits": [],
+      "slots": [],
+      "controller": "src/atoms/x-avatar/x-avatar.controller.ts"
+    },
+    {
+      "name": "XBadge",
+      "tag": "x-badge",
+      "tier": "atom",
+      "summary": "Count or dot badge over content.",
+      "frameworks": [
+        "vue",
+        "svelte",
+        "react"
+      ],
+      "imports": {
+        "vue": {
+          "from": "@chemx/x-atoms/vue",
+          "name": "XBadge"
+        },
+        "svelte": {
+          "from": "@chemx/x-atoms/svelte",
+          "name": "XBadge"
+        },
+        "react": {
+          "from": "@chemx/x-atoms/react",
+          "name": "XBadge"
+        }
+      },
+      "vuetifyRoot": "v-badge",
+      "replaces": {
+        "html": [],
+        "vuetify": [
+          "v-badge"
+        ]
+      },
+      "safe1to1": true,
+      "propMap": {
+        "content": "content",
+        "color": "color",
+        "dot": "dot",
+        "inline": "inline",
+        "max": "max",
+        "floating": "floating"
+      },
+      "props": [
+        {
+          "name": "content",
+          "type": "string | number",
+          "required": false,
+          "default": {
+            "vue": "undefined",
+            "svelte": "undefined",
+            "react": "undefined"
+          }
+        },
+        {
+          "name": "color",
+          "type": "SemanticStatus | string",
+          "required": false,
+          "default": {
+            "vue": "'primary'",
+            "svelte": "'primary'",
+            "react": "'primary'"
+          }
+        },
+        {
+          "name": "dot",
+          "type": "boolean",
+          "required": false,
+          "default": {
+            "vue": "false",
+            "svelte": "false",
+            "react": "false"
+          }
+        },
+        {
+          "name": "inline",
+          "type": "boolean",
+          "required": false,
+          "default": {
+            "vue": "false",
+            "svelte": "false",
+            "react": "false"
+          }
+        },
+        {
+          "name": "max",
+          "type": "number",
+          "required": false,
+          "default": {
+            "vue": "99",
+            "svelte": "99",
+            "react": "99"
+          }
+        },
+        {
+          "name": "floating",
+          "type": "boolean",
+          "required": false,
+          "default": {
+            "vue": "true",
+            "svelte": "true",
+            "react": "true"
+          }
+        }
+      ],
+      "emits": [],
+      "slots": [
+        "default"
+      ],
+      "controller": "src/atoms/x-badge/x-badge.controller.ts"
+    },
+    {
+      "name": "XBtn",
+      "tag": "x-btn",
+      "tier": "atom",
+      "summary": "Button.",
+      "frameworks": [
+        "vue",
+        "svelte",
+        "react"
+      ],
+      "imports": {
+        "vue": {
+          "from": "@chemx/x-atoms/vue",
+          "name": "XBtn"
+        },
+        "svelte": {
+          "from": "@chemx/x-atoms/svelte",
+          "name": "XBtn"
+        },
+        "react": {
+          "from": "@chemx/x-atoms/react",
+          "name": "XBtn"
+        }
+      },
+      "vuetifyRoot": "v-btn",
+      "replaces": {
+        "html": [
+          "button"
+        ],
+        "vuetify": [
+          "v-btn"
+        ]
+      },
+      "safe1to1": true,
+      "propMap": {
+        "variant": "variant",
+        "color": "color",
+        "size": "size",
+        "block": "block",
+        "loading": "loading",
+        "disabled": "disabled",
+        "icon": "icon"
+      },
+      "props": [
+        {
+          "name": "variant",
+          "type": "XBtnVariant",
+          "required": false,
+          "default": {
+            "vue": "undefined",
+            "svelte": "undefined",
+            "react": "undefined"
+          }
+        },
+        {
+          "name": "color",
+          "type": "string",
+          "required": false,
+          "default": {
+            "vue": "undefined",
+            "svelte": "undefined",
+            "react": "undefined"
+          }
+        },
+        {
+          "name": "size",
+          "type": "'x-small' | 'small' | 'default' | 'large' | 'x-large'",
+          "required": false,
+          "default": {
+            "vue": "'default'",
+            "svelte": "'default'",
+            "react": "'default'"
+          }
+        },
+        {
+          "name": "block",
+          "type": "boolean",
+          "required": false,
+          "default": {
+            "vue": "false",
+            "svelte": "false",
+            "react": "false"
+          }
+        },
+        {
+          "name": "loading",
+          "type": "boolean",
+          "required": false,
+          "default": {
+            "vue": "false",
+            "svelte": "false",
+            "react": "false"
+          }
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "required": false,
+          "default": {
+            "vue": "false",
+            "svelte": "false",
+            "react": "false"
+          }
+        },
+        {
+          "name": "icon",
+          "type": "string | boolean",
+          "required": false,
+          "default": {
+            "vue": "false",
+            "svelte": "false",
+            "react": "false"
+          }
+        }
+      ],
+      "emits": [],
+      "slots": [
+        "default",
+        "prepend",
+        "append",
+        "loader"
+      ],
+      "controller": "src/atoms/x-btn/x-btn.controller.ts"
+    },
+    {
+      "name": "XCard",
+      "tag": "x-card",
+      "tier": "atom",
+      "summary": "Surface card with title, text and actions slots.",
+      "frameworks": [
+        "vue",
+        "svelte",
+        "react"
+      ],
+      "imports": {
+        "vue": {
+          "from": "@chemx/x-atoms/vue",
+          "name": "XCard"
+        },
+        "svelte": {
+          "from": "@chemx/x-atoms/svelte",
+          "name": "XCard"
+        },
+        "react": {
+          "from": "@chemx/x-atoms/react",
+          "name": "XCard"
+        }
+      },
+      "vuetifyRoot": "v-card",
+      "replaces": {
+        "html": [
+          "article"
+        ],
+        "vuetify": [
+          "v-card"
+        ]
+      },
+      "safe1to1": true,
+      "propMap": {
+        "variant": "variant",
+        "color": "color",
+        "loading": "loading",
+        "disabled": "disabled",
+        "hover": "hover"
+      },
+      "props": [
+        {
+          "name": "variant",
+          "type": "XCardVariant",
+          "required": false,
+          "default": {
+            "vue": "undefined",
+            "svelte": "undefined",
+            "react": "undefined"
+          }
+        },
+        {
+          "name": "color",
+          "type": "string",
+          "required": false,
+          "default": {
+            "vue": "undefined",
+            "svelte": "undefined",
+            "react": "undefined"
+          }
+        },
+        {
+          "name": "loading",
+          "type": "boolean",
+          "required": false,
+          "default": {
+            "vue": "false",
+            "svelte": "false",
+            "react": "false"
+          }
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "required": false,
+          "default": {
+            "vue": "false",
+            "svelte": "false",
+            "react": "false"
+          }
+        },
+        {
+          "name": "hover",
+          "type": "boolean",
+          "required": false,
+          "default": {
+            "vue": "false",
+            "svelte": "false",
+            "react": "false"
+          }
+        }
+      ],
+      "emits": [],
+      "slots": [
+        "default",
+        "image",
+        "prepend",
+        "title",
+        "subtitle",
+        "text",
+        "actions",
+        "loader",
+        "append"
+      ],
+      "controller": "src/atoms/x-card/x-card.controller.ts"
+    },
+    {
+      "name": "XCheckbox",
+      "tag": "x-checkbox",
+      "tier": "atom",
+      "summary": "Checkbox with label.",
+      "frameworks": [
+        "vue",
+        "svelte",
+        "react"
+      ],
+      "imports": {
+        "vue": {
+          "from": "@chemx/x-atoms/vue",
+          "name": "XCheckbox"
+        },
+        "svelte": {
+          "from": "@chemx/x-atoms/svelte",
+          "name": "XCheckbox"
+        },
+        "react": {
+          "from": "@chemx/x-atoms/react",
+          "name": "XCheckbox"
+        }
+      },
+      "vuetifyRoot": "v-checkbox",
+      "replaces": {
+        "html": [
+          "input[type=checkbox]"
+        ],
+        "vuetify": [
+          "v-checkbox"
+        ]
+      },
+      "safe1to1": true,
+      "propMap": {
+        "modelValue": "modelValue",
+        "label": "label",
+        "disabled": "disabled",
+        "indeterminate": "indeterminate",
+        "color": "color",
+        "hideDetails": "hideDetails"
+      },
+      "props": [
+        {
+          "name": "modelValue",
+          "type": "boolean",
+          "required": false,
+          "default": {
+            "vue": "false",
+            "svelte": "false",
+            "react": "false"
+          }
+        },
+        {
+          "name": "label",
+          "type": "string",
+          "required": false,
+          "default": {
+            "vue": "undefined",
+            "svelte": "undefined",
+            "react": "undefined"
+          }
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "required": false,
+          "default": {
+            "vue": "false",
+            "svelte": "false",
+            "react": "false"
+          }
+        },
+        {
+          "name": "indeterminate",
+          "type": "boolean",
+          "required": false,
+          "default": {
+            "vue": "false"
+          }
+        },
+        {
+          "name": "color",
+          "type": "string",
+          "required": false,
+          "default": {
+            "vue": "'primary'"
+          }
+        },
+        {
+          "name": "hideDetails",
+          "type": "boolean | 'auto'",
+          "required": false,
+          "default": {
+            "vue": "'auto'"
+          }
+        }
+      ],
+      "emits": [
+        "update:modelValue",
+        "change"
+      ],
+      "slots": [
+        "default",
+        "label"
+      ],
+      "controller": "src/atoms/x-checkbox/x-checkbox.controller.ts"
+    },
+    {
+      "name": "XChip",
+      "tag": "x-chip",
+      "tier": "atom",
+      "summary": "Compact tag or filter chip.",
+      "frameworks": [
+        "vue",
+        "svelte",
+        "react"
+      ],
+      "imports": {
+        "vue": {
+          "from": "@chemx/x-atoms/vue",
+          "name": "XChip"
+        },
+        "svelte": {
+          "from": "@chemx/x-atoms/svelte",
+          "name": "XChip"
+        },
+        "react": {
+          "from": "@chemx/x-atoms/react",
+          "name": "XChip"
+        }
+      },
+      "vuetifyRoot": "v-chip",
+      "replaces": {
+        "html": [
+          "span"
+        ],
+        "vuetify": [
+          "v-chip"
+        ]
+      },
+      "safe1to1": true,
+      "propMap": {
+        "variant": "variant",
+        "color": "color",
+        "size": "size",
+        "closable": "closable",
+        "disabled": "disabled",
+        "filter": "filter"
+      },
+      "props": [
+        {
+          "name": "variant",
+          "type": "XChipVariant",
+          "required": false,
+          "default": {
+            "vue": "undefined",
+            "svelte": "undefined",
+            "react": "undefined"
+          }
+        },
+        {
+          "name": "color",
+          "type": "string",
+          "required": false,
+          "default": {
+            "vue": "undefined",
+            "svelte": "undefined",
+            "react": "undefined"
+          }
+        },
+        {
+          "name": "size",
+          "type": "'x-small' | 'small' | 'default' | 'large' | 'x-large'",
+          "required": false,
+          "default": {
+            "vue": "'default'",
+            "svelte": "'default'",
+            "react": "'default'"
+          }
+        },
+        {
+          "name": "closable",
+          "type": "boolean",
+          "required": false,
+          "default": {
+            "vue": "false",
+            "svelte": "false",
+            "react": "false"
+          }
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "required": false,
+          "default": {
+            "vue": "false",
+            "svelte": "false",
+            "react": "false"
+          }
+        },
+        {
+          "name": "filter",
+          "type": "boolean",
+          "required": false,
+          "default": {
+            "vue": "false",
+            "svelte": "false",
+            "react": "false"
+          }
+        }
+      ],
+      "emits": [
+        "click:close"
+      ],
+      "slots": [
+        "default",
+        "prepend",
+        "close",
+        "append"
+      ],
+      "controller": "src/atoms/x-chip/x-chip.controller.ts"
+    },
+    {
+      "name": "XDialog",
+      "tag": "x-dialog",
+      "tier": "atom",
+      "summary": "Modal dialog; wraps content in a card with title/actions slots.",
+      "frameworks": [
+        "vue",
+        "svelte",
+        "react"
+      ],
+      "imports": {
+        "vue": {
+          "from": "@chemx/x-atoms/vue",
+          "name": "XDialog"
+        },
+        "svelte": {
+          "from": "@chemx/x-atoms/svelte",
+          "name": "XDialog"
+        },
+        "react": {
+          "from": "@chemx/x-atoms/react",
+          "name": "XDialog"
+        }
+      },
+      "aliases": [
+        "XModal",
+        "x-modal"
+      ],
+      "vuetifyRoot": "v-dialog",
+      "replaces": {
+        "html": [
+          "dialog"
+        ],
+        "vuetify": [
+          "v-dialog"
+        ]
+      },
+      "safe1to1": false,
+      "propMap": {},
+      "props": [
+        {
+          "name": "modelValue",
+          "type": "boolean",
+          "required": false,
+          "default": {
+            "vue": "false",
+            "svelte": "false",
+            "react": "false"
+          }
+        },
+        {
+          "name": "maxWidth",
+          "type": "string | number",
+          "required": false,
+          "default": {
+            "vue": "600",
+            "svelte": "600",
+            "react": "600"
+          }
+        },
+        {
+          "name": "width",
+          "type": "string | number",
+          "required": false,
+          "default": {
+            "vue": "undefined",
+            "svelte": "undefined",
+            "react": "undefined"
+          }
+        },
+        {
+          "name": "persistent",
+          "type": "boolean",
+          "required": false,
+          "default": {
+            "vue": "false",
+            "svelte": "false",
+            "react": "false"
+          }
+        },
+        {
+          "name": "scrollable",
+          "type": "boolean",
+          "required": false,
+          "default": {
+            "vue": "false",
+            "svelte": "false",
+            "react": "false"
+          }
+        },
+        {
+          "name": "fullscreen",
+          "type": "boolean",
+          "required": false,
+          "default": {
+            "vue": "false",
+            "svelte": "false",
+            "react": "false"
+          }
+        },
+        {
+          "name": "transition",
+          "type": "string",
+          "required": false
+        }
+      ],
+      "emits": [
+        "update:modelValue",
+        "update:model-value"
+      ],
+      "slots": [
+        "default",
+        "activator",
+        "title",
+        "actions"
+      ],
+      "controller": "src/atoms/x-dialog/x-dialog.controller.ts"
+    },
+    {
+      "name": "XDivider",
+      "tag": "x-divider",
+      "tier": "atom",
+      "summary": "Horizontal or vertical rule.",
+      "frameworks": [
+        "vue",
+        "svelte",
+        "react"
+      ],
+      "imports": {
+        "vue": {
+          "from": "@chemx/x-atoms/vue",
+          "name": "XDivider"
+        },
+        "svelte": {
+          "from": "@chemx/x-atoms/svelte",
+          "name": "XDivider"
+        },
+        "react": {
+          "from": "@chemx/x-atoms/react",
+          "name": "XDivider"
+        }
+      },
+      "vuetifyRoot": "v-divider",
+      "replaces": {
+        "html": [
+          "hr"
+        ],
+        "vuetify": [
+          "v-divider"
+        ]
+      },
+      "safe1to1": true,
+      "propMap": {
+        "vertical": "vertical",
+        "inset": "inset",
+        "color": "color",
+        "thickness": "thickness"
+      },
+      "props": [
+        {
+          "name": "vertical",
+          "type": "boolean",
+          "required": false,
+          "default": {
+            "vue": "false",
+            "svelte": "false",
+            "react": "false"
+          }
+        },
+        {
+          "name": "inset",
+          "type": "boolean",
+          "required": false,
+          "default": {
+            "vue": "false",
+            "svelte": "false",
+            "react": "false"
+          }
+        },
+        {
+          "name": "color",
+          "type": "string",
+          "required": false,
+          "default": {
+            "vue": "undefined"
+          }
+        },
+        {
+          "name": "thickness",
+          "type": "string | number",
+          "required": false,
+          "default": {
+            "vue": "undefined"
+          }
+        }
+      ],
+      "emits": [],
+      "slots": [],
+      "controller": "src/atoms/x-divider/x-divider.controller.ts"
+    },
+    {
+      "name": "XGrid",
+      "tag": "x-grid",
+      "tier": "atom",
+      "summary": "CSS grid layout: fixed columns or responsive auto-fill.",
+      "frameworks": [
+        "vue",
+        "svelte",
+        "react"
+      ],
+      "imports": {
+        "vue": {
+          "from": "@chemx/x-atoms/vue",
+          "name": "XGrid"
+        },
+        "svelte": {
+          "from": "@chemx/x-atoms/svelte",
+          "name": "XGrid"
+        },
+        "react": {
+          "from": "@chemx/x-atoms/react",
+          "name": "XGrid"
+        }
+      },
+      "vuetifyRoot": null,
+      "replaces": {
+        "html": [
+          "div"
+        ],
+        "vuetify": [
+          "v-row",
+          "v-col"
+        ]
+      },
+      "safe1to1": false,
+      "propMap": {},
+      "props": [
+        {
+          "name": "columns",
+          "type": "number",
+          "required": false,
+          "description": "Fixed column count (1-12). Ignored when `minItemWidth` is set.",
+          "default": {
+            "vue": "1",
+            "svelte": "1",
+            "react": "1"
+          }
+        },
+        {
+          "name": "minItemWidth",
+          "type": "string | number",
+          "required": false,
+          "description": "Responsive auto-fill: as many columns as fit at this minimum width.",
+          "default": {
+            "vue": "undefined",
+            "svelte": "undefined",
+            "react": "undefined"
+          }
+        },
+        {
+          "name": "gap",
+          "type": "SpaceScale",
+          "required": false,
+          "default": {
+            "vue": "'md'",
+            "svelte": "'md'",
+            "react": "'md'"
+          }
+        },
+        {
+          "name": "align",
+          "type": "'start' | 'center' | 'end' | 'stretch'",
+          "required": false,
+          "default": {
+            "vue": "undefined",
+            "svelte": "undefined",
+            "react": "undefined"
+          }
+        },
+        {
+          "name": "tag",
+          "type": "'div' | 'section' | 'ul' | 'ol'",
+          "required": false,
+          "default": {
+            "vue": "'div'",
+            "svelte": "'div'",
+            "react": "'div'"
+          }
+        }
+      ],
+      "emits": [],
+      "slots": [
+        "default"
+      ],
+      "controller": "src/atoms/x-grid/x-grid.controller.ts"
+    },
+    {
+      "name": "XList",
+      "tag": "x-list",
+      "tier": "atom",
+      "summary": "List container.",
+      "frameworks": [
+        "vue",
+        "svelte",
+        "react"
+      ],
+      "imports": {
+        "vue": {
+          "from": "@chemx/x-atoms/vue",
+          "name": "XList"
+        },
+        "svelte": {
+          "from": "@chemx/x-atoms/svelte",
+          "name": "XList"
+        },
+        "react": {
+          "from": "@chemx/x-atoms/react",
+          "name": "XList"
+        }
+      },
+      "vuetifyRoot": "v-list",
+      "replaces": {
+        "html": [
+          "ul",
+          "ol"
+        ],
+        "vuetify": [
+          "v-list"
+        ]
+      },
+      "safe1to1": true,
+      "propMap": {
+        "density": "density",
+        "lines": "lines",
+        "nav": "nav",
+        "color": "color",
+        "variant": "variant",
+        "disabled": "disabled"
+      },
+      "props": [
+        {
+          "name": "density",
+          "type": "'default' | 'comfortable' | 'compact'",
+          "required": false,
+          "default": {
+            "vue": "'default'",
+            "svelte": "'default'",
+            "react": "'default'"
+          }
+        },
+        {
+          "name": "lines",
+          "type": "'one' | 'two' | 'three' | false",
+          "required": false,
+          "default": {
+            "vue": "'one'",
+            "svelte": "'one'",
+            "react": "'one'"
+          }
+        },
+        {
+          "name": "nav",
+          "type": "boolean",
+          "required": false,
+          "default": {
+            "vue": "false",
+            "svelte": "false",
+            "react": "false"
+          }
+        },
+        {
+          "name": "color",
+          "type": "string",
+          "required": false,
+          "default": {
+            "vue": "undefined",
+            "svelte": "undefined",
+            "react": "undefined"
+          }
+        },
+        {
+          "name": "variant",
+          "type": "XListVariant",
+          "required": false,
+          "default": {
+            "vue": "undefined",
+            "svelte": "undefined",
+            "react": "undefined"
+          }
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "required": false,
+          "default": {
+            "vue": "false",
+            "svelte": "false",
+            "react": "false"
+          }
+        }
+      ],
+      "emits": [],
+      "slots": [
+        "default"
+      ],
+      "controller": "src/atoms/x-list/x-list.controller.ts"
+    },
+    {
+      "name": "XListItem",
+      "tag": "x-list-item",
+      "tier": "atom",
+      "summary": "List row with title, subtitle, prepend/append.",
+      "frameworks": [
+        "vue",
+        "svelte",
+        "react"
+      ],
+      "imports": {
+        "vue": {
+          "from": "@chemx/x-atoms/vue",
+          "name": "XListItem"
+        },
+        "svelte": {
+          "from": "@chemx/x-atoms/svelte",
+          "name": "XListItem"
+        },
+        "react": {
+          "from": "@chemx/x-atoms/react",
+          "name": "XListItem"
+        }
+      },
+      "vuetifyRoot": "v-list-item",
+      "replaces": {
+        "html": [
+          "li"
+        ],
+        "vuetify": [
+          "v-list-item"
+        ]
+      },
+      "safe1to1": true,
+      "propMap": {
+        "title": "title",
+        "subtitle": "subtitle",
+        "value": "value",
+        "active": "active",
+        "disabled": "disabled",
+        "color": "color",
+        "density": "density",
+        "lines": "lines",
+        "variant": "variant",
+        "rounded": "rounded",
+        "ripple": "ripple"
+      },
+      "props": [
+        {
+          "name": "title",
+          "type": "string",
+          "required": false,
+          "default": {
+            "vue": "undefined",
+            "svelte": "undefined",
+            "react": "undefined"
+          }
+        },
+        {
+          "name": "subtitle",
+          "type": "string",
+          "required": false,
+          "default": {
+            "vue": "undefined",
+            "svelte": "undefined",
+            "react": "undefined"
+          }
+        },
+        {
+          "name": "value",
+          "type": "any",
+          "required": false,
+          "default": {
+            "vue": "undefined",
+            "svelte": "undefined",
+            "react": "undefined"
+          }
+        },
+        {
+          "name": "active",
+          "type": "boolean",
+          "required": false,
+          "default": {
+            "vue": "undefined",
+            "svelte": "false",
+            "react": "false"
+          }
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "required": false,
+          "default": {
+            "vue": "false",
+            "svelte": "false",
+            "react": "false"
+          }
+        },
+        {
+          "name": "color",
+          "type": "string",
+          "required": false,
+          "default": {
+            "vue": "undefined",
+            "svelte": "undefined",
+            "react": "undefined"
+          }
+        },
+        {
+          "name": "density",
+          "type": "'default' | 'comfortable' | 'compact'",
+          "required": false,
+          "default": {
+            "vue": "undefined",
+            "svelte": "undefined",
+            "react": "undefined"
+          }
+        },
+        {
+          "name": "lines",
+          "type": "'one' | 'two' | 'three' | false",
+          "required": false,
+          "default": {
+            "vue": "undefined",
+            "svelte": "undefined",
+            "react": "undefined"
+          }
+        },
+        {
+          "name": "variant",
+          "type": "XListItemVariant",
+          "required": false,
+          "default": {
+            "vue": "undefined",
+            "svelte": "undefined",
+            "react": "undefined"
+          }
+        },
+        {
+          "name": "rounded",
+          "type": "boolean | string | number",
+          "required": false,
+          "default": {
+            "vue": "undefined",
+            "svelte": "undefined",
+            "react": "undefined"
+          }
+        },
+        {
+          "name": "ripple",
+          "type": "boolean",
+          "required": false,
+          "default": {
+            "vue": "true",
+            "svelte": "true",
+            "react": "true"
+          }
+        }
+      ],
+      "emits": [],
+      "slots": [
+        "default",
+        "prepend",
+        "title",
+        "subtitle",
+        "append"
+      ],
+      "controller": "src/atoms/x-list-item/x-list-item.controller.ts"
+    },
+    {
+      "name": "XMenu",
+      "tag": "x-menu",
+      "tier": "atom",
+      "summary": "Activator-anchored popup menu.",
+      "frameworks": [
+        "vue"
+      ],
+      "imports": {
+        "vue": {
+          "from": "@chemx/x-atoms/vue",
+          "name": "XMenu"
+        }
+      },
+      "vuetifyRoot": "v-menu",
+      "replaces": {
+        "html": [],
+        "vuetify": [
+          "v-menu"
+        ]
+      },
+      "safe1to1": true,
+      "propMap": {
+        "modelValue": "modelValue",
+        "closeOnContentClick": "closeOnContentClick",
+        "location": "location",
+        "origin": "origin",
+        "transition": "transition",
+        "disabled": "disabled",
+        "offset": "offset"
+      },
+      "props": [
+        {
+          "name": "modelValue",
+          "type": "boolean",
+          "required": false,
+          "default": {
+            "vue": "undefined"
+          }
+        },
+        {
+          "name": "closeOnContentClick",
+          "type": "boolean",
+          "required": false,
+          "default": {
+            "vue": "true"
+          }
+        },
+        {
+          "name": "location",
+          "type": "string",
+          "required": false,
+          "default": {
+            "vue": "undefined"
+          }
+        },
+        {
+          "name": "origin",
+          "type": "string",
+          "required": false,
+          "default": {
+            "vue": "undefined"
+          }
+        },
+        {
+          "name": "transition",
+          "type": "string",
+          "required": false,
+          "default": {
+            "vue": "undefined"
+          }
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "required": false,
+          "default": {
+            "vue": "false"
+          }
+        },
+        {
+          "name": "offset",
+          "type": "number | string",
+          "required": false,
+          "default": {
+            "vue": "undefined"
+          }
+        }
+      ],
+      "emits": [
+        "update:modelValue",
+        "update:model-value"
+      ],
+      "slots": [
+        "default",
+        "activator"
+      ],
+      "controller": null
+    },
+    {
+      "name": "XNavDrawer",
+      "tag": "x-nav-drawer",
+      "tier": "atom",
+      "summary": "Side navigation drawer, rail or temporary overlay.",
+      "frameworks": [
+        "vue",
+        "svelte",
+        "react"
+      ],
+      "imports": {
+        "vue": {
+          "from": "@chemx/x-atoms/vue",
+          "name": "XNavDrawer"
+        },
+        "svelte": {
+          "from": "@chemx/x-atoms/svelte",
+          "name": "XNavDrawer"
+        },
+        "react": {
+          "from": "@chemx/x-atoms/react",
+          "name": "XNavDrawer"
+        }
+      },
+      "vuetifyRoot": "v-navigation-drawer",
+      "replaces": {
+        "html": [
+          "aside",
+          "nav"
+        ],
+        "vuetify": [
+          "v-navigation-drawer"
+        ]
+      },
+      "safe1to1": true,
+      "propMap": {
+        "modelValue": "modelValue",
+        "location": "location",
+        "rail": "rail",
+        "temporary": "temporary",
+        "permanent": "permanent",
+        "width": "width",
+        "floating": "floating"
+      },
+      "props": [
+        {
+          "name": "modelValue",
+          "type": "boolean",
+          "required": false,
+          "default": {
+            "vue": "true",
+            "svelte": "true",
+            "react": "true"
+          }
+        },
+        {
+          "name": "location",
+          "type": "'start' | 'end'",
+          "required": false,
+          "default": {
+            "vue": "'start'",
+            "svelte": "'start'",
+            "react": "'start'"
+          }
+        },
+        {
+          "name": "rail",
+          "type": "boolean",
+          "required": false,
+          "description": "Narrow icon-only rail.",
+          "default": {
+            "vue": "false",
+            "svelte": "false",
+            "react": "false"
+          }
+        },
+        {
+          "name": "temporary",
+          "type": "boolean",
+          "required": false,
+          "description": "Overlays content with a scrim; closes on scrim click.",
+          "default": {
+            "vue": "false",
+            "svelte": "false",
+            "react": "false"
+          }
+        },
+        {
+          "name": "permanent",
+          "type": "boolean",
+          "required": false,
+          "default": {
+            "vue": "false",
+            "svelte": "false",
+            "react": "false"
+          }
+        },
+        {
+          "name": "width",
+          "type": "number",
+          "required": false,
+          "default": {
+            "vue": "256",
+            "svelte": "256",
+            "react": "256"
+          }
+        },
+        {
+          "name": "floating",
+          "type": "boolean",
+          "required": false,
+          "default": {
+            "vue": "false",
+            "svelte": "false",
+            "react": "false"
+          }
+        }
+      ],
+      "emits": [
+        "update:modelValue"
+      ],
+      "slots": [
+        "default",
+        "prepend",
+        "append"
+      ],
+      "controller": "src/atoms/x-nav-drawer/x-nav-drawer.controller.ts"
+    },
+    {
+      "name": "XProgressLinear",
+      "tag": "x-progress-linear",
+      "tier": "atom",
+      "summary": "Linear progress bar.",
+      "frameworks": [
+        "vue",
+        "svelte",
+        "react"
+      ],
+      "imports": {
+        "vue": {
+          "from": "@chemx/x-atoms/vue",
+          "name": "XProgressLinear"
+        },
+        "svelte": {
+          "from": "@chemx/x-atoms/svelte",
+          "name": "XProgressLinear"
+        },
+        "react": {
+          "from": "@chemx/x-atoms/react",
+          "name": "XProgressLinear"
+        }
+      },
+      "vuetifyRoot": "v-progress-linear",
+      "replaces": {
+        "html": [
+          "progress"
+        ],
+        "vuetify": [
+          "v-progress-linear"
+        ]
+      },
+      "safe1to1": true,
+      "propMap": {
+        "modelValue": "modelValue",
+        "indeterminate": "indeterminate",
+        "color": "color",
+        "height": "height",
+        "rounded": "rounded",
+        "striped": "striped"
+      },
+      "props": [
+        {
+          "name": "modelValue",
+          "type": "number",
+          "required": false,
+          "default": {
+            "vue": "0",
+            "svelte": "0",
+            "react": "0"
+          }
+        },
+        {
+          "name": "indeterminate",
+          "type": "boolean",
+          "required": false,
+          "default": {
+            "vue": "false",
+            "svelte": "false",
+            "react": "false"
+          }
+        },
+        {
+          "name": "color",
+          "type": "string",
+          "required": false,
+          "default": {
+            "vue": "'primary'"
+          }
+        },
+        {
+          "name": "height",
+          "type": "string | number",
+          "required": false,
+          "default": {
+            "vue": "4",
+            "svelte": "4",
+            "react": "4"
+          }
+        },
+        {
+          "name": "rounded",
+          "type": "boolean",
+          "required": false,
+          "default": {
+            "vue": "true",
+            "svelte": "true",
+            "react": "true"
+          }
+        },
+        {
+          "name": "striped",
+          "type": "boolean",
+          "required": false,
+          "default": {
+            "vue": "false",
+            "svelte": "false",
+            "react": "false"
+          }
+        }
+      ],
+      "emits": [],
+      "slots": [],
+      "controller": "src/atoms/x-progress-linear/x-progress-linear.controller.ts"
+    },
+    {
+      "name": "XSheet",
+      "tag": "x-sheet",
+      "tier": "atom",
+      "summary": "Plain surface container.",
+      "frameworks": [
+        "vue",
+        "svelte",
+        "react"
+      ],
+      "imports": {
+        "vue": {
+          "from": "@chemx/x-atoms/vue",
+          "name": "XSheet"
+        },
+        "svelte": {
+          "from": "@chemx/x-atoms/svelte",
+          "name": "XSheet"
+        },
+        "react": {
+          "from": "@chemx/x-atoms/react",
+          "name": "XSheet"
+        }
+      },
+      "vuetifyRoot": "v-sheet",
+      "replaces": {
+        "html": [
+          "div",
+          "section"
+        ],
+        "vuetify": [
+          "v-sheet"
+        ]
+      },
+      "safe1to1": true,
+      "propMap": {
+        "color": "color",
+        "elevation": "elevation",
+        "rounded": "rounded",
+        "border": "border",
+        "transparent": "transparent"
+      },
+      "props": [
+        {
+          "name": "color",
+          "type": "string",
+          "required": false,
+          "default": {
+            "vue": "undefined",
+            "svelte": "undefined",
+            "react": "undefined"
+          }
+        },
+        {
+          "name": "elevation",
+          "type": "string | number",
+          "required": false,
+          "default": {
+            "vue": "undefined",
+            "svelte": "undefined",
+            "react": "undefined"
+          }
+        },
+        {
+          "name": "rounded",
+          "type": "boolean | string | number",
+          "required": false,
+          "default": {
+            "vue": "undefined",
+            "svelte": "undefined",
+            "react": "undefined"
+          }
+        },
+        {
+          "name": "border",
+          "type": "boolean | string | number",
+          "required": false,
+          "default": {
+            "vue": "undefined",
+            "svelte": "undefined",
+            "react": "undefined"
+          }
+        },
+        {
+          "name": "transparent",
+          "type": "boolean",
+          "required": false,
+          "default": {
+            "vue": "false",
+            "svelte": "false",
+            "react": "false"
+          }
+        }
+      ],
+      "emits": [],
+      "slots": [
+        "default"
+      ],
+      "controller": "src/atoms/x-sheet/x-sheet.controller.ts"
+    },
+    {
+      "name": "XSkeleton",
+      "tag": "x-skeleton",
+      "tier": "atom",
+      "summary": "Loading placeholder shape.",
+      "frameworks": [
+        "vue",
+        "svelte",
+        "react"
+      ],
+      "imports": {
+        "vue": {
+          "from": "@chemx/x-atoms/vue",
+          "name": "XSkeleton"
+        },
+        "svelte": {
+          "from": "@chemx/x-atoms/svelte",
+          "name": "XSkeleton"
+        },
+        "react": {
+          "from": "@chemx/x-atoms/react",
+          "name": "XSkeleton"
+        }
+      },
+      "vuetifyRoot": null,
+      "replaces": {
+        "html": [
+          "div"
+        ],
+        "vuetify": [
+          "v-skeleton-loader"
+        ]
+      },
+      "safe1to1": false,
+      "propMap": {},
+      "props": [
+        {
+          "name": "shape",
+          "type": "XSkeletonShape",
+          "required": false,
+          "default": {
+            "vue": "'rounded'",
+            "svelte": "'rounded'",
+            "react": "'rounded'"
+          }
+        },
+        {
+          "name": "animation",
+          "type": "XSkeletonAnimation",
+          "required": false,
+          "default": {
+            "vue": "'shimmer'",
+            "svelte": "'shimmer'",
+            "react": "'shimmer'"
+          }
+        },
+        {
+          "name": "width",
+          "type": "string | number",
+          "required": false,
+          "default": {
+            "vue": "'100%'",
+            "svelte": "'100%'",
+            "react": "'100%'"
+          }
+        },
+        {
+          "name": "height",
+          "type": "string | number",
+          "required": false,
+          "default": {
+            "vue": "'1rem'",
+            "svelte": "'1rem'",
+            "react": "'1rem'"
+          }
+        },
+        {
+          "name": "delay",
+          "type": "string",
+          "required": false,
+          "default": {
+            "vue": "'0s'",
+            "svelte": "'0s'",
+            "react": "'0s'"
+          }
+        }
+      ],
+      "emits": [],
+      "slots": [],
+      "controller": "src/atoms/x-skeleton/x-skeleton.controller.ts"
+    },
+    {
+      "name": "XStack",
+      "tag": "x-stack",
+      "tier": "atom",
+      "summary": "Flex stack layout with spacing-scale gaps.",
+      "frameworks": [
+        "vue",
+        "svelte",
+        "react"
+      ],
+      "imports": {
+        "vue": {
+          "from": "@chemx/x-atoms/vue",
+          "name": "XStack"
+        },
+        "svelte": {
+          "from": "@chemx/x-atoms/svelte",
+          "name": "XStack"
+        },
+        "react": {
+          "from": "@chemx/x-atoms/react",
+          "name": "XStack"
+        }
+      },
+      "vuetifyRoot": null,
+      "replaces": {
+        "html": [
+          "div"
+        ],
+        "vuetify": [
+          "v-row"
+        ]
+      },
+      "safe1to1": false,
+      "propMap": {},
+      "props": [
+        {
+          "name": "direction",
+          "type": "'row' | 'column'",
+          "required": false,
+          "default": {
+            "vue": "'column'",
+            "svelte": "'column'",
+            "react": "'column'"
+          }
+        },
+        {
+          "name": "gap",
+          "type": "SpaceScale",
+          "required": false,
+          "default": {
+            "vue": "'md'",
+            "svelte": "'md'",
+            "react": "'md'"
+          }
+        },
+        {
+          "name": "align",
+          "type": "'start' | 'center' | 'end' | 'stretch' | 'baseline'",
+          "required": false,
+          "default": {
+            "vue": "undefined",
+            "svelte": "undefined",
+            "react": "undefined"
+          }
+        },
+        {
+          "name": "justify",
+          "type": "'start' | 'center' | 'end' | 'between' | 'around' | 'evenly'",
+          "required": false,
+          "default": {
+            "vue": "undefined",
+            "svelte": "undefined",
+            "react": "undefined"
+          }
+        },
+        {
+          "name": "wrap",
+          "type": "boolean",
+          "required": false,
+          "default": {
+            "vue": "false",
+            "svelte": "false",
+            "react": "false"
+          }
+        },
+        {
+          "name": "tag",
+          "type": "'div' | 'section' | 'ul' | 'ol' | 'nav' | 'header' | 'footer' | 'main' | 'aside'",
+          "required": false,
+          "default": {
+            "vue": "'div'",
+            "svelte": "'div'",
+            "react": "'div'"
+          }
+        }
+      ],
+      "emits": [],
+      "slots": [
+        "default"
+      ],
+      "controller": "src/atoms/x-stack/x-stack.controller.ts"
+    },
+    {
+      "name": "XSwitch",
+      "tag": "x-switch",
+      "tier": "atom",
+      "summary": "On/off switch.",
+      "frameworks": [
+        "vue",
+        "svelte",
+        "react"
+      ],
+      "imports": {
+        "vue": {
+          "from": "@chemx/x-atoms/vue",
+          "name": "XSwitch"
+        },
+        "svelte": {
+          "from": "@chemx/x-atoms/svelte",
+          "name": "XSwitch"
+        },
+        "react": {
+          "from": "@chemx/x-atoms/react",
+          "name": "XSwitch"
+        }
+      },
+      "vuetifyRoot": "v-switch",
+      "replaces": {
+        "html": [
+          "input[type=checkbox][role=switch]"
+        ],
+        "vuetify": [
+          "v-switch"
+        ]
+      },
+      "safe1to1": true,
+      "propMap": {
+        "modelValue": "modelValue",
+        "label": "label",
+        "disabled": "disabled",
+        "color": "color",
+        "hideDetails": "hideDetails"
+      },
+      "props": [
+        {
+          "name": "modelValue",
+          "type": "boolean",
+          "required": false,
+          "default": {
+            "vue": "false",
+            "svelte": "false",
+            "react": "false"
+          }
+        },
+        {
+          "name": "label",
+          "type": "string",
+          "required": false,
+          "default": {
+            "vue": "undefined",
+            "svelte": "undefined",
+            "react": "undefined"
+          }
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "required": false,
+          "default": {
+            "vue": "false",
+            "svelte": "false",
+            "react": "false"
+          }
+        },
+        {
+          "name": "color",
+          "type": "string",
+          "required": false,
+          "default": {
+            "vue": "'primary'"
+          }
+        },
+        {
+          "name": "hideDetails",
+          "type": "boolean | 'auto'",
+          "required": false,
+          "default": {
+            "vue": "'auto'"
+          }
+        }
+      ],
+      "emits": [
+        "update:modelValue",
+        "change"
+      ],
+      "slots": [
+        "label",
+        "thumb"
+      ],
+      "controller": "src/atoms/x-switch/x-switch.controller.ts"
+    },
+    {
+      "name": "XText",
+      "tag": "x-text",
+      "tier": "atom",
+      "summary": "Typography: display, title, subtitle, body, caption, overline, code; tone palette.",
+      "frameworks": [
+        "vue",
+        "svelte",
+        "react"
+      ],
+      "imports": {
+        "vue": {
+          "from": "@chemx/x-atoms/vue",
+          "name": "XText"
+        },
+        "svelte": {
+          "from": "@chemx/x-atoms/svelte",
+          "name": "XText"
+        },
+        "react": {
+          "from": "@chemx/x-atoms/react",
+          "name": "XText"
+        }
+      },
+      "vuetifyRoot": null,
+      "replaces": {
+        "html": [
+          "p",
+          "span",
+          "h1",
+          "h2",
+          "h3",
+          "h4",
+          "h5",
+          "h6",
+          "label",
+          "code"
+        ],
+        "vuetify": []
+      },
+      "safe1to1": false,
+      "propMap": {},
+      "props": [
+        {
+          "name": "tag",
+          "type": "XTextTag",
+          "required": false,
+          "default": {
+            "vue": "undefined",
+            "svelte": "undefined",
+            "react": "undefined"
+          }
+        },
+        {
+          "name": "variant",
+          "type": "XTextVariant",
+          "required": false,
+          "default": {
+            "vue": "'body'",
+            "svelte": "'body'",
+            "react": "'body'"
+          }
+        },
+        {
+          "name": "tone",
+          "type": "Tone",
+          "required": false,
+          "default": {
+            "vue": "undefined",
+            "svelte": "undefined",
+            "react": "undefined"
+          }
+        },
+        {
+          "name": "weight",
+          "type": "XTextWeight",
+          "required": false,
+          "default": {
+            "vue": "undefined",
+            "svelte": "undefined",
+            "react": "undefined"
+          }
+        },
+        {
+          "name": "align",
+          "type": "'start' | 'center' | 'end'",
+          "required": false,
+          "default": {
+            "vue": "undefined",
+            "svelte": "undefined",
+            "react": "undefined"
+          }
+        },
+        {
+          "name": "truncate",
+          "type": "boolean",
+          "required": false,
+          "default": {
+            "vue": "false",
+            "svelte": "false",
+            "react": "false"
+          }
+        }
+      ],
+      "emits": [],
+      "slots": [
+        "default"
+      ],
+      "controller": "src/atoms/x-text/x-text.controller.ts"
+    },
+    {
+      "name": "XTextField",
+      "tag": "x-text-field",
+      "tier": "atom",
+      "summary": "Single-line text input.",
+      "frameworks": [
+        "vue",
+        "svelte",
+        "react"
+      ],
+      "imports": {
+        "vue": {
+          "from": "@chemx/x-atoms/vue",
+          "name": "XTextField"
+        },
+        "svelte": {
+          "from": "@chemx/x-atoms/svelte",
+          "name": "XTextField"
+        },
+        "react": {
+          "from": "@chemx/x-atoms/react",
+          "name": "XTextField"
+        }
+      },
+      "vuetifyRoot": "v-text-field",
+      "replaces": {
+        "html": [
+          "input"
+        ],
+        "vuetify": [
+          "v-text-field"
+        ]
+      },
+      "safe1to1": true,
+      "propMap": {
+        "modelValue": "modelValue",
+        "label": "label",
+        "placeholder": "placeholder",
+        "variant": "variant",
+        "density": "density",
+        "hideDetails": "hideDetails",
+        "clearable": "clearable",
+        "type": "type",
+        "disabled": "disabled",
+        "readonly": "readonly",
+        "prefix": "prefix",
+        "suffix": "suffix"
+      },
+      "props": [
+        {
+          "name": "modelValue",
+          "type": "string | number",
+          "required": false,
+          "default": {
+            "vue": "''",
+            "svelte": "''",
+            "react": "''"
+          }
+        },
+        {
+          "name": "label",
+          "type": "string",
+          "required": false,
+          "default": {
+            "vue": "undefined",
+            "svelte": "undefined",
+            "react": "undefined"
+          }
+        },
+        {
+          "name": "placeholder",
+          "type": "string",
+          "required": false,
+          "default": {
+            "vue": "undefined",
+            "svelte": "undefined",
+            "react": "undefined"
+          }
+        },
+        {
+          "name": "variant",
+          "type": "'outlined' | 'filled' | 'underlined' | 'solo' | 'plain'",
+          "required": false,
+          "default": {
+            "vue": "undefined"
+          }
+        },
+        {
+          "name": "density",
+          "type": "'compact' | 'comfortable' | 'default'",
+          "required": false,
+          "default": {
+            "vue": "'comfortable'"
+          }
+        },
+        {
+          "name": "hideDetails",
+          "type": "boolean | 'auto'",
+          "required": false,
+          "default": {
+            "vue": "false"
+          }
+        },
+        {
+          "name": "clearable",
+          "type": "boolean",
+          "required": false,
+          "default": {
+            "vue": "false",
+            "svelte": "false",
+            "react": "false"
+          }
+        },
+        {
+          "name": "type",
+          "type": "string",
+          "required": false,
+          "default": {
+            "vue": "'text'",
+            "svelte": "'text'",
+            "react": "'text'"
+          }
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "required": false,
+          "default": {
+            "vue": "false",
+            "svelte": "false",
+            "react": "false"
+          }
+        },
+        {
+          "name": "readonly",
+          "type": "boolean",
+          "required": false,
+          "default": {
+            "vue": "false",
+            "svelte": "false",
+            "react": "false"
+          }
+        },
+        {
+          "name": "prefix",
+          "type": "string",
+          "required": false,
+          "default": {
+            "vue": "undefined"
+          }
+        },
+        {
+          "name": "suffix",
+          "type": "string",
+          "required": false,
+          "default": {
+            "vue": "undefined"
+          }
+        }
+      ],
+      "emits": [
+        "update:modelValue",
+        "click:clear"
+      ],
+      "slots": [
+        "prepend-inner",
+        "append-inner",
+        "prepend",
+        "append"
+      ],
+      "controller": "src/atoms/x-text-field/x-text-field.controller.ts"
+    },
+    {
+      "name": "XTextarea",
+      "tag": "x-textarea",
+      "tier": "atom",
+      "summary": "Multi-line text input with optional counter.",
+      "frameworks": [
+        "vue",
+        "svelte",
+        "react"
+      ],
+      "imports": {
+        "vue": {
+          "from": "@chemx/x-atoms/vue",
+          "name": "XTextarea"
+        },
+        "svelte": {
+          "from": "@chemx/x-atoms/svelte",
+          "name": "XTextarea"
+        },
+        "react": {
+          "from": "@chemx/x-atoms/react",
+          "name": "XTextarea"
+        }
+      },
+      "vuetifyRoot": "v-textarea",
+      "replaces": {
+        "html": [
+          "textarea"
+        ],
+        "vuetify": [
+          "v-textarea"
+        ]
+      },
+      "safe1to1": true,
+      "propMap": {
+        "modelValue": "modelValue",
+        "label": "label",
+        "placeholder": "placeholder",
+        "rows": "rows",
+        "autoGrow": "autoGrow",
+        "variant": "variant",
+        "density": "density",
+        "hideDetails": "hideDetails",
+        "disabled": "disabled",
+        "readonly": "readonly",
+        "maxlength": "maxlength"
+      },
+      "props": [
+        {
+          "name": "modelValue",
+          "type": "string",
+          "required": false,
+          "default": {
+            "vue": "''",
+            "svelte": "''",
+            "react": "''"
+          }
+        },
+        {
+          "name": "label",
+          "type": "string",
+          "required": false,
+          "default": {
+            "vue": "undefined",
+            "svelte": "undefined",
+            "react": "undefined"
+          }
+        },
+        {
+          "name": "placeholder",
+          "type": "string",
+          "required": false,
+          "default": {
+            "vue": "undefined",
+            "svelte": "undefined",
+            "react": "undefined"
+          }
+        },
+        {
+          "name": "rows",
+          "type": "number",
+          "required": false,
+          "default": {
+            "vue": "3",
+            "svelte": "3",
+            "react": "3"
+          }
+        },
+        {
+          "name": "autoGrow",
+          "type": "boolean",
+          "required": false,
+          "default": {
+            "vue": "false",
+            "svelte": "false",
+            "react": "false"
+          }
+        },
+        {
+          "name": "variant",
+          "type": "'outlined' | 'filled' | 'underlined' | 'solo' | 'plain'",
+          "required": false,
+          "default": {
+            "vue": "undefined"
+          }
+        },
+        {
+          "name": "density",
+          "type": "'compact' | 'comfortable' | 'default'",
+          "required": false,
+          "default": {
+            "vue": "'comfortable'"
+          }
+        },
+        {
+          "name": "hideDetails",
+          "type": "boolean | 'auto'",
+          "required": false,
+          "default": {
+            "vue": "false"
+          }
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "required": false,
+          "default": {
+            "vue": "false",
+            "svelte": "false",
+            "react": "false"
+          }
+        },
+        {
+          "name": "readonly",
+          "type": "boolean",
+          "required": false,
+          "default": {
+            "vue": "false",
+            "svelte": "false",
+            "react": "false"
+          }
+        },
+        {
+          "name": "maxlength",
+          "type": "number",
+          "required": false,
+          "default": {
+            "vue": "undefined",
+            "svelte": "undefined",
+            "react": "undefined"
+          }
+        }
+      ],
+      "emits": [
+        "update:modelValue"
+      ],
+      "slots": [],
+      "controller": "src/atoms/x-textarea/x-textarea.controller.ts"
+    },
+    {
+      "name": "XTooltip",
+      "tag": "x-tooltip",
+      "tier": "atom",
+      "summary": "Hover/focus tooltip.",
+      "frameworks": [
+        "vue",
+        "svelte",
+        "react"
+      ],
+      "imports": {
+        "vue": {
+          "from": "@chemx/x-atoms/vue",
+          "name": "XTooltip"
+        },
+        "svelte": {
+          "from": "@chemx/x-atoms/svelte",
+          "name": "XTooltip"
+        },
+        "react": {
+          "from": "@chemx/x-atoms/react",
+          "name": "XTooltip"
+        }
+      },
+      "vuetifyRoot": "v-tooltip",
+      "replaces": {
+        "html": [
+          "[title]"
+        ],
+        "vuetify": [
+          "v-tooltip"
+        ]
+      },
+      "safe1to1": true,
+      "propMap": {
+        "text": "text",
+        "location": "location",
+        "disabled": "disabled",
+        "openDelay": "openDelay",
+        "closeDelay": "closeDelay"
+      },
+      "props": [
+        {
+          "name": "text",
+          "type": "string",
+          "required": false,
+          "default": {
+            "vue": "undefined",
+            "svelte": "undefined",
+            "react": "undefined"
+          }
+        },
+        {
+          "name": "location",
+          "type": "XTooltipLocation",
+          "required": false,
+          "default": {
+            "vue": "'top'",
+            "svelte": "'top'",
+            "react": "'top'"
+          }
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "required": false,
+          "default": {
+            "vue": "false",
+            "svelte": "false",
+            "react": "false"
+          }
+        },
+        {
+          "name": "openDelay",
+          "type": "number",
+          "required": false,
+          "default": {
+            "vue": "150"
+          }
+        },
+        {
+          "name": "closeDelay",
+          "type": "number",
+          "required": false,
+          "default": {
+            "vue": "100"
+          }
+        }
+      ],
+      "emits": [],
+      "slots": [
+        "default",
+        "activator"
+      ],
+      "controller": "src/atoms/x-tooltip/x-tooltip.controller.ts"
+    }
+  ],
+  "molecules": [
+    {
+      "name": "MActionBar",
+      "tag": "m-action-bar",
+      "tier": "molecule",
+      "summary": "Toolbar with title, start/center/end regions.",
+      "frameworks": [
+        "vue",
+        "svelte",
+        "react"
+      ],
+      "imports": {
+        "vue": {
+          "from": "@chemx/x-atoms/vue",
+          "name": "MActionBar"
+        },
+        "svelte": {
+          "from": "@chemx/x-atoms/svelte",
+          "name": "MActionBar"
+        },
+        "react": {
+          "from": "@chemx/x-atoms/react",
+          "name": "MActionBar"
+        }
+      },
+      "vuetifyRoot": null,
+      "replaces": {
+        "html": [
+          "header"
+        ],
+        "vuetify": [
+          "v-toolbar",
+          "v-app-bar"
+        ]
+      },
+      "safe1to1": false,
+      "propMap": {},
+      "props": [
+        {
+          "name": "title",
+          "type": "string",
+          "required": false,
+          "default": {
+            "vue": "undefined",
+            "svelte": "undefined",
+            "react": "undefined"
+          }
+        },
+        {
+          "name": "position",
+          "type": "MActionBarPosition",
+          "required": false,
+          "default": {
+            "vue": "'static'",
+            "svelte": "'static'",
+            "react": "'static'"
+          }
+        },
+        {
+          "name": "bordered",
+          "type": "boolean",
+          "required": false,
+          "default": {
+            "vue": "true",
+            "svelte": "true",
+            "react": "true"
+          }
+        }
+      ],
+      "emits": [],
+      "slots": [
+        "default",
+        "start",
+        "end"
+      ],
+      "controller": "src/molecules/m-action-bar/m-action-bar.controller.ts"
+    },
+    {
+      "name": "MConfirmDialog",
+      "tag": "m-confirm-dialog",
+      "tier": "molecule",
+      "summary": "Confirm/cancel dialog for destructive actions.",
+      "frameworks": [
+        "vue",
+        "svelte",
+        "react"
+      ],
+      "imports": {
+        "vue": {
+          "from": "@chemx/x-atoms/vue",
+          "name": "MConfirmDialog"
+        },
+        "svelte": {
+          "from": "@chemx/x-atoms/svelte",
+          "name": "MConfirmDialog"
+        },
+        "react": {
+          "from": "@chemx/x-atoms/react",
+          "name": "MConfirmDialog"
+        }
+      },
+      "vuetifyRoot": null,
+      "replaces": {
+        "html": [],
+        "vuetify": []
+      },
+      "safe1to1": false,
+      "propMap": {},
+      "props": [
+        {
+          "name": "modelValue",
+          "type": "boolean",
+          "required": false,
+          "default": {
+            "vue": "false",
+            "svelte": "false",
+            "react": "false"
+          }
+        },
+        {
+          "name": "title",
+          "type": "string",
+          "required": false,
+          "default": {
+            "vue": "'Confirm Action'",
+            "svelte": "'Confirm Action'",
+            "react": "'Confirm Action'"
+          }
+        },
+        {
+          "name": "message",
+          "type": "string",
+          "required": false,
+          "default": {
+            "vue": "'Are you sure you want to proceed?'",
+            "svelte": "'Are you sure you want to proceed?'",
+            "react": "'Are you sure you want to proceed?'"
+          }
+        },
+        {
+          "name": "confirmText",
+          "type": "string",
+          "required": false,
+          "default": {
+            "vue": "'Confirm'",
+            "svelte": "'Confirm'",
+            "react": "'Confirm'"
+          }
+        },
+        {
+          "name": "cancelText",
+          "type": "string",
+          "required": false,
+          "default": {
+            "vue": "'Cancel'",
+            "svelte": "'Cancel'",
+            "react": "'Cancel'"
+          }
+        },
+        {
+          "name": "confirmColor",
+          "type": "string",
+          "required": false,
+          "default": {
+            "vue": "'primary'",
+            "svelte": "'primary'",
+            "react": "'primary'"
+          }
+        },
+        {
+          "name": "loading",
+          "type": "boolean",
+          "required": false,
+          "default": {
+            "vue": "false",
+            "svelte": "false",
+            "react": "false"
+          }
+        }
+      ],
+      "emits": [
+        "update:modelValue",
+        "confirm",
+        "cancel"
+      ],
+      "slots": [],
+      "controller": "src/molecules/m-confirm-dialog/m-confirm-dialog.controller.ts"
+    },
+    {
+      "name": "MDataTable",
+      "tag": "m-data-table",
+      "tier": "molecule",
+      "summary": "Sortable data table with empty and loading states.",
+      "frameworks": [
+        "vue",
+        "svelte",
+        "react"
+      ],
+      "imports": {
+        "vue": {
+          "from": "@chemx/x-atoms/vue",
+          "name": "MDataTable"
+        },
+        "svelte": {
+          "from": "@chemx/x-atoms/svelte",
+          "name": "MDataTable"
+        },
+        "react": {
+          "from": "@chemx/x-atoms/react",
+          "name": "MDataTable"
+        }
+      },
+      "vuetifyRoot": null,
+      "replaces": {
+        "html": [
+          "table"
+        ],
+        "vuetify": [
+          "v-data-table",
+          "v-table"
+        ]
+      },
+      "safe1to1": false,
+      "propMap": {},
+      "props": [
+        {
+          "name": "headers",
+          "type": "readonly MDataTableHeader[]",
+          "required": true,
+          "default": {
+            "svelte": "[]"
+          }
+        },
+        {
+          "name": "items",
+          "type": "readonly T[]",
+          "required": true,
+          "default": {
+            "svelte": "[]"
+          }
+        },
+        {
+          "name": "loading",
+          "type": "boolean",
+          "required": false,
+          "default": {
+            "vue": "false",
+            "svelte": "false"
+          }
+        },
+        {
+          "name": "emptyText",
+          "type": "string",
+          "required": false,
+          "default": {
+            "vue": "'No records found'",
+            "svelte": "'No records found'"
+          }
+        },
+        {
+          "name": "itemKey",
+          "type": "string",
+          "required": false,
+          "default": {
+            "vue": "'id'",
+            "svelte": "'id'"
+          }
+        },
+        {
+          "name": "sortBy",
+          "type": "string | null",
+          "required": false,
+          "default": {
+            "vue": "null",
+            "svelte": "null"
+          }
+        },
+        {
+          "name": "sortDesc",
+          "type": "boolean",
+          "required": false,
+          "default": {
+            "vue": "false",
+            "svelte": "false"
+          }
+        },
+        {
+          "name": "hoverable",
+          "type": "boolean",
+          "required": false,
+          "default": {
+            "vue": "true",
+            "svelte": "true"
+          }
+        },
+        {
+          "name": "dense",
+          "type": "boolean",
+          "required": false,
+          "default": {
+            "vue": "false",
+            "svelte": "false"
+          }
+        }
+      ],
+      "emits": [
+        "click:row",
+        "update:sort"
+      ],
+      "slots": [
+        "empty",
+        "header.<key>",
+        "item.<key>"
+      ],
+      "controller": "src/molecules/m-data-table/m-data-table.controller.ts"
+    },
+    {
+      "name": "MEmptyState",
+      "tag": "m-empty-state",
+      "tier": "molecule",
+      "summary": "Empty state with title, description and action.",
+      "frameworks": [
+        "vue",
+        "svelte",
+        "react"
+      ],
+      "imports": {
+        "vue": {
+          "from": "@chemx/x-atoms/vue",
+          "name": "MEmptyState"
+        },
+        "svelte": {
+          "from": "@chemx/x-atoms/svelte",
+          "name": "MEmptyState"
+        },
+        "react": {
+          "from": "@chemx/x-atoms/react",
+          "name": "MEmptyState"
+        }
+      },
+      "vuetifyRoot": null,
+      "replaces": {
+        "html": [],
+        "vuetify": [
+          "v-empty-state"
+        ]
+      },
+      "safe1to1": false,
+      "propMap": {},
+      "props": [
+        {
+          "name": "title",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "description",
+          "type": "string",
+          "required": false,
+          "default": {
+            "vue": "undefined",
+            "svelte": "undefined",
+            "react": "undefined"
+          }
+        },
+        {
+          "name": "icon",
+          "type": "string",
+          "required": false,
+          "default": {
+            "vue": "'✨'",
+            "svelte": "'✨'",
+            "react": "'✨'"
+          }
+        },
+        {
+          "name": "actionText",
+          "type": "string",
+          "required": false,
+          "default": {
+            "vue": "undefined",
+            "svelte": "undefined",
+            "react": "undefined"
+          }
+        }
+      ],
+      "emits": [
+        "click:action"
+      ],
+      "slots": [
+        "icon",
+        "action"
+      ],
+      "controller": "src/molecules/m-empty-state/m-empty-state.controller.ts"
+    },
+    {
+      "name": "MKpiTile",
+      "tag": "m-kpi-tile",
+      "tier": "molecule",
+      "summary": "Single metric tile with trend.",
+      "frameworks": [
+        "vue",
+        "svelte",
+        "react"
+      ],
+      "imports": {
+        "vue": {
+          "from": "@chemx/x-atoms/vue",
+          "name": "MKpiTile"
+        },
+        "svelte": {
+          "from": "@chemx/x-atoms/svelte",
+          "name": "MKpiTile"
+        },
+        "react": {
+          "from": "@chemx/x-atoms/react",
+          "name": "MKpiTile"
+        }
+      },
+      "vuetifyRoot": null,
+      "replaces": {
+        "html": [],
+        "vuetify": []
+      },
+      "safe1to1": false,
+      "propMap": {},
+      "props": [
+        {
+          "name": "label",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "value",
+          "type": "string | number",
+          "required": true
+        },
+        {
+          "name": "subtext",
+          "type": "string",
+          "required": false,
+          "default": {
+            "vue": "undefined",
+            "svelte": "undefined",
+            "react": "undefined"
+          }
+        },
+        {
+          "name": "trend",
+          "type": "'up' | 'down' | 'neutral'",
+          "required": false,
+          "default": {
+            "vue": "undefined",
+            "svelte": "undefined",
+            "react": "undefined"
+          }
+        },
+        {
+          "name": "trendValue",
+          "type": "string",
+          "required": false,
+          "default": {
+            "vue": "undefined",
+            "svelte": "undefined",
+            "react": "undefined"
+          }
+        },
+        {
+          "name": "icon",
+          "type": "string",
+          "required": false,
+          "default": {
+            "vue": "undefined",
+            "svelte": "undefined",
+            "react": "undefined"
+          }
+        }
+      ],
+      "emits": [],
+      "slots": [
+        "icon"
+      ],
+      "controller": "src/molecules/m-kpi-tile/m-kpi-tile.controller.ts"
+    },
+    {
+      "name": "MPagination",
+      "tag": "m-pagination",
+      "tier": "molecule",
+      "summary": "Page navigation with optional range text.",
+      "frameworks": [
+        "vue",
+        "svelte",
+        "react"
+      ],
+      "imports": {
+        "vue": {
+          "from": "@chemx/x-atoms/vue",
+          "name": "MPagination"
+        },
+        "svelte": {
+          "from": "@chemx/x-atoms/svelte",
+          "name": "MPagination"
+        },
+        "react": {
+          "from": "@chemx/x-atoms/react",
+          "name": "MPagination"
+        }
+      },
+      "vuetifyRoot": null,
+      "replaces": {
+        "html": [],
+        "vuetify": [
+          "v-pagination"
+        ]
+      },
+      "safe1to1": false,
+      "propMap": {},
+      "props": [
+        {
+          "name": "currentPage",
+          "type": "number",
+          "required": true,
+          "default": {
+            "svelte": "1"
+          }
+        },
+        {
+          "name": "totalPages",
+          "type": "number",
+          "required": true
+        },
+        {
+          "name": "pageSize",
+          "type": "number",
+          "required": false,
+          "default": {
+            "vue": "20",
+            "svelte": "20",
+            "react": "20"
+          }
+        },
+        {
+          "name": "totalItems",
+          "type": "number",
+          "required": false,
+          "default": {
+            "vue": "0",
+            "svelte": "0",
+            "react": "0"
+          }
+        },
+        {
+          "name": "maxVisiblePages",
+          "type": "number",
+          "required": false,
+          "default": {
+            "vue": "5",
+            "svelte": "5",
+            "react": "5"
+          }
+        },
+        {
+          "name": "showRange",
+          "type": "boolean",
+          "required": false,
+          "default": {
+            "vue": "true",
+            "svelte": "true",
+            "react": "true"
+          }
+        }
+      ],
+      "emits": [
+        "update:currentPage",
+        "pageChange"
+      ],
+      "slots": [],
+      "controller": "src/molecules/m-pagination/m-pagination.controller.ts"
+    },
+    {
+      "name": "MSearchInput",
+      "tag": "m-search-input",
+      "tier": "molecule",
+      "summary": "Debounced search field.",
+      "frameworks": [
+        "vue",
+        "svelte",
+        "react"
+      ],
+      "imports": {
+        "vue": {
+          "from": "@chemx/x-atoms/vue",
+          "name": "MSearchInput"
+        },
+        "svelte": {
+          "from": "@chemx/x-atoms/svelte",
+          "name": "MSearchInput"
+        },
+        "react": {
+          "from": "@chemx/x-atoms/react",
+          "name": "MSearchInput"
+        }
+      },
+      "vuetifyRoot": null,
+      "replaces": {
+        "html": [
+          "input[type=search]"
+        ],
+        "vuetify": []
+      },
+      "safe1to1": false,
+      "propMap": {},
+      "props": [
+        {
+          "name": "modelValue",
+          "type": "string",
+          "required": false,
+          "default": {
+            "vue": "''",
+            "svelte": "''",
+            "react": "''"
+          }
+        },
+        {
+          "name": "placeholder",
+          "type": "string",
+          "required": false,
+          "default": {
+            "vue": "'Search...'",
+            "svelte": "'Search...'",
+            "react": "'Search...'"
+          }
+        },
+        {
+          "name": "debounceMs",
+          "type": "number",
+          "required": false,
+          "default": {
+            "vue": "250",
+            "svelte": "250",
+            "react": "250"
+          }
+        },
+        {
+          "name": "loading",
+          "type": "boolean",
+          "required": false,
+          "default": {
+            "vue": "false"
+          }
+        },
+        {
+          "name": "clearable",
+          "type": "boolean",
+          "required": false,
+          "default": {
+            "vue": "true",
+            "svelte": "true",
+            "react": "true"
+          }
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "required": false,
+          "default": {
+            "vue": "false",
+            "svelte": "false",
+            "react": "false"
+          }
+        },
+        {
+          "name": "size",
+          "type": "'small' | 'default' | 'large'",
+          "required": false,
+          "default": {
+            "vue": "'default'"
+          }
+        }
+      ],
+      "emits": [
+        "update:modelValue",
+        "search",
+        "clear"
+      ],
+      "slots": [
+        "prepend-inner",
+        "append-inner"
+      ],
+      "controller": "src/molecules/m-search-input/m-search-input.controller.ts"
+    },
+    {
+      "name": "MStatStrip",
+      "tag": "m-stat-strip",
+      "tier": "molecule",
+      "summary": "Row of KPI tiles.",
+      "frameworks": [
+        "vue",
+        "svelte",
+        "react"
+      ],
+      "imports": {
+        "vue": {
+          "from": "@chemx/x-atoms/vue",
+          "name": "MStatStrip"
+        },
+        "svelte": {
+          "from": "@chemx/x-atoms/svelte",
+          "name": "MStatStrip"
+        },
+        "react": {
+          "from": "@chemx/x-atoms/react",
+          "name": "MStatStrip"
+        }
+      },
+      "vuetifyRoot": null,
+      "replaces": {
+        "html": [],
+        "vuetify": []
+      },
+      "safe1to1": false,
+      "propMap": {},
+      "props": [
+        {
+          "name": "stats",
+          "type": "MKpiTileProps[]",
+          "required": true
+        },
+        {
+          "name": "columns",
+          "type": "number",
+          "required": false,
+          "default": {
+            "vue": "4",
+            "svelte": "4",
+            "react": "4"
+          }
+        }
+      ],
+      "emits": [],
+      "slots": [],
+      "controller": "src/molecules/m-stat-strip/m-stat-strip.controller.ts"
+    },
+    {
+      "name": "MTabsNav",
+      "tag": "m-tabs-nav",
+      "tier": "molecule",
+      "summary": "Tab navigation with icons and badges.",
+      "frameworks": [
+        "vue",
+        "svelte",
+        "react"
+      ],
+      "imports": {
+        "vue": {
+          "from": "@chemx/x-atoms/vue",
+          "name": "MTabsNav"
+        },
+        "svelte": {
+          "from": "@chemx/x-atoms/svelte",
+          "name": "MTabsNav"
+        },
+        "react": {
+          "from": "@chemx/x-atoms/react",
+          "name": "MTabsNav"
+        }
+      },
+      "vuetifyRoot": null,
+      "replaces": {
+        "html": [
+          "nav[role=tablist]"
+        ],
+        "vuetify": [
+          "v-tabs"
+        ]
+      },
+      "safe1to1": false,
+      "propMap": {},
+      "props": [
+        {
+          "name": "tabs",
+          "type": "NavTabItem[]",
+          "required": true
+        },
+        {
+          "name": "modelValue",
+          "type": "string",
+          "required": false,
+          "default": {
+            "vue": "undefined",
+            "svelte": "tabs[0] ? tabs[0].id : ''",
+            "react": "undefined"
+          }
+        },
+        {
+          "name": "grow",
+          "type": "boolean",
+          "required": false,
+          "default": {
+            "vue": "false",
+            "svelte": "false",
+            "react": "false"
+          }
+        },
+        {
+          "name": "align",
+          "type": "'start' | 'center' | 'end'",
+          "required": false,
+          "default": {
+            "vue": "'start'",
+            "svelte": "'start'",
+            "react": "'start'"
+          }
+        }
+      ],
+      "emits": [
+        "update:modelValue",
+        "tabChange"
+      ],
+      "slots": [],
+      "controller": "src/molecules/m-tabs-nav/m-tabs-nav.controller.ts"
+    },
+    {
+      "name": "MToast",
+      "tag": "m-toast",
+      "tier": "molecule",
+      "summary": "Auto-dismissing notification.",
+      "frameworks": [
+        "vue",
+        "svelte",
+        "react"
+      ],
+      "imports": {
+        "vue": {
+          "from": "@chemx/x-atoms/vue",
+          "name": "MToast"
+        },
+        "svelte": {
+          "from": "@chemx/x-atoms/svelte",
+          "name": "MToast"
+        },
+        "react": {
+          "from": "@chemx/x-atoms/react",
+          "name": "MToast"
+        }
+      },
+      "vuetifyRoot": null,
+      "replaces": {
+        "html": [],
+        "vuetify": [
+          "v-snackbar"
+        ]
+      },
+      "safe1to1": false,
+      "propMap": {},
+      "props": [
+        {
+          "name": "modelValue",
+          "type": "boolean",
+          "required": false,
+          "default": {
+            "vue": "false",
+            "svelte": "false",
+            "react": "false"
+          }
+        },
+        {
+          "name": "message",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "type",
+          "type": "SemanticStatus",
+          "required": false,
+          "default": {
+            "vue": "'info'",
+            "svelte": "'info'",
+            "react": "'info'"
+          }
+        },
+        {
+          "name": "duration",
+          "type": "number",
+          "required": false,
+          "default": {
+            "vue": "4000",
+            "svelte": "4000",
+            "react": "4000"
+          }
+        },
+        {
+          "name": "actionText",
+          "type": "string",
+          "required": false,
+          "default": {
+            "vue": "undefined",
+            "svelte": "undefined",
+            "react": "undefined"
+          }
+        }
+      ],
+      "emits": [
+        "update:modelValue",
+        "click:action",
+        "close"
+      ],
+      "slots": [],
+      "controller": "src/molecules/m-toast/m-toast.controller.ts"
+    }
+  ],
+  "helpers": [
+    {
+      "name": "after",
+      "summary": "setTimeout that returns its own teardown.",
+      "fixes": [
+        "TIMER_DISCIPLINE",
+        "RENDER_HACK_TIMEOUT"
+      ],
+      "imports": {
+        "core": {
+          "from": "@chemx/x-atoms/core",
+          "name": "after"
+        },
+        "vue": {
+          "from": "@chemx/x-atoms/vue",
+          "name": "after"
+        },
+        "react": {
+          "from": "@chemx/x-atoms/react",
+          "name": "after"
+        },
+        "svelte": {
+          "from": "@chemx/x-atoms/svelte",
+          "name": "after"
+        }
+      },
+      "source": "src/core/timers.ts"
+    },
+    {
+      "name": "all",
+      "summary": "Named condition thunks, all true (short-circuit).",
+      "fixes": [
+        "COMBINATOR_RAW_BOOLEAN",
+        "CONTROL_FLOW_INLINE_BOOLEAN"
+      ],
+      "imports": {
+        "core": {
+          "from": "@chemx/x-atoms/core",
+          "name": "all"
+        },
+        "vue": {
+          "from": "@chemx/x-atoms/vue",
+          "name": "all"
+        },
+        "react": {
+          "from": "@chemx/x-atoms/react",
+          "name": "all"
+        },
+        "svelte": {
+          "from": "@chemx/x-atoms/svelte",
+          "name": "all"
+        }
+      },
+      "source": "src/core/combinators.ts"
+    },
+    {
+      "name": "allPass",
+      "summary": "Predicate that passes when every predicate passes (short-circuit).",
+      "fixes": [
+        "COMBINATOR_RAW_BOOLEAN",
+        "CONTROL_FLOW_INLINE_BOOLEAN"
+      ],
+      "imports": {
+        "core": {
+          "from": "@chemx/x-atoms/core",
+          "name": "allPass"
+        },
+        "vue": {
+          "from": "@chemx/x-atoms/vue",
+          "name": "allPass"
+        },
+        "react": {
+          "from": "@chemx/x-atoms/react",
+          "name": "allPass"
+        },
+        "svelte": {
+          "from": "@chemx/x-atoms/svelte",
+          "name": "allPass"
+        }
+      },
+      "source": "src/core/combinators.ts"
+    },
+    {
+      "name": "any",
+      "summary": "Named condition thunks, any true.",
+      "fixes": [
+        "COMBINATOR_RAW_BOOLEAN",
+        "CONTROL_FLOW_INLINE_BOOLEAN"
+      ],
+      "imports": {
+        "core": {
+          "from": "@chemx/x-atoms/core",
+          "name": "any"
+        },
+        "vue": {
+          "from": "@chemx/x-atoms/vue",
+          "name": "any"
+        },
+        "react": {
+          "from": "@chemx/x-atoms/react",
+          "name": "any"
+        },
+        "svelte": {
+          "from": "@chemx/x-atoms/svelte",
+          "name": "any"
+        }
+      },
+      "source": "src/core/combinators.ts"
+    },
+    {
+      "name": "anyPass",
+      "summary": "Predicate that passes when any predicate passes.",
+      "fixes": [
+        "COMBINATOR_RAW_BOOLEAN",
+        "CONTROL_FLOW_INLINE_BOOLEAN"
+      ],
+      "imports": {
+        "core": {
+          "from": "@chemx/x-atoms/core",
+          "name": "anyPass"
+        },
+        "vue": {
+          "from": "@chemx/x-atoms/vue",
+          "name": "anyPass"
+        },
+        "react": {
+          "from": "@chemx/x-atoms/react",
+          "name": "anyPass"
+        },
+        "svelte": {
+          "from": "@chemx/x-atoms/svelte",
+          "name": "anyPass"
+        }
+      },
+      "source": "src/core/combinators.ts"
+    },
+    {
+      "name": "createAsyncRunner",
+      "summary": "Latest-wins async loader engine behind useAsyncData.",
+      "fixes": [
+        "ERROR_SWALLOWED_EXCEPTION"
+      ],
+      "imports": {
+        "core": {
+          "from": "@chemx/x-atoms/core",
+          "name": "createAsyncRunner"
+        },
+        "vue": {
+          "from": "@chemx/x-atoms/vue",
+          "name": "createAsyncRunner"
+        },
+        "react": {
+          "from": "@chemx/x-atoms/react",
+          "name": "createAsyncRunner"
+        },
+        "svelte": {
+          "from": "@chemx/x-atoms/svelte",
+          "name": "createAsyncRunner"
+        }
+      },
+      "source": "src/core/async-runner.ts"
+    },
+    {
+      "name": "createDebounce",
+      "summary": "Debounced function with cancel().",
+      "fixes": [
+        "TIMER_DISCIPLINE"
+      ],
+      "imports": {
+        "core": {
+          "from": "@chemx/x-atoms/core",
+          "name": "createDebounce"
+        },
+        "vue": {
+          "from": "@chemx/x-atoms/vue",
+          "name": "createDebounce"
+        },
+        "react": {
+          "from": "@chemx/x-atoms/react",
+          "name": "createDebounce"
+        },
+        "svelte": {
+          "from": "@chemx/x-atoms/svelte",
+          "name": "createDebounce"
+        }
+      },
+      "source": "src/core/timers.ts"
+    },
+    {
+      "name": "createDisposer",
+      "summary": "Collects teardowns; runs them once in reverse order.",
+      "fixes": [
+        "LIFECYCLE_ORPHANED_LISTENER",
+        "TIMER_DISCIPLINE"
+      ],
+      "imports": {
+        "core": {
+          "from": "@chemx/x-atoms/core",
+          "name": "createDisposer"
+        },
+        "vue": {
+          "from": "@chemx/x-atoms/vue",
+          "name": "createDisposer"
+        },
+        "react": {
+          "from": "@chemx/x-atoms/react",
+          "name": "createDisposer"
+        },
+        "svelte": {
+          "from": "@chemx/x-atoms/svelte",
+          "name": "createDisposer"
+        }
+      },
+      "source": "src/core/lifecycle.ts"
+    },
+    {
+      "name": "createPredicateFilter",
+      "summary": "Reusable list filter from named predicates.",
+      "fixes": [
+        "AI_SLOP_UTILITY_REINVENTION",
+        "CONTROL_FLOW_INLINE_BOOLEAN"
+      ],
+      "imports": {
+        "core": {
+          "from": "@chemx/x-atoms/core",
+          "name": "createPredicateFilter"
+        },
+        "vue": {
+          "from": "@chemx/x-atoms/vue",
+          "name": "createPredicateFilter"
+        },
+        "react": {
+          "from": "@chemx/x-atoms/react",
+          "name": "createPredicateFilter"
+        },
+        "svelte": {
+          "from": "@chemx/x-atoms/svelte",
+          "name": "createPredicateFilter"
+        }
+      },
+      "source": "src/core/filters.ts"
+    },
+    {
+      "name": "createRestartableInterval",
+      "summary": "Stoppable, restartable interval.",
+      "fixes": [
+        "TIMER_DISCIPLINE"
+      ],
+      "imports": {
+        "core": {
+          "from": "@chemx/x-atoms/core",
+          "name": "createRestartableInterval"
+        },
+        "vue": {
+          "from": "@chemx/x-atoms/vue",
+          "name": "createRestartableInterval"
+        },
+        "react": {
+          "from": "@chemx/x-atoms/react",
+          "name": "createRestartableInterval"
+        },
+        "svelte": {
+          "from": "@chemx/x-atoms/svelte",
+          "name": "createRestartableInterval"
+        }
+      },
+      "source": "src/core/timers.ts"
+    },
+    {
+      "name": "createRestartableTimeout",
+      "summary": "Re-armable one-shot timer (pollers).",
+      "fixes": [
+        "TIMER_DISCIPLINE"
+      ],
+      "imports": {
+        "core": {
+          "from": "@chemx/x-atoms/core",
+          "name": "createRestartableTimeout"
+        },
+        "vue": {
+          "from": "@chemx/x-atoms/vue",
+          "name": "createRestartableTimeout"
+        },
+        "react": {
+          "from": "@chemx/x-atoms/react",
+          "name": "createRestartableTimeout"
+        },
+        "svelte": {
+          "from": "@chemx/x-atoms/svelte",
+          "name": "createRestartableTimeout"
+        }
+      },
+      "source": "src/core/timers.ts"
+    },
+    {
+      "name": "createRuleSet",
+      "summary": "Multi-clause validation that names the failing rule.",
+      "fixes": [
+        "CONTROL_FLOW_INLINE_BOOLEAN",
+        "COMPLEXITY_CYCLOMATIC_HIGH"
+      ],
+      "imports": {
+        "core": {
+          "from": "@chemx/x-atoms/core",
+          "name": "createRuleSet"
+        },
+        "vue": {
+          "from": "@chemx/x-atoms/vue",
+          "name": "createRuleSet"
+        },
+        "react": {
+          "from": "@chemx/x-atoms/react",
+          "name": "createRuleSet"
+        },
+        "svelte": {
+          "from": "@chemx/x-atoms/svelte",
+          "name": "createRuleSet"
+        }
+      },
+      "source": "src/core/rules.ts"
+    },
+    {
+      "name": "deepFreeze",
+      "summary": "Recursively frozen config objects.",
+      "fixes": [
+        "SYNTHETIC_MOCK_DATA"
+      ],
+      "imports": {
+        "core": {
+          "from": "@chemx/x-atoms/core",
+          "name": "deepFreeze"
+        },
+        "vue": {
+          "from": "@chemx/x-atoms/vue",
+          "name": "deepFreeze"
+        },
+        "react": {
+          "from": "@chemx/x-atoms/react",
+          "name": "deepFreeze"
+        },
+        "svelte": {
+          "from": "@chemx/x-atoms/svelte",
+          "name": "deepFreeze"
+        }
+      },
+      "source": "src/core/sentinel.ts"
+    },
+    {
+      "name": "every",
+      "summary": "setInterval that returns its own teardown.",
+      "fixes": [
+        "TIMER_DISCIPLINE"
+      ],
+      "imports": {
+        "core": {
+          "from": "@chemx/x-atoms/core",
+          "name": "every"
+        },
+        "vue": {
+          "from": "@chemx/x-atoms/vue",
+          "name": "every"
+        },
+        "react": {
+          "from": "@chemx/x-atoms/react",
+          "name": "every"
+        },
+        "svelte": {
+          "from": "@chemx/x-atoms/svelte",
+          "name": "every"
+        }
+      },
+      "source": "src/core/timers.ts"
+    },
+    {
+      "name": "fallback",
+      "summary": "Value or default for null/undefined.",
+      "fixes": [
+        "DATA_FLOW_OPTIONAL_CHAINING_CHURN"
+      ],
+      "imports": {
+        "core": {
+          "from": "@chemx/x-atoms/core",
+          "name": "fallback"
+        },
+        "vue": {
+          "from": "@chemx/x-atoms/vue",
+          "name": "fallback"
+        },
+        "react": {
+          "from": "@chemx/x-atoms/react",
+          "name": "fallback"
+        },
+        "svelte": {
+          "from": "@chemx/x-atoms/svelte",
+          "name": "fallback"
+        }
+      },
+      "source": "src/core/sentinel.ts"
+    },
+    {
+      "name": "listen",
+      "summary": "addEventListener that returns its own teardown.",
+      "fixes": [
+        "LIFECYCLE_ORPHANED_LISTENER"
+      ],
+      "imports": {
+        "core": {
+          "from": "@chemx/x-atoms/core",
+          "name": "listen"
+        },
+        "vue": {
+          "from": "@chemx/x-atoms/vue",
+          "name": "listen"
+        },
+        "react": {
+          "from": "@chemx/x-atoms/react",
+          "name": "listen"
+        },
+        "svelte": {
+          "from": "@chemx/x-atoms/svelte",
+          "name": "listen"
+        }
+      },
+      "source": "src/core/lifecycle.ts"
+    },
+    {
+      "name": "mapResult",
+      "summary": "Map the ok value; errors pass through.",
+      "fixes": [
+        "ERROR_SWALLOWED_EXCEPTION"
+      ],
+      "imports": {
+        "core": {
+          "from": "@chemx/x-atoms/core",
+          "name": "mapResult"
+        },
+        "vue": {
+          "from": "@chemx/x-atoms/vue",
+          "name": "mapResult"
+        },
+        "react": {
+          "from": "@chemx/x-atoms/react",
+          "name": "mapResult"
+        },
+        "svelte": {
+          "from": "@chemx/x-atoms/svelte",
+          "name": "mapResult"
+        }
+      },
+      "source": "src/core/result.ts"
+    },
+    {
+      "name": "matchesAllPredicates",
+      "summary": "Item passes every predicate.",
+      "fixes": [
+        "COMBINATOR_RAW_BOOLEAN"
+      ],
+      "imports": {
+        "core": {
+          "from": "@chemx/x-atoms/core",
+          "name": "matchesAllPredicates"
+        },
+        "vue": {
+          "from": "@chemx/x-atoms/vue",
+          "name": "matchesAllPredicates"
+        },
+        "react": {
+          "from": "@chemx/x-atoms/react",
+          "name": "matchesAllPredicates"
+        },
+        "svelte": {
+          "from": "@chemx/x-atoms/svelte",
+          "name": "matchesAllPredicates"
+        }
+      },
+      "source": "src/core/filters.ts"
+    },
+    {
+      "name": "matchesAnyPattern",
+      "summary": "String matches any substring or RegExp.",
+      "fixes": [
+        "COMBINATOR_RAW_BOOLEAN"
+      ],
+      "imports": {
+        "core": {
+          "from": "@chemx/x-atoms/core",
+          "name": "matchesAnyPattern"
+        },
+        "vue": {
+          "from": "@chemx/x-atoms/vue",
+          "name": "matchesAnyPattern"
+        },
+        "react": {
+          "from": "@chemx/x-atoms/react",
+          "name": "matchesAnyPattern"
+        },
+        "svelte": {
+          "from": "@chemx/x-atoms/svelte",
+          "name": "matchesAnyPattern"
+        }
+      },
+      "source": "src/core/filters.ts"
+    },
+    {
+      "name": "none",
+      "summary": "Named condition thunks, none true.",
+      "fixes": [
+        "COMBINATOR_RAW_BOOLEAN",
+        "CONTROL_FLOW_INLINE_BOOLEAN"
+      ],
+      "imports": {
+        "core": {
+          "from": "@chemx/x-atoms/core",
+          "name": "none"
+        },
+        "vue": {
+          "from": "@chemx/x-atoms/vue",
+          "name": "none"
+        },
+        "react": {
+          "from": "@chemx/x-atoms/react",
+          "name": "none"
+        },
+        "svelte": {
+          "from": "@chemx/x-atoms/svelte",
+          "name": "none"
+        }
+      },
+      "source": "src/core/combinators.ts"
+    },
+    {
+      "name": "nonePass",
+      "summary": "Predicate that passes when no predicate passes.",
+      "fixes": [
+        "COMBINATOR_RAW_BOOLEAN",
+        "CONTROL_FLOW_INLINE_BOOLEAN"
+      ],
+      "imports": {
+        "core": {
+          "from": "@chemx/x-atoms/core",
+          "name": "nonePass"
+        },
+        "vue": {
+          "from": "@chemx/x-atoms/vue",
+          "name": "nonePass"
+        },
+        "react": {
+          "from": "@chemx/x-atoms/react",
+          "name": "nonePass"
+        },
+        "svelte": {
+          "from": "@chemx/x-atoms/svelte",
+          "name": "nonePass"
+        }
+      },
+      "source": "src/core/combinators.ts"
+    },
+    {
+      "name": "normalizeArray",
+      "summary": "Nullish, scalar or array to an array.",
+      "fixes": [
+        "DATA_FLOW_OPTIONAL_CHAINING_CHURN"
+      ],
+      "imports": {
+        "core": {
+          "from": "@chemx/x-atoms/core",
+          "name": "normalizeArray"
+        },
+        "vue": {
+          "from": "@chemx/x-atoms/vue",
+          "name": "normalizeArray"
+        },
+        "react": {
+          "from": "@chemx/x-atoms/react",
+          "name": "normalizeArray"
+        },
+        "svelte": {
+          "from": "@chemx/x-atoms/svelte",
+          "name": "normalizeArray"
+        }
+      },
+      "source": "src/core/sentinel.ts"
+    },
+    {
+      "name": "toResult",
+      "summary": "Promise or thunk to a [data, error] tuple; never throws.",
+      "fixes": [
+        "AI_SLOP_SHALLOW_CATCH",
+        "ERROR_SWALLOWED_EXCEPTION"
+      ],
+      "imports": {
+        "core": {
+          "from": "@chemx/x-atoms/core",
+          "name": "toResult"
+        },
+        "vue": {
+          "from": "@chemx/x-atoms/vue",
+          "name": "toResult"
+        },
+        "react": {
+          "from": "@chemx/x-atoms/react",
+          "name": "toResult"
+        },
+        "svelte": {
+          "from": "@chemx/x-atoms/svelte",
+          "name": "toResult"
+        }
+      },
+      "source": "src/core/result.ts"
+    },
+    {
+      "name": "toResultSync",
+      "summary": "Sync function to a [data, error] tuple.",
+      "fixes": [
+        "AI_SLOP_SHALLOW_CATCH",
+        "ERROR_SWALLOWED_EXCEPTION"
+      ],
+      "imports": {
+        "core": {
+          "from": "@chemx/x-atoms/core",
+          "name": "toResultSync"
+        },
+        "vue": {
+          "from": "@chemx/x-atoms/vue",
+          "name": "toResultSync"
+        },
+        "react": {
+          "from": "@chemx/x-atoms/react",
+          "name": "toResultSync"
+        },
+        "svelte": {
+          "from": "@chemx/x-atoms/svelte",
+          "name": "toResultSync"
+        }
+      },
+      "source": "src/core/result.ts"
+    },
+    {
+      "name": "unwrapOr",
+      "summary": "Ok value or a fallback.",
+      "fixes": [
+        "DATA_FLOW_OPTIONAL_CHAINING_CHURN"
+      ],
+      "imports": {
+        "core": {
+          "from": "@chemx/x-atoms/core",
+          "name": "unwrapOr"
+        },
+        "vue": {
+          "from": "@chemx/x-atoms/vue",
+          "name": "unwrapOr"
+        },
+        "react": {
+          "from": "@chemx/x-atoms/react",
+          "name": "unwrapOr"
+        },
+        "svelte": {
+          "from": "@chemx/x-atoms/svelte",
+          "name": "unwrapOr"
+        }
+      },
+      "source": "src/core/result.ts"
+    },
+    {
+      "name": "useAsyncData",
+      "summary": "data/error/isLoading loader; latest call wins; dropped on unmount.",
+      "fixes": [
+        "ERROR_SWALLOWED_EXCEPTION",
+        "AI_SLOP_SHALLOW_CATCH"
+      ],
+      "imports": {
+        "vue": {
+          "from": "@chemx/x-atoms/vue",
+          "name": "useAsyncData"
+        },
+        "react": {
+          "from": "@chemx/x-atoms/react",
+          "name": "useAsyncData"
+        },
+        "svelte": {
+          "from": "@chemx/x-atoms/svelte",
+          "name": "useAsyncData"
+        }
+      },
+      "source": "src/adapters/vue/useAsyncData.ts"
+    },
+    {
+      "name": "useDebouncedCallback",
+      "summary": "Debounced latest callback, cancelled on unmount.",
+      "fixes": [
+        "TIMER_DISCIPLINE"
+      ],
+      "imports": {
+        "react": {
+          "from": "@chemx/x-atoms/react",
+          "name": "useDebouncedCallback"
+        }
+      },
+      "source": "src/adapters/react/useDebouncedCallback.ts"
+    },
+    {
+      "name": "useDisposer",
+      "summary": "Disposer flushed on unmount (onScopeDispose / effect cleanup / onDestroy).",
+      "fixes": [
+        "LIFECYCLE_ORPHANED_LISTENER",
+        "TIMER_DISCIPLINE"
+      ],
+      "imports": {
+        "vue": {
+          "from": "@chemx/x-atoms/vue",
+          "name": "useDisposer"
+        },
+        "react": {
+          "from": "@chemx/x-atoms/react",
+          "name": "useDisposer"
+        },
+        "svelte": {
+          "from": "@chemx/x-atoms/svelte",
+          "name": "useDisposer"
+        }
+      },
+      "source": "src/adapters/vue/useDisposer.ts"
+    },
+    {
+      "name": "usePredicateFilter",
+      "summary": "Reactive filtered list with count and hasMatches.",
+      "fixes": [
+        "AI_SLOP_UTILITY_REINVENTION",
+        "CONTROL_FLOW_INLINE_BOOLEAN"
+      ],
+      "imports": {
+        "vue": {
+          "from": "@chemx/x-atoms/vue",
+          "name": "usePredicateFilter"
+        },
+        "react": {
+          "from": "@chemx/x-atoms/react",
+          "name": "usePredicateFilter"
+        },
+        "svelte": {
+          "from": "@chemx/x-atoms/svelte",
+          "name": "usePredicateFilter"
+        }
+      },
+      "source": "src/adapters/vue/usePredicateFilter.ts"
+    },
+    {
+      "name": "useSelfCleaningInterval",
+      "summary": "Interval cleared with the component.",
+      "fixes": [
+        "TIMER_DISCIPLINE"
+      ],
+      "imports": {
+        "vue": {
+          "from": "@chemx/x-atoms/vue",
+          "name": "useSelfCleaningInterval"
+        },
+        "react": {
+          "from": "@chemx/x-atoms/react",
+          "name": "useSelfCleaningInterval"
+        },
+        "svelte": {
+          "from": "@chemx/x-atoms/svelte",
+          "name": "useSelfCleaningInterval"
+        }
+      },
+      "source": "src/adapters/vue/useSelfCleaningTimer.ts"
+    },
+    {
+      "name": "useSelfCleaningTimeout",
+      "summary": "Timeout cleared with the component.",
+      "fixes": [
+        "TIMER_DISCIPLINE",
+        "RENDER_HACK_TIMEOUT"
+      ],
+      "imports": {
+        "vue": {
+          "from": "@chemx/x-atoms/vue",
+          "name": "useSelfCleaningTimeout"
+        },
+        "react": {
+          "from": "@chemx/x-atoms/react",
+          "name": "useSelfCleaningTimeout"
+        },
+        "svelte": {
+          "from": "@chemx/x-atoms/svelte",
+          "name": "useSelfCleaningTimeout"
+        }
+      },
+      "source": "src/adapters/vue/useSelfCleaningTimer.ts"
+    }
+  ]
+}
