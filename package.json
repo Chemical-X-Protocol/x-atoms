@@ -11,11 +11,11 @@
   ],
   "exports": {
     ".": {
-      "import": "./src/index.ts",
+      "import": "./dist/x-atoms.es.js",
       "types": "./src/index.ts"
     },
     "./core": {
-      "import": "./src/core/index.ts",
+      "import": "./dist/x-atoms.es.js",
       "types": "./src/core/index.ts"
     },
     "./styles": "./src/styles/index.scss",

@@ -1,0 +1,33 @@
+{
+  "version": 1,
+  "latestScope": "src",
+  "scopes": {
+    "src": {
+      "updatedAt": "2026-10-09T08:18:36.951Z",
+      "ruleset": 3,
+      "scoreModel": 2,
+      "health": {
+        "score": 99,
+        "grade": "A+",
+        "density": 0.54
+      },
+      "gate": {
+        "isPassing": true,
+        "basis": "severity",
+        "regressions": 0,
+        "adopted": []
+      },
+      "coverage": {
+        "astPct": 100,
+        "isPartial": false
+      },
+      "hazards": {
+        "critical": 0,
+        "high": 0,
+        "medium": 29,
+        "low": 23
+      },
+      "isPartialScan": false
+    }
+  }
+}
