@@ -1,1 +1,5 @@
 node_modules
+
+# chemx local state and agent worktrees
+.chemx/
+.claude/
