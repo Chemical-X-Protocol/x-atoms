@@ -1,0 +1,7 @@
+{
+  "profile": "pragmatic",
+  "rules": {
+    "max-prop-count": 12
+  },
+  "nativeFileTools": "block"
+}
