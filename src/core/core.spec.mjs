@@ -30,7 +30,10 @@ import {
 } from './sentinel.ts';
 
 import {
-  createRuleSet
+  createRuleSet,
+  ruleTree,
+  evaluateRules,
+  assertRuleTree
 } from './rules.ts';
 
 test('combinators: allPass short-circuits on first false', () => {
@@ -138,3 +141,71 @@ test('rules: createRuleSet evaluates rules and identifies failing key', () => {
   assert.equal(failResult.failingKey !== null, true);
   assert.equal(passResult.failingKey, null);
 });
+
+test('rules: ruleTree evaluates branches and compiles dual-mode tree and violations', () => {
+  const result = ruleTree({
+    user: {
+      missing: false,
+      unverified: true
+    },
+    cart: {
+      empty: false,
+      expired: true
+    }
+  });
+
+  assert.equal(result.ok, false);
+  assert.equal(result.first, 'user.unverified');
+  assert.deepEqual(result.violations, ['user.unverified', 'cart.expired']);
+  assert.deepEqual(result.tree, {
+    user: { missing: false, unverified: true },
+    cart: { empty: false, expired: true }
+  });
+});
+
+test('rules: ruleTree supports lazy thunk short-circuiting in failFast mode', () => {
+  let downstreamCalled = false;
+  const user = null;
+
+  const result = ruleTree({
+    user: {
+      missing: !user,
+      unverified: () => {
+        downstreamCalled = true;
+        return !user.isVerified; // would throw TypeError if called
+      }
+    }
+  }, { failFast: true });
+
+  assert.equal(result.ok, false);
+  assert.equal(result.first, 'user.missing');
+  assert.equal(downstreamCalled, false, 'downstream thunk must not be evaluated after preceding failure');
+});
+
+test('rules: evaluateRules evaluates flat rule map', () => {
+  const result = evaluateRules({
+    cart_empty: false,
+    insufficient_funds: true,
+    unverified: false
+  });
+
+  assert.equal(result.ok, false);
+  assert.equal(result.first, 'insufficient_funds');
+  assert.deepEqual(result.violations, ['insufficient_funds']);
+});
+
+test('rules: assertRuleTree executes callback with first violation on failure', () => {
+  let reportedKey = null;
+
+  const isAllowed = assertRuleTree({
+    auth: {
+      unauthorized: true
+    }
+  }, (key) => {
+    reportedKey = key;
+  });
+
+  assert.equal(isAllowed, false);
+  assert.equal(reportedKey, 'auth.unauthorized');
+});
+

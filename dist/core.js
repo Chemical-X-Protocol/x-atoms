@@ -190,6 +190,38 @@ var e = {
 			failingKey: null
 		};
 	};
-}, L = (e) => Object.entries(e).map(([e, t]) => `${e}: ${t}`).join("; ");
+}, L = (e, t = {}) => {
+	let n = t.failFast ?? !1, r = [], i = {};
+	for (let [t, a] of Object.entries(e)) {
+		let e = {};
+		i[t] = e;
+		for (let [i, o] of Object.entries(a)) {
+			let a = typeof o == "function" ? !!o() : !!o;
+			if (e[i] = a, a) {
+				let e = `${t}.${i}`;
+				if (r.push(e), n) break;
+			}
+		}
+		let o = r.length > 0;
+		if (n && o) break;
+	}
+	return {
+		ok: r.length === 0,
+		first: r[0] ?? null,
+		violations: r,
+		tree: i
+	};
+}, R = (e, t = {}) => {
+	let n = t.failFast ?? !1, r = [];
+	for (let [t, i] of Object.entries(e)) if ((typeof i == "function" ? i() : i) && (r.push(t), n)) break;
+	return {
+		ok: r.length === 0,
+		first: r[0] ?? null,
+		violations: r
+	};
+}, z = (e, t) => {
+	let n = L(e, { failFast: !0 }), r = !!t, i = !!n.first;
+	return !n.ok && r && i && t(n.first), n.ok;
+}, B = (e) => Object.entries(e).map(([e, t]) => `${e}: ${t}`).join("; ");
 //#endregion
-export { x as after, l as all, a as allPass, u as any, o as anyPass, F as createAsyncRunner, C as createDebounce, y as createDisposer, P as createLatestGate, A as createPredicateFilter, E as createRestartableInterval, T as createRestartableTimeout, I as createRuleSet, D as deepFreeze, S as every, k as fallback, t as glassTokens, g as isErr, h as isOk, b as listen, _ as mapResult, N as matchesAllPredicates, M as matchesAnyPattern, d as none, s as nonePass, O as normalizeArray, c as not, n as radiiTokens, i as spaceTokens, e as starshipColors, f as toError, p as toResult, m as toResultSync, L as toStyleString, r as toneColors, v as unwrapOr };
+export { x as after, l as all, a as allPass, u as any, o as anyPass, z as assertRuleTree, F as createAsyncRunner, C as createDebounce, y as createDisposer, P as createLatestGate, A as createPredicateFilter, E as createRestartableInterval, T as createRestartableTimeout, I as createRuleSet, D as deepFreeze, R as evaluateRules, S as every, k as fallback, t as glassTokens, g as isErr, h as isOk, b as listen, _ as mapResult, N as matchesAllPredicates, M as matchesAnyPattern, d as none, s as nonePass, O as normalizeArray, c as not, n as radiiTokens, L as ruleTree, i as spaceTokens, e as starshipColors, f as toError, p as toResult, m as toResultSync, B as toStyleString, r as toneColors, v as unwrapOr };

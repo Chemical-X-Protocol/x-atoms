@@ -1,25 +1,25 @@
-import { after as e, all as t, allPass as n, any as r, anyPass as i, createAsyncRunner as a, createDebounce as o, createDisposer as s, createLatestGate as c, createPredicateFilter as ee, createRestartableInterval as l, createRestartableTimeout as te, createRuleSet as ne, deepFreeze as re, every as ie, fallback as ae, glassTokens as oe, isErr as se, isOk as ce, listen as le, mapResult as ue, matchesAllPredicates as de, matchesAnyPattern as fe, none as pe, nonePass as me, normalizeArray as he, not as ge, radiiTokens as _e, spaceTokens as ve, starshipColors as ye, toError as be, toResult as xe, toResultSync as Se, toStyleString as Ce, toneColors as we, unwrapOr as Te } from "./core.js";
-import { A as Ee, G as De, I as Oe, M as ke, O as Ae, P as je, R as Me, U as Ne, W as Pe, X as Fe, Y as Ie, Z as Le, _ as Re, a as ze, b as Be, d as Ve, f as He, g as Ue, h as We, i as Ge, j as Ke, k as qe, l as Je, m as Ye, o as Xe, s as Ze, t as Qe, u as $e, v as et, y as tt } from "./chunks/controllers-CVYLMjJ8.js";
-import nt, { starshipLightTheme as rt } from "./theme.js";
-import { Fragment as u, computed as d, createBlock as f, createCommentVNode as p, createElementBlock as m, createElementVNode as h, createSlots as g, createTextVNode as _, createVNode as v, defineComponent as y, getCurrentScope as it, guardReactiveProps as b, mergeProps as x, normalizeClass as S, normalizeProps as C, normalizeStyle as w, onScopeDispose as T, openBlock as E, ref as at, renderList as D, renderSlot as O, resolveDynamicComponent as k, shallowRef as ot, toDisplayString as A, toValue as st, unref as j, useAttrs as M, watch as ct, withCtx as N } from "vue";
-import { VBtn as lt } from "vuetify/components/VBtn";
-import { VCard as ut } from "vuetify/components/VCard";
-import { VChip as dt } from "vuetify/components/VChip";
-import { VDialog as ft } from "vuetify/components/VDialog";
-import { VSheet as pt } from "vuetify/components/VSheet";
-import { VTextField as mt } from "vuetify/components/VTextField";
-import { VAvatar as ht } from "vuetify/components/VAvatar";
-import { VBadge as gt } from "vuetify/components/VBadge";
-import { VCheckbox as _t } from "vuetify/components/VCheckbox";
-import { VSwitch as vt } from "vuetify/components/VSwitch";
-import { VDivider as yt } from "vuetify/components/VDivider";
-import { VAlert as bt } from "vuetify/components/VAlert";
-import { VProgressLinear as xt } from "vuetify/components/VProgressLinear";
-import { VTooltip as St } from "vuetify/components/VTooltip";
-import { VMenu as Ct } from "vuetify/components/VMenu";
-import { VList as wt, VListItem as Tt } from "vuetify/components/VList";
-import { VTextarea as Et } from "vuetify/components/VTextarea";
-import { VNavigationDrawer as Dt } from "vuetify/components/VNavigationDrawer";
+import { after as e, all as t, allPass as n, any as r, anyPass as i, assertRuleTree as a, createAsyncRunner as o, createDebounce as s, createDisposer as c, createLatestGate as ee, createPredicateFilter as te, createRestartableInterval as l, createRestartableTimeout as ne, createRuleSet as re, deepFreeze as ie, evaluateRules as ae, every as oe, fallback as se, glassTokens as ce, isErr as le, isOk as ue, listen as de, mapResult as fe, matchesAllPredicates as pe, matchesAnyPattern as me, none as he, nonePass as ge, normalizeArray as _e, not as ve, radiiTokens as ye, ruleTree as be, spaceTokens as xe, starshipColors as Se, toError as Ce, toResult as we, toResultSync as Te, toStyleString as Ee, toneColors as De, unwrapOr as Oe } from "./core.js";
+import { A as ke, G as Ae, I as je, M as Me, O as Ne, P as Pe, R as Fe, U as Ie, W as Le, X as Re, Y as ze, Z as Be, _ as Ve, a as He, b as Ue, d as We, f as Ge, g as Ke, h as qe, i as Je, j as Ye, k as Xe, l as Ze, m as Qe, o as $e, s as et, t as tt, u as nt, v as rt, y as it } from "./chunks/controllers-CVYLMjJ8.js";
+import at, { starshipLightTheme as ot } from "./theme.js";
+import { Fragment as u, computed as d, createBlock as f, createCommentVNode as p, createElementBlock as m, createElementVNode as h, createSlots as g, createTextVNode as _, createVNode as v, defineComponent as y, getCurrentScope as st, guardReactiveProps as b, mergeProps as x, normalizeClass as S, normalizeProps as C, normalizeStyle as w, onScopeDispose as T, openBlock as E, ref as ct, renderList as D, renderSlot as O, resolveDynamicComponent as k, shallowRef as lt, toDisplayString as A, toValue as ut, unref as j, useAttrs as M, watch as dt, withCtx as N } from "vue";
+import { VBtn as ft } from "vuetify/components/VBtn";
+import { VCard as pt } from "vuetify/components/VCard";
+import { VChip as mt } from "vuetify/components/VChip";
+import { VDialog as ht } from "vuetify/components/VDialog";
+import { VSheet as gt } from "vuetify/components/VSheet";
+import { VTextField as _t } from "vuetify/components/VTextField";
+import { VAvatar as vt } from "vuetify/components/VAvatar";
+import { VBadge as yt } from "vuetify/components/VBadge";
+import { VCheckbox as bt } from "vuetify/components/VCheckbox";
+import { VSwitch as xt } from "vuetify/components/VSwitch";
+import { VDivider as St } from "vuetify/components/VDivider";
+import { VAlert as Ct } from "vuetify/components/VAlert";
+import { VProgressLinear as wt } from "vuetify/components/VProgressLinear";
+import { VTooltip as Tt } from "vuetify/components/VTooltip";
+import { VMenu as Et } from "vuetify/components/VMenu";
+import { VList as Dt, VListItem as Ot } from "vuetify/components/VList";
+import { VTextarea as kt } from "vuetify/components/VTextarea";
+import { VNavigationDrawer as At } from "vuetify/components/VNavigationDrawer";
 //#endregion
 //#region src/atoms/x-btn/x-btn.vue
 var P = /* @__PURE__ */ y({
@@ -51,7 +51,7 @@ var P = /* @__PURE__ */ y({
 		let t = e, n = M(), r = d(() => t.variant === "glass"), i = d(() => r.value ? "flat" : t.variant), a = d(() => {
 			if (!r.value || t.color) return t.color;
 		});
-		return (e, o) => (E(), f(lt, x(j(n), {
+		return (e, o) => (E(), f(ft, x(j(n), {
 			variant: i.value,
 			color: a.value,
 			size: t.size,
@@ -112,7 +112,7 @@ var P = /* @__PURE__ */ y({
 	},
 	setup(e) {
 		let t = e, n = M(), r = d(() => t.variant === "glass"), i = d(() => r.value ? "flat" : t.variant);
-		return (e, a) => (E(), f(ut, x(j(n), {
+		return (e, a) => (E(), f(pt, x(j(n), {
 			variant: i.value,
 			color: t.color,
 			loading: t.loading,
@@ -173,7 +173,7 @@ var P = /* @__PURE__ */ y({
 			"class"
 		]));
 	}
-}), Ot = /* @__PURE__ */ y({
+}), jt = /* @__PURE__ */ y({
 	name: "XChip",
 	inheritAttrs: !1,
 	__name: "x-chip",
@@ -199,7 +199,7 @@ var P = /* @__PURE__ */ y({
 		let n = e, r = t, i = M(), a = d(() => n.variant === "glass"), o = d(() => a.value ? "flat" : n.variant), s = () => {
 			r("click:close");
 		};
-		return (e, t) => (E(), f(dt, x(j(i), {
+		return (e, t) => (E(), f(mt, x(j(i), {
 			variant: o.value,
 			color: n.color,
 			size: n.size,
@@ -237,7 +237,7 @@ var P = /* @__PURE__ */ y({
 			"class"
 		]));
 	}
-}), kt = { class: "x-dialog__actions" }, I = /* @__PURE__ */ y({
+}), Mt = { class: "x-dialog__actions" }, I = /* @__PURE__ */ y({
 	name: "XDialog",
 	inheritAttrs: !1,
 	__name: "x-dialog",
@@ -270,7 +270,7 @@ var P = /* @__PURE__ */ y({
 				r("update:modelValue", e), r("update:model-value", e);
 			}
 		});
-		return (e, t) => (E(), f(ft, x({
+		return (e, t) => (E(), f(ht, x({
 			modelValue: a.value,
 			"onUpdate:modelValue": t[0] ||= (e) => a.value = e
 		}, j(i), {
@@ -282,7 +282,7 @@ var P = /* @__PURE__ */ y({
 			transition: n.transition,
 			class: "x-dialog"
 		}), g({
-			default: N(() => [v(ut, { class: "x-dialog__surface" }, g({
+			default: N(() => [v(pt, { class: "x-dialog__surface" }, g({
 				default: N(() => [O(e.$slots, "default")]),
 				_: 2
 			}, [e.$slots.title ? {
@@ -291,7 +291,7 @@ var P = /* @__PURE__ */ y({
 				key: "0"
 			} : void 0, e.$slots.actions ? {
 				name: "actions",
-				fn: N(() => [h("div", kt, [O(e.$slots, "actions")])]),
+				fn: N(() => [h("div", Mt, [O(e.$slots, "actions")])]),
 				key: "1"
 			} : void 0]), 1024)]),
 			_: 2
@@ -339,7 +339,7 @@ var P = /* @__PURE__ */ y({
 	},
 	setup(e) {
 		let t = e, n = M(), r = d(() => t.transparent ? "transparent" : t.color);
-		return (e, i) => (E(), f(pt, x(j(n), {
+		return (e, i) => (E(), f(gt, x(j(n), {
 			color: r.value,
 			elevation: t.elevation,
 			rounded: t.rounded,
@@ -394,7 +394,7 @@ var P = /* @__PURE__ */ y({
 		}), o = () => {
 			r("click:clear");
 		};
-		return (e, t) => (E(), f(mt, x({
+		return (e, t) => (E(), f(_t, x({
 			modelValue: a.value,
 			"onUpdate:modelValue": t[0] ||= (e) => a.value = e
 		}, j(i), {
@@ -447,7 +447,7 @@ var P = /* @__PURE__ */ y({
 			"suffix"
 		]));
 	}
-}), At = ["src", "alt"], jt = { key: 1 }, z = /* @__PURE__ */ y({
+}), Nt = ["src", "alt"], Pt = { key: 1 }, z = /* @__PURE__ */ y({
 	name: "XAvatar",
 	inheritAttrs: !1,
 	__name: "x-avatar",
@@ -467,17 +467,17 @@ var P = /* @__PURE__ */ y({
 		status: { default: void 0 }
 	},
 	setup(e) {
-		let t = e, n = M(), r = d(() => Le(t.text || t.alt)), i = d(() => !!t.src), a = d(() => !!t.status);
-		return (e, o) => (E(), f(ht, x(j(n), {
+		let t = e, n = M(), r = d(() => Be(t.text || t.alt)), i = d(() => !!t.src), a = d(() => !!t.status);
+		return (e, o) => (E(), f(vt, x(j(n), {
 			size: t.size,
 			rounded: t.rounded,
-			class: j(Fe)(t)
+			class: j(Re)(t)
 		}), {
 			default: N(() => [i.value ? (E(), m("img", {
 				key: 0,
 				src: t.src,
 				alt: t.alt || "Avatar"
-			}, null, 8, At)) : r.value ? (E(), m("span", jt, A(r.value), 1)) : O(e.$slots, "default", {}, void 0, void 0, 2), a.value ? (E(), m("span", {
+			}, null, 8, Nt)) : r.value ? (E(), m("span", Pt, A(r.value), 1)) : O(e.$slots, "default", {}, void 0, void 0, 2), a.value ? (E(), m("span", {
 				key: 3,
 				class: S(["x-avatar__status-dot", `x-avatar__status-dot--${t.status}`])
 			}, null, 2)) : p("", !0)]),
@@ -510,8 +510,8 @@ var P = /* @__PURE__ */ y({
 		}
 	},
 	setup(e) {
-		let t = e, n = M(), r = d(() => Ie(t.content, t.max));
-		return d(() => !!n.default), (e, i) => (E(), f(gt, x(j(n), {
+		let t = e, n = M(), r = d(() => ze(t.content, t.max));
+		return d(() => !!n.default), (e, i) => (E(), f(yt, x(j(n), {
 			content: r.value,
 			color: t.color,
 			dot: t.dot,
@@ -563,7 +563,7 @@ var P = /* @__PURE__ */ y({
 				r("update:modelValue", e), r("change", e);
 			}
 		});
-		return (e, t) => (E(), f(_t, x({
+		return (e, t) => (E(), f(bt, x({
 			modelValue: a.value,
 			"onUpdate:modelValue": t[0] ||= (e) => a.value = e
 		}, j(i), {
@@ -618,7 +618,7 @@ var P = /* @__PURE__ */ y({
 				r("update:modelValue", e), r("change", e);
 			}
 		});
-		return (e, t) => (E(), f(vt, x({
+		return (e, t) => (E(), f(xt, x({
 			modelValue: a.value,
 			"onUpdate:modelValue": t[0] ||= (e) => a.value = e
 		}, j(i), {
@@ -660,8 +660,8 @@ var P = /* @__PURE__ */ y({
 		thickness: { default: void 0 }
 	},
 	setup(e) {
-		let t = e, n = M(), r = d(() => De(t));
-		return (e, i) => (E(), f(yt, x(j(n), {
+		let t = e, n = M(), r = d(() => Ae(t));
+		return (e, i) => (E(), f(St, x(j(n), {
 			vertical: t.vertical,
 			inset: t.inset,
 			color: t.color,
@@ -686,7 +686,7 @@ var P = /* @__PURE__ */ y({
 		delay: { default: "0s" }
 	},
 	setup(e) {
-		let t = e, n = d(() => Ne(t)), r = d(() => Pe(t.width)), i = d(() => Pe(t.height));
+		let t = e, n = d(() => Ie(t)), r = d(() => Le(t.width)), i = d(() => Le(t.height));
 		return (e, a) => (E(), m("div", {
 			class: S(n.value),
 			style: w({
@@ -715,7 +715,7 @@ var P = /* @__PURE__ */ y({
 		let n = e, r = t, i = M(), a = d(() => n.variant === "glass" ? "flat" : n.variant), o = () => {
 			r("click:close");
 		};
-		return (e, t) => (E(), f(bt, x(j(i), {
+		return (e, t) => (E(), f(Ct, x(j(i), {
 			type: n.type,
 			title: n.title,
 			text: n.text,
@@ -777,8 +777,8 @@ var P = /* @__PURE__ */ y({
 		}
 	},
 	setup(e) {
-		let t = e, n = M(), r = d(() => Me(t.modelValue));
-		return (e, i) => (E(), f(xt, x(j(n), {
+		let t = e, n = M(), r = d(() => Fe(t.modelValue));
+		return (e, i) => (E(), f(wt, x(j(n), {
 			"model-value": r.value,
 			indeterminate: t.indeterminate,
 			color: t.color,
@@ -795,7 +795,7 @@ var P = /* @__PURE__ */ y({
 			"striped"
 		]));
 	}
-}), Mt = /* @__PURE__ */ y({
+}), Ft = /* @__PURE__ */ y({
 	name: "XTooltip",
 	inheritAttrs: !1,
 	__name: "x-tooltip",
@@ -811,7 +811,7 @@ var P = /* @__PURE__ */ y({
 	},
 	setup(e) {
 		let t = e, n = M();
-		return (e, r) => (E(), f(St, x(j(n), {
+		return (e, r) => (E(), f(Tt, x(j(n), {
 			text: t.text,
 			location: t.location,
 			disabled: t.disabled,
@@ -860,7 +860,7 @@ var P = /* @__PURE__ */ y({
 			get: () => n.modelValue,
 			set: (e) => r("update:modelValue", !!e)
 		});
-		return (e, t) => (E(), f(Ct, x(j(i), {
+		return (e, t) => (E(), f(Et, x(j(i), {
 			"model-value": n.modelValue === void 0 ? void 0 : a.value,
 			"close-on-content-click": n.closeOnContentClick,
 			location: n.location,
@@ -909,8 +909,8 @@ var P = /* @__PURE__ */ y({
 		}
 	},
 	setup(e) {
-		let t = e, n = M(), r = d(() => t.variant === "glass"), i = d(() => Oe(t.variant));
-		return (e, a) => (E(), f(wt, x(j(n), {
+		let t = e, n = M(), r = d(() => t.variant === "glass"), i = d(() => je(t.variant));
+		return (e, a) => (E(), f(Dt, x(j(n), {
 			density: t.density,
 			lines: t.lines,
 			nav: t.nav,
@@ -968,8 +968,8 @@ var P = /* @__PURE__ */ y({
 		}
 	},
 	setup(e) {
-		let t = e, n = M(), r = d(() => t.variant === "glass"), i = d(() => je(t.variant));
-		return (e, a) => (E(), f(Tt, x(j(n), {
+		let t = e, n = M(), r = d(() => t.variant === "glass"), i = d(() => Pe(t.variant));
+		return (e, a) => (E(), f(Ot, x(j(n), {
 			title: t.title,
 			subtitle: t.subtitle,
 			value: t.value,
@@ -1021,7 +1021,7 @@ var P = /* @__PURE__ */ y({
 			"class"
 		]));
 	}
-}), Nt = /* @__PURE__ */ y({
+}), It = /* @__PURE__ */ y({
 	name: "XText",
 	__name: "x-text",
 	props: {
@@ -1036,13 +1036,13 @@ var P = /* @__PURE__ */ y({
 		}
 	},
 	setup(e) {
-		let t = e, n = d(() => ke(t)), r = d(() => Ke(t));
+		let t = e, n = d(() => Me(t)), r = d(() => Ye(t));
 		return (e, t) => (E(), f(k(n.value), { class: S(r.value) }, {
 			default: N(() => [O(e.$slots, "default")]),
 			_: 3
 		}, 8, ["class"]));
 	}
-}), Pt = /* @__PURE__ */ y({
+}), Lt = /* @__PURE__ */ y({
 	name: "XStack",
 	__name: "x-stack",
 	props: {
@@ -1057,13 +1057,13 @@ var P = /* @__PURE__ */ y({
 		tag: { default: "div" }
 	},
 	setup(e) {
-		let t = e, n = d(() => Ee(t));
+		let t = e, n = d(() => ke(t));
 		return (e, r) => (E(), f(k(t.tag), { class: S(n.value) }, {
 			default: N(() => [O(e.$slots, "default")]),
 			_: 3
 		}, 8, ["class"]));
 	}
-}), Ft = /* @__PURE__ */ y({
+}), Rt = /* @__PURE__ */ y({
 	name: "XGrid",
 	__name: "x-grid",
 	props: {
@@ -1074,7 +1074,7 @@ var P = /* @__PURE__ */ y({
 		tag: { default: "div" }
 	},
 	setup(e) {
-		let t = e, n = d(() => Ae(t)), r = d(() => qe(t));
+		let t = e, n = d(() => Ne(t)), r = d(() => Xe(t));
 		return (e, i) => (E(), f(k(t.tag), {
 			class: S(n.value),
 			style: w(r.value)
@@ -1083,7 +1083,7 @@ var P = /* @__PURE__ */ y({
 			_: 3
 		}, 8, ["class", "style"]));
 	}
-}), It = /* @__PURE__ */ y({
+}), zt = /* @__PURE__ */ y({
 	name: "XTextarea",
 	inheritAttrs: !1,
 	__name: "x-textarea",
@@ -1118,7 +1118,7 @@ var P = /* @__PURE__ */ y({
 			get: () => n.modelValue,
 			set: (e) => r("update:modelValue", e)
 		});
-		return (e, t) => (E(), f(Et, x({
+		return (e, t) => (E(), f(kt, x({
 			modelValue: a.value,
 			"onUpdate:modelValue": t[0] ||= (e) => a.value = e
 		}, j(i), {
@@ -1149,7 +1149,7 @@ var P = /* @__PURE__ */ y({
 			"counter"
 		]));
 	}
-}), Lt = /* @__PURE__ */ y({
+}), Bt = /* @__PURE__ */ y({
 	name: "XNavDrawer",
 	inheritAttrs: !1,
 	__name: "x-nav-drawer",
@@ -1183,7 +1183,7 @@ var P = /* @__PURE__ */ y({
 			get: () => n.modelValue,
 			set: (e) => r("update:modelValue", e)
 		});
-		return (e, t) => (E(), f(Dt, x({
+		return (e, t) => (E(), f(At, x({
 			modelValue: a.value,
 			"onUpdate:modelValue": t[0] ||= (e) => a.value = e
 		}, j(i), {
@@ -1215,7 +1215,7 @@ var P = /* @__PURE__ */ y({
 			"floating"
 		]));
 	}
-}), Rt = { class: "m-confirm-dialog__body" }, zt = { class: "m-confirm-dialog__title" }, Bt = { class: "m-confirm-dialog__message" }, Vt = /* @__PURE__ */ y({
+}), Vt = { class: "m-confirm-dialog__body" }, Ht = { class: "m-confirm-dialog__title" }, Ut = { class: "m-confirm-dialog__message" }, Wt = /* @__PURE__ */ y({
 	name: "MConfirmDialog",
 	__name: "m-confirm-dialog",
 	props: {
@@ -1242,7 +1242,7 @@ var P = /* @__PURE__ */ y({
 		let n = e, r = t, i = d({
 			get: () => n.modelValue,
 			set: (e) => r("update:modelValue", e)
-		}), a = d(() => Be(n)), o = () => {
+		}), a = d(() => Ue(n)), o = () => {
 			r("cancel"), i.value = !1;
 		}, s = () => {
 			r("confirm");
@@ -1268,17 +1268,17 @@ var P = /* @__PURE__ */ y({
 				default: N(() => [_(A(a.value.confirmText), 1)]),
 				_: 1
 			}, 8, ["color", "loading"])]),
-			default: N(() => [h("div", Rt, [h("h3", zt, A(n.title), 1), h("p", Bt, A(n.message), 1)])]),
+			default: N(() => [h("div", Vt, [h("h3", Ht, A(n.title), 1), h("p", Ut, A(n.message), 1)])]),
 			_: 1
 		}, 8, ["modelValue"]));
 	}
-}), Ht = { class: "m-kpi-tile" }, Ut = { class: "m-kpi-tile__header" }, Wt = { class: "m-kpi-tile__label" }, Gt = {
+}), Gt = { class: "m-kpi-tile" }, Kt = { class: "m-kpi-tile__header" }, qt = { class: "m-kpi-tile__label" }, Jt = {
 	key: 0,
 	class: "m-kpi-tile__icon"
-}, Kt = { class: "m-kpi-tile__value" }, qt = {
+}, Yt = { class: "m-kpi-tile__value" }, Xt = {
 	key: 0,
 	class: "m-kpi-tile__footer"
-}, Jt = {
+}, Zt = {
 	key: 1,
 	class: "m-kpi-tile__subtext"
 }, X = /* @__PURE__ */ y({
@@ -1293,23 +1293,23 @@ var P = /* @__PURE__ */ y({
 		icon: { default: void 0 }
 	},
 	setup(e) {
-		let t = e, n = d(() => et(t.trend)), r = d(() => tt(t.trend)), i = d(() => !!(t.trend && t.trendValue));
+		let t = e, n = d(() => rt(t.trend)), r = d(() => it(t.trend)), i = d(() => !!(t.trend && t.trendValue));
 		return (e, a) => (E(), f(F, {
 			variant: "glass",
 			hover: ""
 		}, {
-			default: N(() => [h("div", Ht, [
-				h("div", Ut, [h("span", Wt, A(t.label), 1), O(e.$slots, "icon", {}, () => [t.icon ? (E(), m("span", Gt, A(t.icon), 1)) : p("", !0)])]),
-				h("div", Kt, A(t.value), 1),
-				t.subtext || i.value ? (E(), m("div", qt, [i.value ? (E(), m("span", {
+			default: N(() => [h("div", Gt, [
+				h("div", Kt, [h("span", qt, A(t.label), 1), O(e.$slots, "icon", {}, () => [t.icon ? (E(), m("span", Jt, A(t.icon), 1)) : p("", !0)])]),
+				h("div", Yt, A(t.value), 1),
+				t.subtext || i.value ? (E(), m("div", Xt, [i.value ? (E(), m("span", {
 					key: 0,
 					class: S(["m-kpi-tile__trend", n.value])
-				}, A(r.value) + A(t.trendValue), 3)) : p("", !0), t.subtext ? (E(), m("span", Jt, A(t.subtext), 1)) : p("", !0)])) : p("", !0)
+				}, A(r.value) + A(t.trendValue), 3)) : p("", !0), t.subtext ? (E(), m("span", Zt, A(t.subtext), 1)) : p("", !0)])) : p("", !0)
 			])]),
 			_: 3
 		}));
 	}
-}), Yt = /* @__PURE__ */ y({
+}), Qt = /* @__PURE__ */ y({
 	name: "MSearchInput",
 	__name: "m-search-input",
 	props: {
@@ -1336,26 +1336,26 @@ var P = /* @__PURE__ */ y({
 		"clear"
 	],
 	setup(e, { emit: t }) {
-		let n = e, r = t, i = at(n.modelValue), a = o((e) => {
+		let n = e, r = t, i = ct(n.modelValue), a = s((e) => {
 			r("search", e);
 		}, n.debounceMs);
-		T(a.cancel), ct(() => n.modelValue, (e) => {
+		T(a.cancel), dt(() => n.modelValue, (e) => {
 			i.value = e;
 		});
-		let s = (e) => {
+		let o = (e) => {
 			let t = String(e);
 			i.value = t, r("update:modelValue", t), a(t);
 		}, c = () => {
 			i.value = "", r("update:modelValue", ""), r("clear"), r("search", "");
 		};
-		return (e, t) => (E(), m("div", { class: S(j(Re)(n)) }, [v(R, {
+		return (e, t) => (E(), m("div", { class: S(j(Ve)(n)) }, [v(R, {
 			"model-value": i.value,
 			placeholder: n.placeholder,
 			disabled: n.disabled,
 			clearable: n.clearable,
 			density: "compact",
 			"hide-details": "",
-			"onUpdate:modelValue": s,
+			"onUpdate:modelValue": o,
 			"onClick:clear": c
 		}, g({
 			"prepend-inner": N(() => [O(e.$slots, "prepend-inner", {}, () => [t[0] ||= h("span", { class: "m-search-input__icon" }, "🔍", -1)])]),
@@ -1371,10 +1371,10 @@ var P = /* @__PURE__ */ y({
 			"clearable"
 		])], 2));
 	}
-}), Xt = {
+}), $t = {
 	key: 0,
 	class: "m-pagination__info"
-}, Zt = { key: 1 }, Qt = { class: "m-pagination__controls" }, Z = /* @__PURE__ */ y({
+}, en = { key: 1 }, tn = { class: "m-pagination__controls" }, Z = /* @__PURE__ */ y({
 	name: "MPagination",
 	__name: "m-pagination",
 	props: {
@@ -1390,14 +1390,14 @@ var P = /* @__PURE__ */ y({
 	},
 	emits: ["update:currentPage", "pageChange"],
 	setup(e, { emit: t }) {
-		let n = e, r = t, i = d(() => We(n.currentPage, n.totalPages, n.maxVisiblePages)), a = d(() => Ye(n.currentPage, n.pageSize, n.totalItems)), o = d(() => n.currentPage > 1), s = d(() => n.currentPage < n.totalPages), c = (e) => {
-			Ue(e, n.currentPage, n.totalPages) && (r("update:currentPage", e), r("pageChange", e));
+		let n = e, r = t, i = d(() => qe(n.currentPage, n.totalPages, n.maxVisiblePages)), a = d(() => Qe(n.currentPage, n.pageSize, n.totalItems)), o = d(() => n.currentPage > 1), s = d(() => n.currentPage < n.totalPages), c = (e) => {
+			Ke(e, n.currentPage, n.totalPages) && (r("update:currentPage", e), r("pageChange", e));
 		};
 		return (e, t) => (E(), f(L, {
 			transparent: "",
 			class: "m-pagination"
 		}, {
-			default: N(() => [n.showRange && n.totalItems ? (E(), m("div", Xt, " Showing " + A(a.value.start) + " to " + A(a.value.end) + " of " + A(a.value.total) + " items ", 1)) : (E(), m("div", Zt)), h("div", Qt, [
+			default: N(() => [n.showRange && n.totalItems ? (E(), m("div", $t, " Showing " + A(a.value.start) + " to " + A(a.value.end) + " of " + A(a.value.total) + " items ", 1)) : (E(), m("div", en)), h("div", tn, [
 				v(P, {
 					variant: "glass",
 					size: "small",
@@ -1434,13 +1434,13 @@ var P = /* @__PURE__ */ y({
 			_: 1
 		}));
 	}
-}), $t = { class: "m-empty-state__icon-wrap" }, en = { class: "m-empty-state__title" }, tn = {
+}), nn = { class: "m-empty-state__icon-wrap" }, rn = { class: "m-empty-state__title" }, an = {
 	key: 0,
 	class: "m-empty-state__description"
-}, nn = {
+}, on = {
 	key: 1,
 	class: "m-empty-state__actions"
-}, rn = /* @__PURE__ */ y({
+}, sn = /* @__PURE__ */ y({
 	name: "MEmptyState",
 	__name: "m-empty-state",
 	props: {
@@ -1459,10 +1459,10 @@ var P = /* @__PURE__ */ y({
 			class: "m-empty-state"
 		}, {
 			default: N(() => [
-				h("div", $t, [O(e.$slots, "icon", {}, () => [h("span", null, A(n.icon), 1)])]),
-				h("h3", en, A(n.title), 1),
-				n.description ? (E(), m("p", tn, A(n.description), 1)) : p("", !0),
-				i.value || e.$slots.action ? (E(), m("div", nn, [O(e.$slots, "action", {}, () => [v(P, {
+				h("div", nn, [O(e.$slots, "icon", {}, () => [h("span", null, A(n.icon), 1)])]),
+				h("h3", rn, A(n.title), 1),
+				n.description ? (E(), m("p", an, A(n.description), 1)) : p("", !0),
+				i.value || e.$slots.action ? (E(), m("div", on, [O(e.$slots, "action", {}, () => [v(P, {
 					variant: "elevated",
 					color: "primary",
 					onClick: a
@@ -1474,7 +1474,7 @@ var P = /* @__PURE__ */ y({
 			_: 3
 		}));
 	}
-}), an = { class: "m-toast__message" }, on = { class: "m-toast__actions" }, Q = /* @__PURE__ */ y({
+}), cn = { class: "m-toast__message" }, ln = { class: "m-toast__actions" }, Q = /* @__PURE__ */ y({
 	name: "MToast",
 	__name: "m-toast",
 	props: {
@@ -1494,7 +1494,7 @@ var P = /* @__PURE__ */ y({
 	],
 	setup(t, { emit: n }) {
 		let r = t, i = n, a = () => {};
-		ct(() => [r.modelValue, r.duration], () => {
+		dt(() => [r.modelValue, r.duration], () => {
 			a(), a = r.modelValue && r.duration > 0 ? e(r.duration, s) : () => {};
 		}, { immediate: !0 }), T(() => a());
 		let o = () => {
@@ -1503,7 +1503,7 @@ var P = /* @__PURE__ */ y({
 		function s() {
 			i("update:modelValue", !1), i("close");
 		}
-		return (e, t) => (E(), m("div", { class: S(j(He)(r, r.modelValue)) }, [h("span", an, A(r.message), 1), h("div", on, [r.actionText ? (E(), f(P, {
+		return (e, t) => (E(), m("div", { class: S(j(Ge)(r, r.modelValue)) }, [h("span", cn, A(r.message), 1), h("div", ln, [r.actionText ? (E(), f(P, {
 			key: 0,
 			variant: "text",
 			size: "small",
@@ -1522,7 +1522,7 @@ var P = /* @__PURE__ */ y({
 			_: 1
 		})])], 2));
 	}
-}), sn = /* @__PURE__ */ y({
+}), un = /* @__PURE__ */ y({
 	name: "MStatStrip",
 	__name: "m-stat-strip",
 	props: {
@@ -1530,7 +1530,7 @@ var P = /* @__PURE__ */ y({
 		columns: { default: 4 }
 	},
 	setup(e) {
-		let t = e, n = d(() => Ve(t.columns));
+		let t = e, n = d(() => We(t.columns));
 		return (e, r) => (E(), m("div", {
 			class: "m-stat-strip",
 			style: w(n.value)
@@ -1551,17 +1551,17 @@ var P = /* @__PURE__ */ y({
 			"icon"
 		]))), 128))], 4));
 	}
-}), cn = [
+}), dn = [
 	"aria-selected",
 	"disabled",
 	"onClick"
-], ln = {
+], fn = {
 	key: 0,
 	class: "m-tabs-nav__icon"
-}, un = {
+}, pn = {
 	key: 1,
 	class: "m-tabs-nav__badge"
-}, dn = /* @__PURE__ */ y({
+}, mn = /* @__PURE__ */ y({
 	name: "MTabsNav",
 	__name: "m-tabs-nav",
 	props: {
@@ -1584,7 +1584,7 @@ var P = /* @__PURE__ */ y({
 			e.disabled || (i.value = e.id);
 		};
 		return (e, t) => (E(), m("nav", {
-			class: S(j($e)(n)),
+			class: S(j(nt)(n)),
 			role: "tablist"
 		}, [(E(!0), m(u, null, D(n.tabs, (e) => (E(), m("button", {
 			key: e.id,
@@ -1595,21 +1595,21 @@ var P = /* @__PURE__ */ y({
 			class: S(["m-tabs-nav__item", { "m-tabs-nav__item--active": i.value === e.id }]),
 			onClick: (t) => a(e)
 		}, [
-			e.icon ? (E(), m("span", ln, A(e.icon), 1)) : p("", !0),
+			e.icon ? (E(), m("span", fn, A(e.icon), 1)) : p("", !0),
 			h("span", null, A(e.label), 1),
-			e.badge ? (E(), m("span", un, A(e.badge), 1)) : p("", !0)
-		], 10, cn))), 128))], 2));
+			e.badge ? (E(), m("span", pn, A(e.badge), 1)) : p("", !0)
+		], 10, dn))), 128))], 2));
 	}
-}), fn = { class: "m-action-bar__start" }, pn = {
+}), hn = { class: "m-action-bar__start" }, gn = {
 	key: 0,
 	class: "m-action-bar__title"
-}, mn = {
+}, _n = {
 	key: 0,
 	class: "m-action-bar__center"
-}, hn = {
+}, vn = {
 	key: 1,
 	class: "m-action-bar__end"
-}, gn = /* @__PURE__ */ y({
+}, yn = /* @__PURE__ */ y({
 	name: "MActionBar",
 	__name: "m-action-bar",
 	props: {
@@ -1622,19 +1622,19 @@ var P = /* @__PURE__ */ y({
 	},
 	setup(e) {
 		let t = e;
-		return (e, n) => (E(), f(L, { class: S(j(Je)(t)) }, {
+		return (e, n) => (E(), f(L, { class: S(j(Ze)(t)) }, {
 			default: N(() => [
-				h("div", fn, [O(e.$slots, "start", {}, () => [t.title ? (E(), m("h2", pn, A(t.title), 1)) : p("", !0)])]),
-				e.$slots.default ? (E(), m("div", mn, [O(e.$slots, "default")])) : p("", !0),
-				e.$slots.end ? (E(), m("div", hn, [O(e.$slots, "end")])) : p("", !0)
+				h("div", hn, [O(e.$slots, "start", {}, () => [t.title ? (E(), m("h2", gn, A(t.title), 1)) : p("", !0)])]),
+				e.$slots.default ? (E(), m("div", _n, [O(e.$slots, "default")])) : p("", !0),
+				e.$slots.end ? (E(), m("div", vn, [O(e.$slots, "end")])) : p("", !0)
 			]),
 			_: 3
 		}, 8, ["class"]));
 	}
-}), _n = { class: "m-data-table__table" }, vn = ["onClick"], yn = {
+}), bn = { class: "m-data-table__table" }, xn = ["onClick"], Sn = {
 	key: 0,
 	class: "m-data-table__sort-icon"
-}, bn = { key: 0 }, xn = ["colspan"], Sn = ["onClick"], Cn = /* @__PURE__ */ y({
+}, Cn = { key: 0 }, wn = ["colspan"], Tn = ["onClick"], En = /* @__PURE__ */ y({
 	__name: "m-data-table",
 	props: {
 		headers: {},
@@ -1661,8 +1661,8 @@ var P = /* @__PURE__ */ y({
 	},
 	emits: ["click:row", "update:sort"],
 	setup(e, { emit: t }) {
-		let n = e, r = t, i = d(() => Ge(n)), a = d(() => n.items.length > 0), o = d(() => !n.loading && !a.value), s = (e) => {
-			Qe(e, !0) && r("update:sort", ze({
+		let n = e, r = t, i = d(() => Je(n)), a = d(() => n.items.length > 0), o = d(() => !n.loading && !a.value), s = (e) => {
+			tt(e, !0) && r("update:sort", He({
 				sortBy: n.sortBy,
 				sortDesc: n.sortDesc
 			}, e.key));
@@ -1673,7 +1673,7 @@ var P = /* @__PURE__ */ y({
 			key: 0,
 			indeterminate: "",
 			color: "primary"
-		})) : p("", !0), h("table", _n, [h("thead", null, [h("tr", null, [(E(!0), m(u, null, D(e.headers, (n) => (E(), m("th", {
+		})) : p("", !0), h("table", bn, [h("thead", null, [h("tr", null, [(E(!0), m(u, null, D(e.headers, (n) => (E(), m("th", {
 			key: n.key,
 			class: S([
 				"m-data-table__th",
@@ -1681,11 +1681,11 @@ var P = /* @__PURE__ */ y({
 				n.align && `m-data-table__th--align-${n.align}`
 			]),
 			onClick: (e) => s(n)
-		}, [O(t.$slots, `header.${n.key}`, { header: n }, () => [_(A(n.title) + " ", 1), e.sortBy === n.key ? (E(), m("span", yn, A(e.sortDesc ? "▼" : "▲"), 1)) : p("", !0)])], 10, vn))), 128))])]), h("tbody", null, [o.value ? (E(), m("tr", bn, [h("td", {
+		}, [O(t.$slots, `header.${n.key}`, { header: n }, () => [_(A(n.title) + " ", 1), e.sortBy === n.key ? (E(), m("span", Sn, A(e.sortDesc ? "▼" : "▲"), 1)) : p("", !0)])], 10, xn))), 128))])]), h("tbody", null, [o.value ? (E(), m("tr", Cn, [h("td", {
 			colspan: e.headers.length,
 			class: "m-data-table__empty"
-		}, [O(t.$slots, "empty", {}, () => [_(A(e.emptyText), 1)])], 8, xn)])) : p("", !0), (E(!0), m(u, null, D(e.items, (n, r) => (E(), m("tr", {
-			key: j(Ze)(n, e.itemKey, r),
+		}, [O(t.$slots, "empty", {}, () => [_(A(e.emptyText), 1)])], 8, wn)])) : p("", !0), (E(!0), m(u, null, D(e.items, (n, r) => (E(), m("tr", {
+			key: j(et)(n, e.itemKey, r),
 			class: "m-data-table__tr",
 			onClick: (e) => c(n)
 		}, [(E(!0), m(u, null, D(e.headers, (e) => (E(), m("td", {
@@ -1693,31 +1693,31 @@ var P = /* @__PURE__ */ y({
 			class: S(["m-data-table__td", e.align && `m-data-table__td--align-${e.align}`])
 		}, [O(t.$slots, `item.${e.key}`, {
 			item: n,
-			value: j(Xe)(n, e)
-		}, () => [_(A(j(Xe)(n, e)), 1)])], 2))), 128))], 8, Sn))), 128))])])], 2));
+			value: j($e)(n, e)
+		}, () => [_(A(j($e)(n, e)), 1)])], 2))), 128))], 8, Tn))), 128))])])], 2));
 	}
 }), $ = (...e) => {
-	let t = s(...e);
-	return it() && T(t), t;
-}, wn = (e, t) => ($(e.stop), t.immediate && e.start(), e), Tn = (e, t, n = {}) => wn(te(e, t), n), En = (e, t, n = {}) => wn(l(e, t), n), Dn = (e, t = {}) => {
-	let { immediate: n = !0 } = t, r = ot(null), i = ot(null), o = at(n), s = a(e, (e) => {
-		r.value = e.data, i.value = e.error, o.value = e.isLoading;
+	let t = c(...e);
+	return st() && T(t), t;
+}, Dn = (e, t) => ($(e.stop), t.immediate && e.start(), e), On = (e, t, n = {}) => Dn(ne(e, t), n), kn = (e, t, n = {}) => Dn(l(e, t), n), An = (e, t = {}) => {
+	let { immediate: n = !0 } = t, r = lt(null), i = lt(null), a = ct(n), s = o(e, (e) => {
+		r.value = e.data, i.value = e.error, a.value = e.isLoading;
 	}, { isLoading: n });
 	return $(s.cancel), n && s.run(), {
 		data: r,
 		error: i,
-		isLoading: o,
+		isLoading: a,
 		execute: s.run
 	};
-}, On = (e, ...t) => {
-	let n = ee(...t), r = d(() => n(st(e))), i = d(() => r.value.length);
+}, jn = (e, ...t) => {
+	let n = te(...t), r = d(() => n(ut(e))), i = d(() => r.value.length);
 	return {
 		filtered: r,
 		count: i,
 		hasMatches: d(() => i.value > 0)
 	};
-}, kn = () => ({ install(e) {
-	e.component("XBtn", P), e.component("XCard", F), e.component("XChip", Ot), e.component("XDialog", I), e.component("x-dialog", I), e.component("XModal", I), e.component("x-modal", I), e.component("XSheet", L), e.component("XTextField", R), e.component("XAvatar", z), e.component("XBadge", B), e.component("XCheckbox", V), e.component("XSwitch", H), e.component("XDivider", U), e.component("XSkeleton", W), e.component("XAlert", G), e.component("XProgressLinear", K), e.component("XTooltip", Mt), e.component("XMenu", q), e.component("x-menu", q), e.component("XList", J), e.component("x-list", J), e.component("XListItem", Y), e.component("x-list-item", Y), e.component("XText", Nt), e.component("XStack", Pt), e.component("XGrid", Ft), e.component("XTextarea", It), e.component("XNavDrawer", Lt), e.component("MConfirmDialog", Vt), e.component("MKpiTile", X), e.component("MSearchInput", Yt), e.component("MPagination", Z), e.component("MEmptyState", rn), e.component("MToast", Q), e.component("m-toast", Q), e.component("MStatStrip", sn), e.component("MTabsNav", dn), e.component("MActionBar", gn), e.component("MDataTable", Cn);
+}, Mn = () => ({ install(e) {
+	e.component("XBtn", P), e.component("XCard", F), e.component("XChip", jt), e.component("XDialog", I), e.component("x-dialog", I), e.component("XModal", I), e.component("x-modal", I), e.component("XSheet", L), e.component("XTextField", R), e.component("XAvatar", z), e.component("XBadge", B), e.component("XCheckbox", V), e.component("XSwitch", H), e.component("XDivider", U), e.component("XSkeleton", W), e.component("XAlert", G), e.component("XProgressLinear", K), e.component("XTooltip", Ft), e.component("XMenu", q), e.component("x-menu", q), e.component("XList", J), e.component("x-list", J), e.component("XListItem", Y), e.component("x-list-item", Y), e.component("XText", It), e.component("XStack", Lt), e.component("XGrid", Rt), e.component("XTextarea", zt), e.component("XNavDrawer", Bt), e.component("MConfirmDialog", Wt), e.component("MKpiTile", X), e.component("MSearchInput", Qt), e.component("MPagination", Z), e.component("MEmptyState", sn), e.component("MToast", Q), e.component("m-toast", Q), e.component("MStatStrip", un), e.component("MTabsNav", mn), e.component("MActionBar", yn), e.component("MDataTable", En);
 } });
 //#endregion
-export { gn as MActionBar, Vt as MConfirmDialog, Cn as MDataTable, rn as MEmptyState, X as MKpiTile, Z as MPagination, Yt as MSearchInput, sn as MStatStrip, dn as MTabsNav, Q as MToast, G as XAlert, z as XAvatar, B as XBadge, P as XBtn, F as XCard, V as XCheckbox, Ot as XChip, I as XDialog, I as XModal, U as XDivider, Ft as XGrid, J as XList, Y as XListItem, q as XMenu, Lt as XNavDrawer, K as XProgressLinear, L as XSheet, W as XSkeleton, Pt as XStack, H as XSwitch, Nt as XText, R as XTextField, It as XTextarea, Mt as XTooltip, e as after, t as all, n as allPass, r as any, i as anyPass, a as createAsyncRunner, o as createDebounce, s as createDisposer, c as createLatestGate, ee as createPredicateFilter, l as createRestartableInterval, te as createRestartableTimeout, ne as createRuleSet, kn as createXAtomsPlugin, kn as default, re as deepFreeze, ie as every, ae as fallback, oe as glassTokens, se as isErr, ce as isOk, le as listen, ue as mapResult, de as matchesAllPredicates, fe as matchesAnyPattern, pe as none, me as nonePass, he as normalizeArray, ge as not, _e as radiiTokens, ve as spaceTokens, ye as starshipColors, nt as starshipDarkTheme, rt as starshipLightTheme, be as toError, xe as toResult, Se as toResultSync, Ce as toStyleString, we as toneColors, Te as unwrapOr, Dn as useAsyncData, $ as useDisposer, On as usePredicateFilter, En as useSelfCleaningInterval, Tn as useSelfCleaningTimeout };
+export { yn as MActionBar, Wt as MConfirmDialog, En as MDataTable, sn as MEmptyState, X as MKpiTile, Z as MPagination, Qt as MSearchInput, un as MStatStrip, mn as MTabsNav, Q as MToast, G as XAlert, z as XAvatar, B as XBadge, P as XBtn, F as XCard, V as XCheckbox, jt as XChip, I as XDialog, I as XModal, U as XDivider, Rt as XGrid, J as XList, Y as XListItem, q as XMenu, Bt as XNavDrawer, K as XProgressLinear, L as XSheet, W as XSkeleton, Lt as XStack, H as XSwitch, It as XText, R as XTextField, zt as XTextarea, Ft as XTooltip, e as after, t as all, n as allPass, r as any, i as anyPass, a as assertRuleTree, o as createAsyncRunner, s as createDebounce, c as createDisposer, ee as createLatestGate, te as createPredicateFilter, l as createRestartableInterval, ne as createRestartableTimeout, re as createRuleSet, Mn as createXAtomsPlugin, Mn as default, ie as deepFreeze, ae as evaluateRules, oe as every, se as fallback, ce as glassTokens, le as isErr, ue as isOk, de as listen, fe as mapResult, pe as matchesAllPredicates, me as matchesAnyPattern, he as none, ge as nonePass, _e as normalizeArray, ve as not, ye as radiiTokens, be as ruleTree, xe as spaceTokens, Se as starshipColors, at as starshipDarkTheme, ot as starshipLightTheme, Ce as toError, we as toResult, Te as toResultSync, Ee as toStyleString, De as toneColors, Oe as unwrapOr, An as useAsyncData, $ as useDisposer, jn as usePredicateFilter, kn as useSelfCleaningInterval, On as useSelfCleaningTimeout };
