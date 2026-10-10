@@ -1,13 +1,17 @@
 import type { MKpiTileProps } from './types';
 
-export const resolveTrendClass = (trend?: MKpiTileProps['trend']): string => {
-  if (trend === 'up') return 'm-kpi-tile__trend--up';
-  if (trend === 'down') return 'm-kpi-tile__trend--down';
-  return 'm-kpi-tile__trend--neutral';
+const TREND_CLASSES: Record<string, string> = {
+  up: 'm-kpi-tile__trend--up',
+  down: 'm-kpi-tile__trend--down',
 };
 
-export const resolveTrendSymbol = (trend?: MKpiTileProps['trend']): string => {
-  if (trend === 'up') return '+';
-  if (trend === 'down') return '-';
-  return '';
+const TREND_SYMBOLS: Record<string, string> = {
+  up: '+',
+  down: '-',
 };
+
+export const resolveTrendClass = (trend?: MKpiTileProps['trend']): string =>
+  TREND_CLASSES[trend ?? ''] ?? 'm-kpi-tile__trend--neutral';
+
+export const resolveTrendSymbol = (trend?: MKpiTileProps['trend']): string =>
+  TREND_SYMBOLS[trend ?? ''] ?? '';

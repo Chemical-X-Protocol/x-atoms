@@ -17,7 +17,8 @@ export const computeSearchInputClasses = (
     classes.push('m-search-input--disabled');
   }
 
-  if (props.size && props.size !== 'default') {
+  const hasCustomSize = Boolean(props.size) && props.size !== 'default';
+  if (hasCustomSize) {
     classes.push(`m-search-input--${props.size}`);
   }
 

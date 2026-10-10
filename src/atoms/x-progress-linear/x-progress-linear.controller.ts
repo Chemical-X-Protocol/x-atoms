@@ -1,7 +1,8 @@
 import type { XProgressLinearProps } from './types';
 
 export const clampProgress = (value?: number): number => {
-  if (value === undefined || value === null) return 0;
+  const isMissing = value === undefined || value === null;
+  if (isMissing) return 0;
   return Math.min(Math.max(value, 0), 100);
 };
 

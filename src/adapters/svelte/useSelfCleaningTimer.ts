@@ -10,7 +10,8 @@ export type SelfCleaningTimer = RestartableTimer;
 
 const bindTimer = (timer: RestartableTimer, options: SelfCleaningTimerOptions): SelfCleaningTimer => {
   useDisposer(timer.stop);
-  if (options.immediate) timer.start();
+  const shouldStartNow = Boolean(options.immediate);
+  if (shouldStartNow) timer.start();
   return timer;
 };
 

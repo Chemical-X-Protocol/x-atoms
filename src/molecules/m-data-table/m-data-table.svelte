@@ -36,9 +36,10 @@ const tableClasses = $derived(
 const isEmpty = $derived(!loading && items.length === 0);
 
 const handleHeaderClick = (header: MDataTableHeader) => {
-  if (!header.sortable || !onsortchange) return;
+  const canSort = Boolean(header.sortable) && Boolean(onsortchange);
+  if (!canSort) return;
   const nextSort = getNextSortState({ sortBy, sortDesc }, header.key);
-  onsortchange(nextSort);
+  onsortchange?.(nextSort);
 };
 
 const handleRowClick = (item: Record<string, unknown>) => {

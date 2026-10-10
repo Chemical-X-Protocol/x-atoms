@@ -18,7 +18,8 @@ const props = withDefaults(defineProps<XSheetProps>(), {
 const attrs = useAttrs();
 
 const resolvedColor = computed(() => {
-  if (props.transparent) {
+  const isTransparent = Boolean(props.transparent);
+  if (isTransparent) {
     return 'transparent';
   }
   return props.color;

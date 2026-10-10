@@ -8,9 +8,12 @@ export const isDrawerOpen = (props: XNavDrawerProps): boolean => {
 export const computeNavDrawerClasses = (props: XNavDrawerProps, extraClass?: string): string[] => {
   const classes: string[] = ['x-nav-drawer', `x-nav-drawer--${props.location ?? 'start'}`];
   if (!isDrawerOpen(props)) classes.push('x-nav-drawer--closed');
-  if (props.rail) classes.push('x-nav-drawer--rail');
-  if (props.temporary) classes.push('x-nav-drawer--temporary');
-  if (props.floating) classes.push('x-nav-drawer--floating');
+  const isRail = Boolean(props.rail);
+  const isTemporary = Boolean(props.temporary);
+  const isFloating = Boolean(props.floating);
+  if (isRail) classes.push('x-nav-drawer--rail');
+  if (isTemporary) classes.push('x-nav-drawer--temporary');
+  if (isFloating) classes.push('x-nav-drawer--floating');
   if (extraClass) classes.push(extraClass);
   return classes;
 };

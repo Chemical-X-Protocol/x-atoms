@@ -7,9 +7,12 @@ export const computeStackClasses = (props: XStackProps, extraClass?: string): st
     `x-stack--${props.direction ?? 'column'}`,
     `x-stack--gap-${props.gap ?? 'md'}`,
   ];
-  if (props.align) classes.push(`x-stack--align-${props.align}`);
-  if (props.justify) classes.push(`x-stack--justify-${props.justify}`);
-  if (props.wrap) classes.push('x-stack--wrap');
+  const hasAlign = Boolean(props.align);
+  const hasJustify = Boolean(props.justify);
+  const isWrapping = Boolean(props.wrap);
+  if (hasAlign) classes.push(`x-stack--align-${props.align}`);
+  if (hasJustify) classes.push(`x-stack--justify-${props.justify}`);
+  if (isWrapping) classes.push('x-stack--wrap');
   if (extraClass) classes.push(extraClass);
   return classes;
 };

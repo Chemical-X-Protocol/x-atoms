@@ -106,6 +106,15 @@ describe('vue atoms mount and honour their contract', () => {
     expect(wrapper.find('.x-skeleton').exists()).toBe(true);
   });
 
+  it('XSkeleton sizes itself through CSS custom properties, not inline width/height', () => {
+    const wrapper = mountAtom(Vue.XSkeleton, { props: { width: 40, height: '2rem' } });
+    const style = (wrapper.find('.x-skeleton').element as HTMLElement).style;
+    expect(style.getPropertyValue('--x-skeleton-width')).toBe('40px');
+    expect(style.getPropertyValue('--x-skeleton-height')).toBe('2rem');
+    expect(style.width).toBe('');
+    expect(style.height).toBe('');
+  });
+
   it('XSwitch emits update:modelValue on toggle', async () => {
     const wrapper = mountAtom(Vue.XSwitch, { props: { modelValue: false, label: 'Live' } });
     expect(wrapper.find('.x-switch').exists()).toBe(true);

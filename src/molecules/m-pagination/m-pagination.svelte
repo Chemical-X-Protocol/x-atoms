@@ -25,7 +25,9 @@ const canGoPrev = $derived(currentPage > 1);
 const canGoNext = $derived(currentPage < totalPages);
 
 const setPage = (page: number) => {
-  if (page >= 1 && page <= totalPages && page !== currentPage) {
+  const isInRange = page >= 1 && page <= totalPages;
+  const isNewPage = isInRange && page !== currentPage;
+  if (isNewPage) {
     currentPage = page;
     onpagechange?.(page);
   }

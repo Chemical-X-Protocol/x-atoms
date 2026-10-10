@@ -33,7 +33,8 @@ export const computeBadgeClasses = (
     classes.push('x-badge--floating');
   }
 
-  if (props.color) {
+  const hasColor = Boolean(props.color);
+  if (hasColor) {
     classes.push(`x-badge--color-${props.color}`);
   }
 

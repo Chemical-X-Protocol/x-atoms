@@ -29,7 +29,8 @@ const computedVuetifyVariant = computed(() => {
 });
 
 const resolvedColor = computed(() => {
-  if (isGlassVariant.value && !props.color) {
+  const usesGlassDefault = isGlassVariant.value && !props.color;
+  if (usesGlassDefault) {
     return undefined;
   }
   return props.color;

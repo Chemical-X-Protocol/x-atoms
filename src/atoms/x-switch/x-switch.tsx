@@ -32,7 +32,8 @@ export const XSwitchReact: React.FC<ReactSwitchProps> = ({
       className={resolvedClassNames}
       onClick={handleToggle}
       onKeyDown={(e) => {
-        if (e.key === ' ' || e.key === 'Enter') {
+        const isToggleKey = e.key === ' ' || e.key === 'Enter';
+        if (isToggleKey) {
           e.preventDefault();
           handleToggle();
         }

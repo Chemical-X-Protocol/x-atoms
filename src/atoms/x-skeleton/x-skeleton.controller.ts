@@ -17,7 +17,8 @@ export const computeSkeletonClasses = (
 };
 
 export const formatDimension = (val?: string | number): string => {
-  if (val === undefined || val === null) return '100%';
-  if (typeof val === 'number') return `${val}px`;
-  return val;
+  const isMissing = val === undefined || val === null;
+  if (isMissing) return '100%';
+  const isPixels = typeof val === 'number';
+  return isPixels ? `${val}px` : val;
 };

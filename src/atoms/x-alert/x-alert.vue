@@ -19,7 +19,8 @@ const emit = defineEmits<XAlertEmits>();
 const attrs = useAttrs();
 
 const computedVuetifyVariant = computed(() => {
-  if (props.variant === 'glass') return 'flat';
+  const isGlass = props.variant === 'glass';
+  if (isGlass) return 'flat';
   return props.variant;
 });
 

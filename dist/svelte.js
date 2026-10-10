@@ -1,5 +1,5 @@
 import { after as e, all as t, allPass as n, any as r, anyPass as i, assertRuleTree as a, createAsyncRunner as o, createDebounce as s, createDisposer as c, createLatestGate as l, createPredicateFilter as u, createRestartableInterval as d, createRestartableTimeout as f, createRuleSet as p, deepFreeze as m, evaluateRules as h, every as g, fallback as _, glassTokens as v, isErr as y, isOk as b, listen as x, mapResult as S, matchesAllPredicates as C, matchesAnyPattern as w, none as T, nonePass as E, normalizeArray as ee, not as te, radiiTokens as ne, ruleTree as re, spaceTokens as ie, starshipColors as ae, toError as oe, toResult as se, toResultSync as D, toStyleString as O, toneColors as ce, unwrapOr as le } from "./core.js";
-import { $ as ue, A as de, C as fe, E as pe, F as me, G as he, H as k, J as A, K as j, L as M, M as N, N as P, O as F, Q as I, R as L, S as R, T as ge, U as _e, W as z, X as ve, Y as ye, Z as be, _ as xe, a as Se, b as Ce, ct as we, d as Te, et as Ee, f as De, h as Oe, i as ke, it as Ae, j as je, k as Me, l as Ne, m as Pe, nt as Fe, o as Ie, ot as Le, q as Re, s as ze, tt as Be, u as Ve, v as He, x as Ue, y as We, z as Ge } from "./chunks/controllers-CVYLMjJ8.js";
+import { $ as ue, A as de, C as fe, E as pe, F as me, G as he, H as k, J as A, K as j, L as M, M as N, N as P, O as F, Q as I, R as L, S as R, T as ge, U as _e, W as z, X as ve, Y as ye, Z as be, _ as xe, a as Se, b as Ce, ct as we, d as Te, et as Ee, f as De, h as Oe, i as ke, it as Ae, j as je, k as Me, l as Ne, m as Pe, nt as Fe, o as Ie, ot as Le, q as Re, s as ze, tt as Be, u as Ve, v as He, x as Ue, y as We, z as Ge } from "./chunks/controllers-C2xi7vZk.js";
 import "svelte/internal/disclose-version";
 import * as B from "svelte/internal/client";
 import { onDestroy as V } from "svelte";
@@ -382,8 +382,8 @@ function Ft(e, t) {
 	let f;
 	B.template_effect(() => {
 		B.set_class(d, 1, B.clsx(B.get(c))), f = B.set_style(d, "", f, {
-			width: B.get(l),
-			height: B.get(u),
+			"--x-skeleton-width": B.get(l),
+			"--x-skeleton-height": B.get(u),
 			"--x-skeleton-delay": o()
 		});
 	}), B.append(e, d), B.pop();
@@ -1175,12 +1175,12 @@ function ur(e, t) {
 		dense: u(),
 		loading: i()
 	}, d()).join(" ")), p = B.derived(() => !i() && r().length === 0), m = (e) => {
-		if (!e.sortable || !t.onsortchange) return;
+		if (!(e.sortable && t.onsortchange)) return;
 		let n = Se({
 			sortBy: s(),
 			sortDesc: c()
 		}, e.key);
-		t.onsortchange(n);
+		t.onsortchange?.(n);
 	}, h = (e) => {
 		t.onrowclick && t.onrowclick(e);
 	};

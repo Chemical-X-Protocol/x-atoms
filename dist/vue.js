@@ -1,5 +1,5 @@
 import { after as e, all as t, allPass as n, any as r, anyPass as i, assertRuleTree as a, createAsyncRunner as o, createDebounce as s, createDisposer as c, createLatestGate as ee, createPredicateFilter as te, createRestartableInterval as l, createRestartableTimeout as ne, createRuleSet as re, deepFreeze as ie, evaluateRules as ae, every as oe, fallback as se, glassTokens as ce, isErr as le, isOk as ue, listen as de, mapResult as fe, matchesAllPredicates as pe, matchesAnyPattern as me, none as he, nonePass as ge, normalizeArray as _e, not as ve, radiiTokens as ye, ruleTree as be, spaceTokens as xe, starshipColors as Se, toError as Ce, toResult as we, toResultSync as Te, toStyleString as Ee, toneColors as De, unwrapOr as Oe } from "./core.js";
-import { A as ke, G as Ae, I as je, M as Me, O as Ne, P as Pe, R as Fe, U as Ie, W as Le, X as Re, Y as ze, Z as Be, _ as Ve, a as He, b as Ue, d as We, f as Ge, g as Ke, h as qe, i as Je, j as Ye, k as Xe, l as Ze, m as Qe, o as $e, s as et, t as tt, u as nt, v as rt, y as it } from "./chunks/controllers-CVYLMjJ8.js";
+import { A as ke, G as Ae, I as je, M as Me, O as Ne, P as Pe, R as Fe, U as Ie, W as Le, X as Re, Y as ze, Z as Be, _ as Ve, a as He, b as Ue, d as We, f as Ge, g as Ke, h as qe, i as Je, j as Ye, k as Xe, l as Ze, m as Qe, o as $e, s as et, t as tt, u as nt, v as rt, y as it } from "./chunks/controllers-C2xi7vZk.js";
 import at, { starshipLightTheme as ot } from "./theme.js";
 import { Fragment as u, computed as d, createBlock as f, createCommentVNode as p, createElementBlock as m, createElementVNode as h, createSlots as g, createTextVNode as _, createVNode as v, defineComponent as y, getCurrentScope as st, guardReactiveProps as b, mergeProps as x, normalizeClass as S, normalizeProps as C, normalizeStyle as w, onScopeDispose as T, openBlock as E, ref as ct, renderList as D, renderSlot as O, resolveDynamicComponent as k, shallowRef as lt, toDisplayString as A, toValue as ut, unref as j, useAttrs as M, watch as dt, withCtx as N } from "vue";
 import { VBtn as ft } from "vuetify/components/VBtn";
@@ -690,8 +690,8 @@ var P = /* @__PURE__ */ y({
 		return (e, a) => (E(), m("div", {
 			class: S(n.value),
 			style: w({
-				width: r.value,
-				height: i.value,
+				"--x-skeleton-width": r.value,
+				"--x-skeleton-height": i.value,
 				"--x-skeleton-delay": t.delay
 			})
 		}, null, 6));

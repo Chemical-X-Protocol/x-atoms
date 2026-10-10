@@ -27,7 +27,8 @@ export const computeBtnClasses = (
     classes.push('x-btn--disabled');
   }
 
-  if (props.size && props.size !== 'default') {
+  const hasCustomSize = Boolean(props.size) && props.size !== 'default';
+  if (hasCustomSize) {
     classes.push(`x-btn--${props.size}`);
   }
 

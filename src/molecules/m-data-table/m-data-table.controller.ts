@@ -52,11 +52,9 @@ export const resolveItemKey = <T extends Record<string, unknown>>(
   keyField?: string,
   index = 0
 ): string | number => {
-  const hasKeyField = Boolean(keyField && keyField in item);
-  if (hasKeyField && keyField) {
-    return String(item[keyField]);
-  }
-  return index;
+  const field = keyField ?? '';
+  const hasKeyField = field !== '' && field in item;
+  return hasKeyField ? String(item[field]) : index;
 };
 
 export const resolveCellValue = <T extends Record<string, unknown>>(
@@ -68,14 +66,17 @@ export const resolveCellValue = <T extends Record<string, unknown>>(
 
 export const computeHeaderClasses = (header: MDataTableHeader): string => {
   const classes = ['m-data-table__th'];
-  if (header.sortable) classes.push('m-data-table__th--sortable');
-  if (header.align) classes.push(`m-data-table__th--align-${header.align}`);
+  const isSortable = Boolean(header.sortable);
+  const hasAlign = Boolean(header.align);
+  if (isSortable) classes.push('m-data-table__th--sortable');
+  if (hasAlign) classes.push(`m-data-table__th--align-${header.align}`);
   return classes.join(' ');
 };
 
 export const computeCellClasses = (header: MDataTableHeader): string => {
   const classes = ['m-data-table__td'];
-  if (header.align) classes.push(`m-data-table__td--align-${header.align}`);
+  const hasAlign = Boolean(header.align);
+  if (hasAlign) classes.push(`m-data-table__td--align-${header.align}`);
   return classes.join(' ');
 };
 

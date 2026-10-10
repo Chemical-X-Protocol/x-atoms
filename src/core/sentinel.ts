@@ -14,7 +14,8 @@ export const deepFreeze = <T extends object>(obj: T): Readonly<T> => {
 };
 
 export const normalizeArray = <T>(input: T | T[] | null | undefined): T[] => {
-  if (input === null || typeof input === 'undefined') return [];
+  const isMissing = input === null || typeof input === 'undefined';
+  if (isMissing) return [];
   return Array.isArray(input) ? input : [input];
 };
 

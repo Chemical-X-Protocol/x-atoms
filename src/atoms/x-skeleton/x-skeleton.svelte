@@ -24,7 +24,7 @@ const resolvedHeight = $derived(formatDimension(height));
 
 <div
   class={skeletonClasses}
-  style:width={resolvedWidth}
-  style:height={resolvedHeight}
+  style:--x-skeleton-width={resolvedWidth}
+  style:--x-skeleton-height={resolvedHeight}
   style:--x-skeleton-delay={delay}
 ></div>

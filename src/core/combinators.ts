@@ -11,12 +11,7 @@ export type Condition = () => boolean;
  * Halts evaluation on the first predicate returning false.
  */
 export const allPass = <T>(...predicates: Array<Predicate<T>>) => {
-  return (item: T): boolean => {
-    for (const predicate of predicates) {
-      if (!predicate(item)) return false;
-    }
-    return true;
-  };
+  return (item: T): boolean => predicates.every((predicate) => predicate(item));
 };
 
 /**
@@ -24,12 +19,7 @@ export const allPass = <T>(...predicates: Array<Predicate<T>>) => {
  * Halts evaluation on the first predicate returning true.
  */
 export const anyPass = <T>(...predicates: Array<Predicate<T>>) => {
-  return (item: T): boolean => {
-    for (const predicate of predicates) {
-      if (predicate(item)) return true;
-    }
-    return false;
-  };
+  return (item: T): boolean => predicates.some((predicate) => predicate(item));
 };
 
 /**
@@ -37,12 +27,7 @@ export const anyPass = <T>(...predicates: Array<Predicate<T>>) => {
  * Halts evaluation on the first predicate returning true.
  */
 export const nonePass = <T>(...predicates: Array<Predicate<T>>) => {
-  return (item: T): boolean => {
-    for (const predicate of predicates) {
-      if (predicate(item)) return false;
-    }
-    return true;
-  };
+  return (item: T): boolean => !predicates.some((predicate) => predicate(item));
 };
 
 /**
@@ -56,31 +41,19 @@ export const not = <T>(predicate: Predicate<T>): Predicate<T> => {
  * Evaluates named condition thunks sequentially with true short-circuiting.
  * Defers evaluation so subsequent conditions are never executed after a false.
  */
-export const all = (...conditions: Condition[]): boolean => {
-  for (const condition of conditions) {
-    if (!condition()) return false;
-  }
-  return true;
-};
+export const all = (...conditions: Condition[]): boolean =>
+  conditions.every((condition) => condition());
 
 /**
  * Evaluates named condition thunks sequentially with true short-circuiting.
  * Defers evaluation so subsequent conditions are never executed after a true.
  */
-export const any = (...conditions: Condition[]): boolean => {
-  for (const condition of conditions) {
-    if (condition()) return true;
-  }
-  return false;
-};
+export const any = (...conditions: Condition[]): boolean =>
+  conditions.some((condition) => condition());
 
 /**
  * Evaluates named condition thunks sequentially with true short-circuiting.
  * Defers evaluation so subsequent conditions are never executed after a true.
  */
-export const none = (...conditions: Condition[]): boolean => {
-  for (const condition of conditions) {
-    if (condition()) return false;
-  }
-  return true;
-};
+export const none = (...conditions: Condition[]): boolean =>
+  !conditions.some((condition) => condition());

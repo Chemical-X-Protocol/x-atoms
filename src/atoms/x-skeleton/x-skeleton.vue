@@ -24,8 +24,8 @@ const resolvedHeight = computed(() => formatDimension(props.height));
   <div
     :class="classes"
     :style="{
-      width: resolvedWidth,
-      height: resolvedHeight,
+      '--x-skeleton-width': resolvedWidth,
+      '--x-skeleton-height': resolvedHeight,
       '--x-skeleton-delay': props.delay,
     }"
   />

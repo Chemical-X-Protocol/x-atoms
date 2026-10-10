@@ -7,9 +7,12 @@ export const computeTextareaClasses = (
 ): string[] => {
   const classes: string[] = ['x-textarea'];
   if (isFocused) classes.push('x-textarea--focused');
-  if (props.disabled) classes.push('x-textarea--disabled');
-  if (props.readonly) classes.push('x-textarea--readonly');
-  if (props.autoGrow) classes.push('x-textarea--auto-grow');
+  const isDisabled = Boolean(props.disabled);
+  const isReadonly = Boolean(props.readonly);
+  const isAutoGrow = Boolean(props.autoGrow);
+  if (isDisabled) classes.push('x-textarea--disabled');
+  if (isReadonly) classes.push('x-textarea--readonly');
+  if (isAutoGrow) classes.push('x-textarea--auto-grow');
   if (extraClass) classes.push(extraClass);
   return classes;
 };

@@ -11,7 +11,8 @@ export const computeGridClasses = (props: XGridProps, extraClass?: string): stri
   const isAutoFill = props.minItemWidth !== undefined;
   const layoutClass = isAutoFill ? 'x-grid--auto-fill' : `x-grid--cols-${clampColumns(props.columns)}`;
   const classes: string[] = ['x-grid', layoutClass, `x-grid--gap-${props.gap ?? 'md'}`];
-  if (props.align) classes.push(`x-grid--align-${props.align}`);
+  const hasAlign = Boolean(props.align);
+  if (hasAlign) classes.push(`x-grid--align-${props.align}`);
   if (extraClass) classes.push(extraClass);
   return classes;
 };

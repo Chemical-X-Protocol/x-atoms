@@ -50,25 +50,7 @@ var e = {
 	md: "12px",
 	lg: "16px",
 	xl: "24px"
-}, a = (...e) => (t) => {
-	for (let n of e) if (!n(t)) return !1;
-	return !0;
-}, o = (...e) => (t) => {
-	for (let n of e) if (n(t)) return !0;
-	return !1;
-}, s = (...e) => (t) => {
-	for (let n of e) if (n(t)) return !1;
-	return !0;
-}, c = (e) => (t) => !e(t), l = (...e) => {
-	for (let t of e) if (!t()) return !1;
-	return !0;
-}, u = (...e) => {
-	for (let t of e) if (t()) return !0;
-	return !1;
-}, d = (...e) => {
-	for (let t of e) if (t()) return !1;
-	return !0;
-}, f = (e) => e instanceof Error ? e : Error(String(e)), p = async (e) => {
+}, a = (...e) => (t) => e.every((e) => e(t)), o = (...e) => (t) => e.some((e) => e(t)), s = (...e) => (t) => !e.some((e) => e(t)), c = (e) => (t) => !e(t), l = (...e) => e.every((e) => e()), u = (...e) => e.some((e) => e()), d = (...e) => !e.some((e) => e()), f = (e) => e instanceof Error ? e : Error(String(e)), p = async (e) => {
 	try {
 		return [await (typeof e == "function" ? e() : e), null];
 	} catch (e) {
@@ -95,9 +77,9 @@ var e = {
 		if (t) for (let t of e) t?.();
 		else n.push(...e);
 	}, r;
-}, b = (e, t, n, r) => !e || typeof e.addEventListener != "function" ? () => {} : (e.addEventListener(t, n, r), () => {
+}, b = (e, t, n, r) => e && typeof e.addEventListener == "function" ? (e.addEventListener(t, n, r), () => {
 	e.removeEventListener(t, n, r);
-}), x = (e, t) => {
+}) : () => {}, x = (e, t) => {
 	let n = setTimeout(t, e);
 	return () => clearTimeout(n);
 }, S = (e, t) => {

@@ -1,5 +1,5 @@
 import { after as e, all as t, allPass as n, any as r, anyPass as i, assertRuleTree as a, createAsyncRunner as o, createDebounce as s, createDisposer as c, createLatestGate as l, createPredicateFilter as u, createRestartableInterval as d, createRestartableTimeout as f, createRuleSet as p, deepFreeze as m, evaluateRules as h, every as g, fallback as _, glassTokens as v, isErr as y, isOk as b, listen as x, mapResult as ee, matchesAllPredicates as te, matchesAnyPattern as ne, none as re, nonePass as ie, normalizeArray as ae, not as oe, radiiTokens as se, ruleTree as ce, spaceTokens as le, starshipColors as ue, toError as de, toResult as fe, toResultSync as pe, toStyleString as me, toneColors as he, unwrapOr as ge } from "./core.js";
-import { $ as _e, A as ve, B as S, C, E as w, F as T, G as E, H as D, J as O, K as k, L as A, M as j, N as M, O as N, Q as P, R as F, S as ye, T as be, U as xe, W as I, X as Se, Y as Ce, Z as we, _ as Te, a as Ee, b as De, c as Oe, ct as ke, d as Ae, et as je, f as Me, g as Ne, h as Pe, i as Fe, it as Ie, j as Le, k as Re, l as ze, m as Be, n as Ve, nt as He, o as Ue, ot as We, q as Ge, r as Ke, s as qe, t as Je, tt as Ye, u as Xe, v as Ze, x as Qe, y as $e, z as et } from "./chunks/controllers-CVYLMjJ8.js";
+import { $ as _e, A as ve, B as S, C, E as w, F as T, G as E, H as D, J as O, K as k, L as A, M as j, N as M, O as N, Q as P, R as F, S as ye, T as be, U as xe, W as I, X as Se, Y as Ce, Z as we, _ as Te, a as Ee, b as De, c as Oe, ct as ke, d as Ae, et as je, f as Me, g as Ne, h as Pe, i as Fe, it as Ie, j as Le, k as Re, l as ze, m as Be, n as Ve, nt as He, o as Ue, ot as We, q as Ge, r as Ke, s as qe, t as Je, tt as Ye, u as Xe, v as Ze, x as Qe, y as $e, z as et } from "./chunks/controllers-C2xi7vZk.js";
 import { useEffect as L, useMemo as R, useRef as z, useState as B } from "react";
 import { Fragment as V, jsx as H, jsxs as U } from "react/jsx-runtime";
 //#region src/atoms/x-btn/x-btn.tsx
@@ -283,8 +283,8 @@ var W = ({ variant: e = void 0, color: t = void 0, size: n = "default", block: r
 		shape: e,
 		animation: t
 	}, a).join(" "), s = {
-		width: I(n),
-		height: I(r),
+		"--x-skeleton-width": I(n),
+		"--x-skeleton-height": I(r),
 		"--x-skeleton-delay": i
 	};
 	return /* @__PURE__ */ H("div", {

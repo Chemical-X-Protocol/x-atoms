@@ -17,7 +17,8 @@ export const computeChipClasses = (
     classes.push('x-chip--disabled');
   }
 
-  if (props.size && props.size !== 'default') {
+  const hasCustomSize = Boolean(props.size) && props.size !== 'default';
+  if (hasCustomSize) {
     classes.push(`x-chip--${props.size}`);
   }
 

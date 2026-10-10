@@ -21,7 +21,8 @@ export const createDisposer = (...cleanups: Teardown[]): DisposerFunction => {
       try {
         list[i]?.();
       } catch (err) {
-        if (typeof console !== 'undefined' && console.error) {
+        const canLog = typeof console !== 'undefined' && Boolean(console.error);
+        if (canLog) {
           console.error('[Disposer] Error during cleanup:', err);
         }
       }
@@ -45,7 +46,8 @@ export const listen = (
   handler: EventListenerOrEventListenerObject,
   options?: boolean | AddEventListenerOptions
 ): Teardown => {
-  if (!target || typeof target.addEventListener !== 'function') {
+  const canListen = !!target && typeof target.addEventListener === 'function';
+  if (!canListen) {
     return () => {};
   }
   target.addEventListener(event, handler, options);

@@ -20,8 +20,8 @@ export const XSkeletonReact: React.FC<ReactSkeletonProps> = ({
   ).join(' ');
 
   const style: React.CSSProperties & { [key: string]: string | number } = {
-    width: formatDimension(width),
-    height: formatDimension(height),
+    '--x-skeleton-width': formatDimension(width),
+    '--x-skeleton-height': formatDimension(height),
     '--x-skeleton-delay': delay,
   };
 

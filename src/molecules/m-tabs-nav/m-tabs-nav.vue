@@ -24,7 +24,8 @@ const activeTab = computed({
 });
 
 const selectTab = (tab: NavTabItem) => {
-  if (tab.disabled) return;
+  const isDisabled = Boolean(tab.disabled);
+  if (isDisabled) return;
   activeTab.value = tab.id;
 };
 </script>

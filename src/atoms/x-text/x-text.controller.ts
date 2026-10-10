@@ -17,10 +17,14 @@ export const resolveTextTag = (props: XTextProps): XTextTag => {
 
 export const computeTextClasses = (props: XTextProps, extraClass?: string): string[] => {
   const classes: string[] = ['x-text', `x-text--${props.variant ?? 'body'}`];
-  if (props.tone) classes.push(`x-tone--${props.tone}`);
-  if (props.weight) classes.push(`x-text--weight-${props.weight}`);
-  if (props.align) classes.push(`x-text--align-${props.align}`);
-  if (props.truncate) classes.push('x-text--truncate');
+  const hasTone = Boolean(props.tone);
+  const hasWeight = Boolean(props.weight);
+  const hasAlign = Boolean(props.align);
+  const isTruncated = Boolean(props.truncate);
+  if (hasTone) classes.push(`x-tone--${props.tone}`);
+  if (hasWeight) classes.push(`x-text--weight-${props.weight}`);
+  if (hasAlign) classes.push(`x-text--align-${props.align}`);
+  if (isTruncated) classes.push('x-text--truncate');
   if (extraClass) classes.push(extraClass);
   return classes;
 };

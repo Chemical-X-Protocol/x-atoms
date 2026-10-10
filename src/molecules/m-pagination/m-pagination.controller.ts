@@ -9,7 +9,8 @@ export const computePageNumbers = (
   let start = Math.max(1, currentPage - Math.floor(maxVisible / 2));
   let end = start + maxVisible - 1;
 
-  if (end > totalPages) {
+  const overrunsLastPage = end > totalPages;
+  if (overrunsLastPage) {
     end = totalPages;
     start = Math.max(1, end - maxVisible + 1);
   }

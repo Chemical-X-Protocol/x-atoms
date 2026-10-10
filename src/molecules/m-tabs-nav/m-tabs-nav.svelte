@@ -21,7 +21,8 @@ const tabsClasses = $derived(
 );
 
 const selectTab = (tab: NavTabItem) => {
-  if (tab.disabled) return;
+  const isDisabled = Boolean(tab.disabled);
+  if (isDisabled) return;
   modelValue = tab.id;
   ontabchange?.(tab.id);
 };
