@@ -1,7 +1,7 @@
 {
   "catalogVersion": 1,
   "package": "@chemx/x-atoms",
-  "version": "26.10.8-285",
+  "version": "26.10.10-304",
   "css": {
     "vue": "@chemx/x-atoms/css/vue",
     "components": "@chemx/x-atoms/css/components",
